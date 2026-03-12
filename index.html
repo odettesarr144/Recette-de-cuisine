@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MesRecettes</title>
+    <title>Chef à la Maison - Recettes</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
@@ -18,7 +18,6 @@
         --border: #e0e0e0;
         --border2: #ececec;
         --nav-bg: #fff;
-        --section-bg: #faf9f6;
         --input-bg: #fff;
         --shadow: rgba(0, 0, 0, 0.07);
         --shadow2: rgba(0, 0, 0, 0.13);
@@ -27,7 +26,6 @@
         --box-border: #f4f4f4;
         --filter-bg: #fff;
         --toggle-bg: #e0e0e0;
-        --overlay: rgba(0, 0, 0, 0.45);
       }
       [data-theme="dark"] {
         --bg: #121212;
@@ -38,7 +36,6 @@
         --border: #333;
         --border2: #2a2a2a;
         --nav-bg: #1a1a1a;
-        --section-bg: #121212;
         --input-bg: #252525;
         --shadow: rgba(0, 0, 0, 0.3);
         --shadow2: rgba(0, 0, 0, 0.5);
@@ -47,9 +44,7 @@
         --box-border: #2a2a2a;
         --filter-bg: #252525;
         --toggle-bg: #333;
-        --overlay: rgba(0, 0, 0, 0.6);
       }
-
       * {
         box-sizing: border-box;
         margin: 0;
@@ -63,8 +58,6 @@
           background 0.3s,
           color 0.3s;
       }
-
-      /* NAV */
       nav {
         background: var(--nav-bg);
         border-bottom: 1px solid var(--border2);
@@ -77,9 +70,6 @@
         top: 0;
         z-index: 200;
         box-shadow: 0 2px 12px var(--shadow);
-        transition:
-          background 0.3s,
-          border-color 0.3s;
       }
       .logo {
         display: flex;
@@ -99,7 +89,7 @@
         font-size: 19px;
       }
       .logo-text {
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 900;
         letter-spacing: -0.5px;
         color: var(--text);
@@ -110,9 +100,9 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 16px;
       }
-      .nav-links button {
+      .nav-btn {
         background: none;
         border: none;
         cursor: pointer;
@@ -126,8 +116,8 @@
           color 0.2s,
           border-color 0.2s;
       }
-      .nav-links button:hover,
-      .nav-links button.active {
+      .nav-btn:hover,
+      .nav-btn.active {
         color: #ff6b00;
         border-color: #ff6b00;
       }
@@ -139,8 +129,249 @@
         padding: 1px 7px;
         margin-left: 4px;
       }
-
-      /* DARK MODE TOGGLE */
+      /* FOOTER */
+      .site-footer {
+        background: #1a1a1a;
+        color: #aaa;
+        padding: 60px 60px 30px;
+        margin-top: 0;
+      }
+      [data-theme="dark"] .site-footer {
+        background: #0d0d0d;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.2fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-brand .logo-text {
+        color: #fff;
+        font-size: 20px;
+      }
+      .footer-brand .logo-text span {
+        color: #ff6b00;
+      }
+      .footer-tagline {
+        font-size: 14px;
+        color: #777;
+        line-height: 1.7;
+        margin-top: 14px;
+        max-width: 260px;
+      }
+      .footer-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .footer-social a {
+        width: 36px;
+        height: 36px;
+        background: #2a2a2a;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .footer-social a:hover {
+        background: #ff6b00;
+      }
+      .footer-col h4 {
+        color: #fff;
+        font-weight: 800;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 18px;
+      }
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-links li a,
+      .footer-links li button {
+        color: #888;
+        font-size: 14px;
+        text-decoration: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: "Nunito", sans-serif;
+        transition: color 0.2s;
+        padding: 0;
+        text-align: left;
+      }
+      .footer-links li a:hover,
+      .footer-links li button:hover {
+        color: #ff6b00;
+      }
+      .footer-admin-box {
+        background: #222;
+        border-radius: 14px;
+        padding: 20px;
+        border: 1px solid #2e2e2e;
+      }
+      .footer-admin-box p {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 14px;
+        line-height: 1.5;
+      }
+      .footer-admin-btn {
+        width: 100%;
+        padding: 11px;
+        background: #2a2a2a;
+        color: #aaa;
+        border: 1.5px solid #333;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 13px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .footer-admin-btn:hover {
+        border-color: #ff6b00;
+        color: #ff6b00;
+        background: #1e1e1e;
+      }
+      .footer-admin-btn.admin-mode {
+        background: #3a0a0a;
+        border-color: #dc2626;
+        color: #f87171;
+      }
+      .footer-admin-btn.admin-mode:hover {
+        background: #4a1010;
+      }
+      .footer-admin-status {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #555;
+      }
+      .footer-admin-status .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #555;
+      }
+      .footer-admin-status.active-admin {
+        color: #4ade80;
+      }
+      .footer-admin-status.active-admin .dot {
+        background: #4ade80;
+        box-shadow: 0 0 6px #4ade80;
+      }
+      .footer-divider {
+        border: none;
+        border-top: 1px solid #222;
+        margin-bottom: 24px;
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: #555;
+      }
+      .footer-bottom a {
+        color: #555;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-bottom a:hover {
+        color: #ff6b00;
+      }
+      .footer-bottom-links {
+        display: flex;
+        gap: 20px;
+      }
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+        .site-footer {
+          padding: 40px 20px 24px;
+        }
+      }
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+      .add-recipe-nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 9px 18px;
+        font-weight: 800;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        white-space: nowrap;
+      }
+      .add-recipe-nav-btn:hover {
+        opacity: 0.88;
+      }
+      /* User auth button */
+      .user-auth-btn {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: var(--filter-bg);
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        padding: 7px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: "Nunito", sans-serif;
+        color: var(--text2);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .user-auth-btn:hover {
+        border-color: #ff6b00;
+        color: #ff6b00;
+      }
+      .user-auth-btn.logged-in {
+        background: #fff3e8;
+        border-color: #ff6b00;
+        color: #ff6b00;
+      }
+      .user-avatar {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 900;
+      }
       .theme-toggle {
         display: flex;
         align-items: center;
@@ -185,16 +416,12 @@
       [data-theme="dark"] .toggle-thumb {
         transform: translateX(18px);
       }
-
-      /* PAGES */
       .page {
         display: none;
       }
       .page.active {
         display: block;
       }
-
-      /* HERO */
       .hero {
         position: relative;
         height: 500px;
@@ -260,8 +487,6 @@
       .search-bar button:hover {
         background: #e55e00;
       }
-
-      /* SECTIONS */
       .section {
         padding: 56px 60px;
       }
@@ -310,8 +535,6 @@
         display: flex;
         align-items: center;
       }
-
-      /* CATEGORIES GRID */
       .cat-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -365,8 +588,6 @@
         font-size: 12px;
         margin-top: 4px;
       }
-
-      /* RECIPE GRID */
       .recipe-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -401,6 +622,26 @@
       }
       .recipe-card:hover .recipe-img img {
         transform: scale(1.07);
+      }
+      .video-indicator {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        border-radius: 8px;
+        padding: 4px 9px;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        backdrop-filter: blur(4px);
+      }
+      .video-indicator svg {
+        width: 14px;
+        height: 14px;
+        fill: #ff0000;
       }
       .badge {
         position: absolute;
@@ -470,8 +711,20 @@
         font-size: 13px;
         color: var(--text3);
       }
-
-      /* FILTERS */
+      /* Star rating mini */
+      .recipe-rating-mini {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--text3);
+        margin-top: 6px;
+      }
+      .stars-mini {
+        color: #f59e0b;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
       .filters {
         display: flex;
         gap: 10px;
@@ -515,8 +768,7 @@
         color: #fff;
         border-color: #ff6b00;
       }
-
-      /* RECIPE DETAIL */
+      /* DETAIL */
       .detail-wrap {
         max-width: 1060px;
         margin: 0 auto;
@@ -617,6 +869,42 @@
         border-color: #ff6b00;
         color: #ff6b00;
       }
+      .edit-recipe-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border: 1.5px solid var(--border);
+        border-radius: 12px;
+        background: var(--filter-bg);
+        color: var(--text2);
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: "Nunito", sans-serif;
+        transition: all 0.2s;
+      }
+      .edit-recipe-btn:hover {
+        border-color: #ff6b00;
+        background: rgba(255, 107, 0, 0.1);
+        color: #ff6b00;
+      }
+      .delete-recipe-btn {
+        background: #fee2e2;
+        color: #dc2626;
+        border: 1.5px solid #fecaca;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .delete-recipe-btn:hover {
+        background: #fecaca;
+        border-color: #dc2626;
+      }
       .detail-desc {
         font-size: 16px;
         color: var(--text2);
@@ -690,8 +978,364 @@
         line-height: 1.7;
         padding-top: 6px;
       }
-
-      /* ADD RECIPE MODAL */
+      /* RATING SECTION */
+      .rating-section {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 2px 12px var(--shadow);
+        margin-top: 30px;
+      }
+      .rating-summary {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border2);
+      }
+      .rating-big {
+        text-align: center;
+      }
+      .rating-big-num {
+        font-size: 52px;
+        font-weight: 900;
+        color: var(--text);
+        line-height: 1;
+        font-family: "Playfair Display", serif;
+      }
+      .rating-big-stars {
+        color: #f59e0b;
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin: 4px 0;
+      }
+      .rating-big-count {
+        font-size: 13px;
+        color: var(--text3);
+      }
+      .rating-bars {
+        flex: 1;
+      }
+      .rating-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5px;
+        font-size: 13px;
+        color: var(--text3);
+      }
+      .rating-bar-bg {
+        flex: 1;
+        height: 8px;
+        background: var(--border);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .rating-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f59e0b, #ff6b00);
+        border-radius: 999px;
+        transition: width 0.5s ease;
+      }
+      .star-input {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .star-input span {
+        font-size: 28px;
+        cursor: pointer;
+        transition: transform 0.15s;
+        color: #ddd;
+      }
+      .star-input span:hover,
+      .star-input span.hover,
+      .star-input span.selected {
+        color: #f59e0b;
+        transform: scale(1.15);
+      }
+      .add-rating-form {
+        border: 1.5px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .add-rating-form h4 {
+        font-size: 16px;
+        font-weight: 800;
+        margin-bottom: 14px;
+        color: var(--text);
+      }
+      .rating-textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        outline: none;
+        background: var(--input-bg);
+        color: var(--text);
+        resize: vertical;
+        min-height: 80px;
+        transition: border-color 0.2s;
+      }
+      .rating-textarea:focus {
+        border-color: #ff6b00;
+      }
+      .submit-rating-btn {
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 22px;
+        font-weight: 800;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        margin-top: 12px;
+        transition: opacity 0.2s;
+      }
+      .submit-rating-btn:hover {
+        opacity: 0.88;
+      }
+      .reviews-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .review-card {
+        background: var(--bg);
+        border-radius: 12px;
+        padding: 16px 20px;
+        border: 1px solid var(--border2);
+      }
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .review-author {
+        font-weight: 800;
+        font-size: 14px;
+        color: var(--text);
+      }
+      .review-date {
+        font-size: 12px;
+        color: var(--text3);
+      }
+      .review-stars {
+        color: #f59e0b;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .review-text {
+        font-size: 14px;
+        color: var(--text2);
+        line-height: 1.6;
+      }
+      .delete-review-btn {
+        background: none;
+        border: none;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 14px;
+        transition: color 0.2s;
+        padding: 2px 6px;
+      }
+      .delete-review-btn:hover {
+        color: #dc2626;
+      }
+      .login-prompt {
+        background: rgba(255, 107, 0, 0.06);
+        border: 1.5px dashed #ff6b00;
+        border-radius: 12px;
+        padding: 16px 20px;
+        text-align: center;
+        font-size: 14px;
+        color: var(--text2);
+      }
+      .login-prompt button {
+        background: #ff6b00;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 6px 16px;
+        font-weight: 700;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        margin-left: 8px;
+        font-size: 13px;
+      }
+      /* VIDEO */
+      .video-section {
+        margin: 40px 0;
+      }
+      .video-thumb-wrap {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #0f0f0f;
+        box-shadow: 0 8px 32px var(--shadow2);
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .video-thumb-wrap:hover {
+        transform: scale(1.02);
+      }
+      .video-thumb-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+      .video-thumb-wrap:hover img {
+        opacity: 0.9;
+      }
+      .video-play-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+      }
+      .video-play-btn {
+        width: 80px;
+        height: 80px;
+        background: #ff0000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 30px rgba(255, 0, 0, 0.6);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .video-thumb-wrap:hover .video-play-btn {
+        transform: scale(1.12);
+        box-shadow: 0 12px 44px rgba(255, 0, 0, 0.75);
+      }
+      .video-play-btn svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+        margin-left: 5px;
+      }
+      .video-play-label {
+        color: #fff;
+        font-weight: 800;
+        font-size: 15px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+      }
+      .video-play-sub {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .yt-corner-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 14px;
+        background: #ff0000;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .video-empty-slot {
+        border: 2px dashed var(--border);
+        border-radius: 18px;
+        padding: 48px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        color: var(--text3);
+      }
+      .video-empty-slot:hover {
+        border-color: #ff6b00;
+        background: rgba(255, 107, 0, 0.05);
+        color: #ff6b00;
+      }
+      .user-badge {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 800;
+        margin-left: 6px;
+      }
+      [data-theme="dark"] .user-badge {
+        background: #1e3a5f;
+        color: #64b5f6;
+      }
+      .empty {
+        text-align: center;
+        padding: 80px 20px;
+        color: var(--text3);
+      }
+      .empty-icon {
+        font-size: 56px;
+        margin-bottom: 16px;
+      }
+      .empty h3 {
+        font-size: 20px;
+        color: var(--text3);
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fadeup {
+        animation: fadeUp 0.45s ease both;
+      }
+      .fadeup-1 {
+        animation-delay: 0.05s;
+      }
+      .fadeup-2 {
+        animation-delay: 0.1s;
+      }
+      .fadeup-3 {
+        animation-delay: 0.15s;
+      }
+      /* MODALS */
       .modal-overlay {
         display: none;
         position: fixed;
@@ -715,16 +1359,6 @@
         padding: 40px;
         box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
         animation: slideUp 0.35s ease;
-      }
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
       .modal-header {
         display: flex;
@@ -860,85 +1494,6 @@
       .submit-btn:hover {
         opacity: 0.88;
       }
-
-      /* ADD RECIPE NAV BUTTON */
-      .add-recipe-nav-btn {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        background: linear-gradient(135deg, #ff6b00, #ff9d00);
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        padding: 9px 18px;
-        font-weight: 800;
-        font-size: 14px;
-        font-family: "Nunito", sans-serif;
-        cursor: pointer;
-        transition: opacity 0.2s;
-        white-space: nowrap;
-      }
-      .add-recipe-nav-btn:hover {
-        opacity: 0.88;
-      }
-
-      /* USER BADGE */
-      .user-badge {
-        background: #e3f2fd;
-        color: #1976d2;
-        padding: 2px 8px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 800;
-        margin-left: 6px;
-      }
-      [data-theme="dark"] .user-badge {
-        background: #1e3a5f;
-        color: #64b5f6;
-      }
-
-      /* EMPTY STATE */
-      .empty {
-        text-align: center;
-        padding: 80px 20px;
-        color: var(--text3);
-      }
-      .empty-icon {
-        font-size: 56px;
-        margin-bottom: 16px;
-      }
-      .empty h3 {
-        font-size: 20px;
-        color: var(--text3);
-        margin-bottom: 20px;
-        font-family: "Playfair Display", serif;
-      }
-
-      /* ANIMATIONS */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(22px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .fadeup {
-        animation: fadeUp 0.45s ease both;
-      }
-      .fadeup-1 {
-        animation-delay: 0.05s;
-      }
-      .fadeup-2 {
-        animation-delay: 0.1s;
-      }
-      .fadeup-3 {
-        animation-delay: 0.15s;
-      }
-
-      /* IMAGE PREVIEW */
       .img-preview {
         width: 100%;
         height: 160px;
@@ -947,13 +1502,222 @@
         margin-top: 10px;
         display: none;
       }
-
+      .overlay2 {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+      }
+      .overlay2.open {
+        display: flex;
+      }
+      .modal2 {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 32px;
+        width: 90%;
+        max-width: 480px;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+        animation: slideUp 0.3s ease;
+      }
+      .modal2 h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 900;
+        margin-bottom: 18px;
+        color: var(--text);
+      }
+      .modal2 input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        outline: none;
+        background: var(--input-bg);
+        color: var(--text);
+        margin-bottom: 6px;
+        transition: border-color 0.2s;
+      }
+      .modal2 input:focus {
+        border-color: #ff6b00;
+      }
+      .modal2-hint {
+        font-size: 12px;
+        color: var(--text3);
+        margin-bottom: 18px;
+      }
+      .modal2-error {
+        color: #e55;
+        font-size: 13px;
+        margin-bottom: 12px;
+        display: none;
+      }
+      .modal2-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .modal2-actions button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        border: none;
+        transition: opacity 0.2s;
+      }
+      .modal2-actions button:hover {
+        opacity: 0.85;
+      }
+      .btn-cancel {
+        background: var(--filter-bg) !important;
+        border: 1.5px solid var(--border) !important;
+        color: var(--text2) !important;
+      }
+      .btn-save {
+        background: linear-gradient(135deg, #ff6b00, #ff9d00) !important;
+        color: #fff !important;
+      }
+      .confirm-modal {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 32px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+        animation: slideUp 0.3s ease;
+        text-align: center;
+      }
+      .confirm-modal h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 900;
+        margin-bottom: 16px;
+        color: var(--text);
+      }
+      .confirm-modal p {
+        color: var(--text2);
+        margin-bottom: 24px;
+        line-height: 1.6;
+      }
+      .confirm-actions {
+        display: flex;
+        gap: 12px;
+      }
+      .confirm-actions button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        border: none;
+        transition: opacity 0.2s;
+      }
+      .btn-confirm {
+        background: #dc2626 !important;
+        color: white !important;
+      }
+      .btn-confirm:hover {
+        opacity: 0.85;
+      }
+      /* AUTH MODAL */
+      .auth-modal {
+        background: var(--card);
+        border-radius: 24px;
+        width: 90%;
+        max-width: 440px;
+        padding: 40px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        animation: slideUp 0.35s ease;
+      }
+      .auth-tabs {
+        display: flex;
+        gap: 0;
+        margin-bottom: 28px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1.5px solid var(--border);
+      }
+      .auth-tab {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        background: transparent;
+        font-weight: 800;
+        font-size: 15px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        color: var(--text2);
+        transition: all 0.2s;
+      }
+      .auth-tab.active {
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+      }
+      .auth-field {
+        width: 100%;
+        padding: 13px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        outline: none;
+        background: var(--input-bg);
+        color: var(--text);
+        margin-bottom: 14px;
+        transition: border-color 0.2s;
+      }
+      .auth-field:focus {
+        border-color: #ff6b00;
+      }
+      .auth-submit {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 800;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        margin-top: 4px;
+      }
+      .auth-submit:hover {
+        opacity: 0.88;
+      }
+      .auth-error {
+        color: #dc2626;
+        font-size: 13px;
+        margin-bottom: 12px;
+        display: none;
+        background: #fee2e2;
+        padding: 10px 14px;
+        border-radius: 8px;
+      }
+      .auth-label {
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text2);
+        margin-bottom: 6px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      /* Toast */
       @media (max-width: 900px) {
         .cat-grid,
         .recipe-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .cat-grid {
           grid-template-columns: repeat(2, 1fr);
         }
         .detail-cols {
@@ -974,47 +1738,68 @@
           grid-template-columns: 1fr 1fr;
         }
         .nav-links {
-          gap: 12px;
+          gap: 10px;
+        }
+        .meta-bar {
+          flex-direction: column;
+          gap: 16px;
+          align-items: flex-start;
+        }
+        .meta-bar-items {
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+      }
+      @media (max-width: 600px) {
+        .cat-grid,
+        .recipe-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-content h1 {
+          font-size: 28px;
+        }
+        .form-row,
+        .form-cols {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <!-- NAV -->
     <nav>
-      <a class="logo" onclick="showPage('home')">
-        <div class="logo-icon">👨‍🍳</div>
-        <div class="logo-text">Mes<span>Recettes</span></div>
+      <a class="logo" id="logo-btn">
+        <div class="logo-icon">🍽️</div>
+        <div class="logo-text">Chef à la <span>Maison</span></div>
       </a>
       <div class="nav-links">
-        <button id="nav-home" class="active" onclick="showPage('home')">
-          Accueil
+        <button id="nav-home" class="nav-btn active">Accueil</button>
+        <button id="nav-recipes" class="nav-btn">Recettes</button>
+        <button id="nav-favorites" class="nav-btn">
+          ♡ Favoris<span id="fav-badge" class="fav-badge" style="display: none"
+            >0</span
+          >
         </button>
-        <button id="nav-recipes" onclick="showPage('recipes')">Recettes</button>
-        <button id="nav-favorites" onclick="showPage('favorites')">
-          ♡ Favoris
-          <span id="fav-badge" class="fav-badge" style="display: none">0</span>
+        <button id="add-recipe-btn" class="add-recipe-nav-btn">
+          + Ajouter une recette
         </button>
-        <button class="add-recipe-nav-btn" onclick="openAddModal()">
-          + Ajouter
+        <button id="user-auth-btn" class="user-auth-btn">
+          <span id="user-auth-icon">👤</span
+          ><span id="user-auth-label">Connexion</span>
         </button>
-        <button
-          class="theme-toggle"
-          onclick="toggleTheme()"
-          title="Mode clair/sombre"
-        >
+        <button id="theme-toggle-btn" class="theme-toggle">
           <span id="theme-icon">🌙</span>
           <div class="toggle-track"><div class="toggle-thumb"></div></div>
         </button>
       </div>
     </nav>
 
-    <!-- PAGE HOME -->
+    <!-- PAGE ACCUEIL -->
     <div id="page-home" class="page active">
       <div class="hero">
         <img
           src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=80"
           alt="cuisine"
+          loading="lazy"
         />
         <div class="hero-content">
           <h1 class="fadeup fadeup-1">
@@ -1030,26 +1815,24 @@
               type="text"
               placeholder="Rechercher une recette ou un ingrédient..."
             />
-            <button onclick="doHeroSearch()">Chercher</button>
+            <button id="hero-search-btn">Chercher</button>
           </div>
         </div>
       </div>
-
       <div class="section">
         <div class="section-header">
           <div>
             <div class="section-title">Catégories</div>
             <div class="section-sub">Parcourez nos recettes par type</div>
           </div>
-          <button class="see-all" onclick="showPage('recipes')">
-            Tout voir →
-          </button>
+          <button class="see-all" data-page="recipes">Tout voir →</button>
         </div>
         <div class="cat-grid">
-          <div class="cat-card" onclick="filterByCategory('Entrées')">
+          <div class="cat-card" data-cat="Entrées">
             <img
               src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&q=80"
               alt="Entrées"
+              loading="lazy"
             />
             <div class="cat-overlay"></div>
             <div class="cat-info">
@@ -1057,10 +1840,11 @@
               <div class="cat-desc">Salades, soupes et amuse-bouches</div>
             </div>
           </div>
-          <div class="cat-card" onclick="filterByCategory('Plats')">
+          <div class="cat-card" data-cat="Plats">
             <img
               src="https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg"
               alt="Plats"
+              loading="lazy"
             />
             <div class="cat-overlay"></div>
             <div class="cat-info">
@@ -1068,10 +1852,11 @@
               <div class="cat-desc">Viandes, poissons et végétariens</div>
             </div>
           </div>
-          <div class="cat-card" onclick="filterByCategory('Desserts')">
+          <div class="cat-card" data-cat="Desserts">
             <img
               src="https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5?w=500&q=80"
               alt="Desserts"
+              loading="lazy"
             />
             <div class="cat-overlay"></div>
             <div class="cat-info">
@@ -1079,10 +1864,11 @@
               <div class="cat-desc">Gâteaux, tartes et douceurs</div>
             </div>
           </div>
-          <div class="cat-card" onclick="filterByCategory('Boissons')">
+          <div class="cat-card" data-cat="Boissons">
             <img
               src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500&q=80"
               alt="Boissons"
+              loading="lazy"
             />
             <div class="cat-overlay"></div>
             <div class="cat-info">
@@ -1092,7 +1878,7 @@
               </div>
             </div>
           </div>
-          <div class="cat-card" onclick="openAddModal()">
+          <div class="cat-card" id="add-cat-card">
             <div
               style="
                 width: 100%;
@@ -1115,7 +1901,6 @@
           </div>
         </div>
       </div>
-
       <div class="section" style="padding-top: 0">
         <div class="section-header">
           <div class="section-heading">
@@ -1125,7 +1910,7 @@
               <div class="section-sub">Les plus populaires du moment</div>
             </div>
           </div>
-          <button class="see-all" onclick="showPage('recipes')">
+          <button class="see-all" data-page="recipes">
             Toutes les recettes →
           </button>
         </div>
@@ -1133,7 +1918,7 @@
       </div>
     </div>
 
-    <!-- PAGE RECIPES -->
+    <!-- PAGE RECETTES -->
     <div id="page-recipes" class="page">
       <div class="section">
         <h2 class="section-title" style="margin-bottom: 6px">
@@ -1149,23 +1934,12 @@
             class="filter-input"
             type="text"
             placeholder="Rechercher une recette..."
-            oninput="renderRecipes()"
           />
-          <button class="filter-btn active" onclick="setFilter('Tout', this)">
-            Tout
-          </button>
-          <button class="filter-btn" onclick="setFilter('Entrées', this)">
-            Entrées
-          </button>
-          <button class="filter-btn" onclick="setFilter('Plats', this)">
-            Plats
-          </button>
-          <button class="filter-btn" onclick="setFilter('Desserts', this)">
-            Desserts
-          </button>
-          <button class="filter-btn" onclick="setFilter('Boissons', this)">
-            Boissons
-          </button>
+          <button class="filter-btn active" data-filter="Tout">Tout</button>
+          <button class="filter-btn" data-filter="Entrées">Entrées</button>
+          <button class="filter-btn" data-filter="Plats">Plats</button>
+          <button class="filter-btn" data-filter="Desserts">Desserts</button>
+          <button class="filter-btn" data-filter="Boissons">Boissons</button>
         </div>
         <div id="recipe-grid" class="recipe-grid"></div>
         <div id="recipe-empty" class="empty" style="display: none">
@@ -1178,7 +1952,7 @@
       </div>
     </div>
 
-    <!-- PAGE FAVORITES -->
+    <!-- PAGE FAVORIS -->
     <div id="page-favorites" class="page">
       <div class="section">
         <h2 class="section-title" style="margin-bottom: 6px">Mes Favoris</h2>
@@ -1194,8 +1968,8 @@
             Cliquez sur ♡ pour sauvegarder vos recettes préférées.
           </p>
           <button
-            class="filter-btn active"
-            onclick="showPage('recipes')"
+            class="filter-btn active see-all"
+            data-page="recipes"
             style="padding: 12px 28px"
           >
             Découvrir des recettes
@@ -1207,48 +1981,145 @@
     <!-- PAGE DETAIL -->
     <div id="page-recipe" class="page">
       <div class="detail-wrap">
-        <button class="back-btn" onclick="goBack()">
-          ← Retour aux recettes
-        </button>
+        <button id="back-btn" class="back-btn">← Retour aux recettes</button>
         <div id="detail-content"></div>
       </div>
     </div>
 
-    <!-- ADD RECIPE MODAL -->
-    <div
-      class="modal-overlay"
-      id="add-modal"
-      onclick="closeModalOutside(event)"
-    >
-      <div class="modal">
-        <div class="modal-header">
-          <div class="modal-title">✨ Nouvelle Recette</div>
-          <button class="modal-close" onclick="closeAddModal()">✕</button>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <!-- Branding -->
+        <div class="footer-brand">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 4px;
+            "
+          >
+            <div
+              class="logo-icon"
+              style="width: 34px; height: 34px; font-size: 17px"
+            >
+              🍽️
+            </div>
+            <div class="logo-text" style="color: #fff; font-size: 18px">
+              Chef à la <span>Maison</span>
+            </div>
+          </div>
+          <p class="footer-tagline">
+            Découvrez, partagez et savourez des recettes authentiques créées
+            avec passion par notre communauté de cuisiniers amateurs.
+          </p>
+          <div class="footer-social">
+            <a href="#" title="Instagram">📸</a>
+            <a href="#" title="Facebook">👥</a>
+            <a href="#" title="YouTube">▶️</a>
+            <a href="#" title="Pinterest">📌</a>
+          </div>
         </div>
 
+        <!-- Navigation -->
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><button data-page="home">🏠 Accueil</button></li>
+            <li><button data-page="recipes">📖 Toutes les recettes</button></li>
+            <li><button data-page="favorites">♡ Mes favoris</button></li>
+            <li>
+              <button id="footer-add-recipe-btn">✨ Ajouter une recette</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Catégories -->
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul class="footer-links">
+            <li>
+              <button class="footer-cat-btn" data-cat="Entrées">
+                🥗 Entrées
+              </button>
+            </li>
+            <li>
+              <button class="footer-cat-btn" data-cat="Plats">
+                🍽️ Plats principaux
+              </button>
+            </li>
+            <li>
+              <button class="footer-cat-btn" data-cat="Desserts">
+                🍰 Desserts
+              </button>
+            </li>
+            <li>
+              <button class="footer-cat-btn" data-cat="Boissons">
+                🥤 Boissons
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Zone Admin -->
+        <div class="footer-col">
+          <h4>Administration</h4>
+          <div class="footer-admin-box">
+            <p>
+              Accès réservé aux administrateurs du site pour gérer les recettes
+              et les contenus.
+            </p>
+            <button class="footer-admin-btn" id="admin-login-btn">
+              🔐 Connexion Admin
+            </button>
+            <div class="footer-admin-status" id="footer-admin-status">
+              <div class="dot"></div>
+              <span id="footer-admin-status-text">Non connecté</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <span>© 2025 Chef à la Maison · Fait avec ❤️ et 🧑‍🍳</span>
+        <div class="footer-bottom-links">
+          <a href="#">Mentions légales</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAL AJOUT/ÉDITION -->
+    <div class="modal-overlay" id="add-modal">
+      <div class="modal" id="add-modal-inner">
+        <div class="modal-header">
+          <div class="modal-title" id="modal-title">✨ Nouvelle Recette</div>
+          <button class="modal-close" id="modal-close-btn">✕</button>
+        </div>
         <div class="form-group">
-          <label class="form-label">Titre de la recette *</label>
-          <input
+          <label class="form-label">Titre de la recette *</label
+          ><input
             class="form-input"
             id="f-title"
             type="text"
             placeholder="Ex: Tarte aux fraises maison"
           />
         </div>
-
         <div class="form-group">
-          <label class="form-label">Description *</label>
-          <textarea
+          <label class="form-label">Description *</label
+          ><textarea
             class="form-textarea"
             id="f-desc"
             placeholder="Décrivez votre recette en quelques mots..."
           ></textarea>
         </div>
-
         <div class="form-cols">
           <div class="form-group">
-            <label class="form-label">Catégorie *</label>
-            <select class="form-select" id="f-cat">
+            <label class="form-label">Catégorie *</label
+            ><select class="form-select" id="f-cat">
               <option value="">Choisir...</option>
               <option value="Entrées">Entrées</option>
               <option value="Plats">Plats</option>
@@ -1257,19 +2128,18 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Difficulté</label>
-            <select class="form-select" id="f-diff">
+            <label class="form-label">Difficulté</label
+            ><select class="form-select" id="f-diff">
               <option value="Facile">Facile</option>
               <option value="Moyen">Moyen</option>
               <option value="Difficile">Difficile</option>
             </select>
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Temps total</label>
-            <input
+            <label class="form-label">Temps total</label
+            ><input
               class="form-input"
               id="f-time"
               type="text"
@@ -1277,8 +2147,8 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-label">Préparation</label>
-            <input
+            <label class="form-label">Préparation</label
+            ><input
               class="form-input"
               id="f-prep"
               type="text"
@@ -1286,8 +2156,8 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-label">Portions</label>
-            <input
+            <label class="form-label">Portions</label
+            ><input
               class="form-input"
               id="f-serv"
               type="text"
@@ -1295,35 +2165,38 @@
             />
           </div>
         </div>
-
         <div class="form-group">
-          <label class="form-label">URL de l'image</label>
-          <input
+          <label class="form-label">URL de l'image</label
+          ><input
             class="form-input"
             id="f-img"
             type="text"
             placeholder="https://..."
-            oninput="previewImg()"
-          />
-          <img id="img-preview" class="img-preview" alt="Aperçu" />
+          /><img id="img-preview" class="img-preview" alt="Aperçu" />
         </div>
-
+        <div class="form-group">
+          <label class="form-label">📺 Vidéo YouTube (optionnel)</label
+          ><input
+            class="form-input"
+            id="f-yt"
+            type="text"
+            placeholder="https://www.youtube.com/watch?v=..."
+          />
+        </div>
         <div class="form-group">
           <label class="form-label">Ingrédients *</label>
           <div class="dynamic-list" id="ing-list"></div>
-          <button class="add-item-btn" onclick="addIngredient()">
+          <button class="add-item-btn" id="add-ing-btn">
             + Ajouter un ingrédient
           </button>
         </div>
-
         <div class="form-group">
           <label class="form-label">Étapes de préparation *</label>
           <div class="dynamic-list" id="step-list"></div>
-          <button class="add-item-btn" onclick="addStep()">
+          <button class="add-item-btn" id="add-step-btn">
             + Ajouter une étape
           </button>
         </div>
-
         <div
           id="form-error"
           style="
@@ -1333,639 +2206,1650 @@
             display: none;
           "
         ></div>
-        <button class="submit-btn" onclick="submitRecipe()">
+        <button class="submit-btn" id="submit-btn">
           🍽️ Publier ma recette
         </button>
       </div>
     </div>
 
+    <!-- MODAL VIDEO -->
+    <div class="overlay2" id="edit-video-overlay">
+      <div class="modal2">
+        <h3>🎬 Modifier la vidéo YouTube</h3>
+        <input
+          id="edit-video-input"
+          type="text"
+          placeholder="https://www.youtube.com/watch?v=..."
+        />
+        <div class="modal2-hint">
+          Collez le lien YouTube complet ou uniquement l'ID de la vidéo
+        </div>
+        <div class="modal2-error" id="edit-video-error">
+          ⚠️ Lien YouTube invalide.
+        </div>
+        <div class="modal2-actions">
+          <button class="btn-cancel" id="close-video-btn">Annuler</button>
+          <button class="btn-save" id="save-video-btn">✓ Enregistrer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL SUPPRESSION -->
+    <div class="overlay2" id="confirm-overlay" style="z-index: 1001">
+      <div class="confirm-modal">
+        <h3 id="confirm-title">🗑️ Supprimer la recette</h3>
+        <p id="confirm-message">
+          Êtes-vous sûr de vouloir supprimer cette recette ?
+        </p>
+        <div class="confirm-actions">
+          <button class="btn-cancel" id="cancel-delete-btn">Annuler</button>
+          <button class="btn-confirm" id="confirm-delete-btn">Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL AUTHENTIFICATION -->
+    <div class="overlay2" id="auth-overlay" style="z-index: 1002">
+      <div class="auth-modal">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+          "
+        >
+          <div
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              font-size: 24px;
+              font-weight: 900;
+              color: var(--text);
+            "
+          >
+            👤 Mon compte
+          </div>
+          <button
+            id="auth-close-btn"
+            style="
+              background: none;
+              border: none;
+              font-size: 22px;
+              cursor: pointer;
+              color: var(--text3);
+            "
+          >
+            ✕
+          </button>
+        </div>
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login">Connexion</button>
+          <button class="auth-tab" id="tab-register">Inscription</button>
+        </div>
+        <!-- Login -->
+        <div id="login-form">
+          <label class="auth-label">Nom d'utilisateur</label>
+          <input
+            class="auth-field"
+            id="login-username"
+            type="text"
+            placeholder="Votre pseudo"
+          />
+          <label class="auth-label">Mot de passe</label>
+          <input
+            class="auth-field"
+            id="login-password"
+            type="password"
+            placeholder="••••••••"
+          />
+          <div class="auth-error" id="login-error"></div>
+          <button class="auth-submit" id="login-submit-btn">
+            Se connecter
+          </button>
+        </div>
+        <!-- Register -->
+        <div id="register-form" style="display: none">
+          <label class="auth-label">Nom d'utilisateur *</label>
+          <input
+            class="auth-field"
+            id="reg-username"
+            type="text"
+            placeholder="Choisissez un pseudo"
+          />
+          <label class="auth-label">Email *</label>
+          <input
+            class="auth-field"
+            id="reg-email"
+            type="email"
+            placeholder="votre@email.com"
+          />
+          <label class="auth-label">Mot de passe *</label>
+          <input
+            class="auth-field"
+            id="reg-password"
+            type="password"
+            placeholder="Minimum 6 caractères"
+          />
+          <div class="auth-error" id="reg-error"></div>
+          <button class="auth-submit" id="reg-submit-btn">
+            Créer mon compte
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
-      const diffColors = {
-        Facile: "#6ee7b7",
-        Moyen: "#fcd34d",
-        Difficile: "#fca5a5",
-      };
-
-      let recipes = [
-        {
-          id: 1,
-          title: "Salade César Classique",
-          description:
-            "Une salade fraîche et croquante avec sa sauce César maison, des croûtons dorés et du parmesan.",
-          category: "Entrées",
-          difficulty: "Facile",
-          diffColor: "#6ee7b7",
-          time: "20 min",
-          servings: "4 pers.",
-          prepTime: "15 min",
-          cookTime: "5 min",
-          image:
-            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=700&q=80",
-          ingredients: [
-            "1 laitue romaine",
-            "50g de parmesan râpé",
-            "Croûtons maison",
-            "Sauce César",
-            "2 filets d'anchois",
-            "1 gousse d'ail",
-            "Jus de citron",
-          ],
-          steps: [
-            "Lavez et essorez la laitue romaine, coupez-la en morceaux généreux.",
-            "Préparez la sauce César en mixant anchois, ail, jaune d'œuf, moutarde, citron et huile d'olive.",
-            "Faites dorer les croûtons à la poêle avec du beurre et de l'ail.",
-            "Mélangez la laitue avec la sauce, ajoutez les croûtons et le parmesan en copeaux.",
-          ],
-        },
-        {
-          id: 2,
-          title: "Soupe à l'Oignon Gratinée",
-          description:
-            "La traditionnelle soupe à l'oignon française, gratinée au four avec du gruyère fondant.",
-          category: "Entrées",
-          difficulty: "Moyen",
-          diffColor: "#fcd34d",
-          time: "65 min",
-          servings: "6 pers.",
-          prepTime: "20 min",
-          cookTime: "45 min",
-          image:
-            "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&q=80",
-          ingredients: [
-            "6 gros oignons",
-            "1L de bouillon de bœuf",
-            "200g de gruyère râpé",
-            "½ baguette",
-            "50g de beurre",
-            "1 verre de vin blanc sec",
-            "Thym, laurier",
-          ],
-          steps: [
-            "Émincez finement les oignons. Faites-les fondre dans le beurre à feu doux 30 min jusqu'à caramélisation.",
-            "Déglacez avec le vin blanc, laissez réduire 5 minutes.",
-            "Versez le bouillon chaud, ajoutez thym et laurier. Mijotez 15 minutes.",
-            "Répartissez dans des bols, couvrez de pain et gruyère. Gratinez 10 min au four.",
-          ],
-        },
-        {
-          id: 3,
-          title: "Poulet Rôti aux Herbes",
-          description:
-            "Un poulet rôti doré et juteux, parfumé aux herbes de Provence et accompagné de légumes de saison.",
-          category: "Plats",
-          difficulty: "Moyen",
-          diffColor: "#fcd34d",
-          time: "110 min",
-          servings: "6 pers.",
-          prepTime: "20 min",
-          cookTime: "90 min",
-          image:
-            "https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg",
-          ingredients: [
-            "1 poulet entier 1.5kg",
-            "Herbes de Provence",
-            "4 gousses d'ail",
-            "1 citron",
-            "4 c. à s. d'huile d'olive",
-            "Carottes et pommes de terre",
-            "Sel, poivre",
-          ],
-          steps: [
-            "Préchauffez le four à 200°C. Badigeonnez le poulet d'huile et frottez avec les herbes, sel et poivre.",
-            "Glissez les gousses d'ail et le citron coupé en deux dans la cavité du poulet.",
-            "Disposez les légumes autour dans un plat. Enfournez 90 min en arrosant toutes les 20 min.",
-            "Laissez reposer 10 min sous du papier aluminium avant de découper.",
-          ],
-        },
-        {
-          id: 4,
-          title: "Ratatouille Provençale",
-          description:
-            "Un mélange coloré de légumes du soleil mijotés lentement avec des herbes aromatiques.",
-          category: "Plats",
-          difficulty: "Facile",
-          diffColor: "#6ee7b7",
-          time: "85 min",
-          servings: "6 pers.",
-          prepTime: "25 min",
-          cookTime: "60 min",
-          image:
-            "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=700&q=80",
-          ingredients: [
-            "2 courgettes",
-            "2 aubergines",
-            "4 tomates mûres",
-            "2 poivrons",
-            "2 oignons",
-            "Herbes de Provence",
-            "Huile d'olive",
-          ],
-          steps: [
-            "Coupez tous les légumes en dés de taille égale.",
-            "Faites revenir l'oignon et l'ail dans l'huile d'olive 5 minutes.",
-            "Ajoutez les poivrons, aubergines, courgettes et tomates. Assaisonnez.",
-            "Couvrez et mijotez à feu doux 45 min en remuant régulièrement.",
-          ],
-        },
-        {
-          id: 5,
-          title: "Tarte Tatin aux Pommes",
-          description:
-            "La célèbre tarte renversée aux pommes caramélisées, croustillante et fondante à la fois.",
-          category: "Desserts",
-          difficulty: "Moyen",
-          diffColor: "#fcd34d",
-          time: "70 min",
-          servings: "8 pers.",
-          prepTime: "30 min",
-          cookTime: "40 min",
-          image:
-            "https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5?w=700&q=80",
-          ingredients: [
-            "1 pâte feuilletée",
-            "6 pommes Golden",
-            "100g de beurre",
-            "150g de sucre",
-            "1 c. à c. de cannelle",
-            "1 pincée de sel",
-          ],
-          steps: [
-            "Préchauffez le four à 180°C. Épluchez et coupez les pommes en quartiers.",
-            "Dans un moule, faites fondre le beurre avec le sucre pour obtenir un caramel doré.",
-            "Disposez les quartiers de pommes en rosace, saupoudrez de cannelle.",
-            "Cuire les pommes 15 min à feu moyen, couvrir de pâte, enfourner 25 min. Retournez aussitôt.",
-          ],
-        },
-        {
-          id: 6,
-          title: "Mousse au Chocolat",
-          description:
-            "Une mousse au chocolat aérienne et intense, le dessert classique par excellence.",
-          category: "Desserts",
-          difficulty: "Facile",
-          diffColor: "#6ee7b7",
-          time: "30 min",
-          servings: "4 pers.",
-          prepTime: "20 min",
-          cookTime: "10 min",
-          image:
-            "https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg",
-          ingredients: [
-            "200g de chocolat noir 70%",
-            "6 œufs",
-            "30g de sucre",
-            "1 pincée de sel",
-            "20g de beurre",
-          ],
-          steps: [
-            "Faites fondre le chocolat avec le beurre au bain-marie. Laissez tiédir.",
-            "Séparez les blancs des jaunes. Incorporez les jaunes au chocolat un par un.",
-            "Montez les blancs en neige ferme avec la pincée de sel et le sucre.",
-            "Incorporez délicatement les blancs en 3 fois. Réfrigérez au moins 2 heures.",
-          ],
-        },
-        {
-          id: 7,
-          title: "Mojito Classique",
-          description:
-            "Le cocktail cubain par excellence : frais, mentholé et légèrement sucré, parfait pour l'été.",
-          category: "Boissons",
-          difficulty: "Facile",
-          diffColor: "#6ee7b7",
-          time: "10 min",
-          servings: "1 pers.",
-          prepTime: "10 min",
-          cookTime: "0 min",
-          image:
-            "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&q=80",
-          ingredients: [
-            "4 cl de rhum blanc",
-            "1 citron vert",
-            "10 feuilles de menthe fraîche",
-            "2 c. à s. de sucre de canne",
-            "Eau gazeuse",
-            "Glaçons",
-            "1 tranche de citron (décoration)",
-          ],
-          steps: [
-            "Lavez le citron vert et coupez-le en quartiers. Placez-les dans un verre avec le sucre.",
-            "Écrasez doucement les quartiers de citron avec un pilon pour en extraire le jus.",
-            "Ajoutez les feuilles de menthe et écrasez-les légèrement sans les déchirer.",
-            "Remplissez le verre de glaçons, versez le rhum, puis complétez avec l'eau gazeuse. Mélangez et décorez.",
-          ],
-        },
-        {
-          id: 8,
-          title: "Smoothie Mangue Passion",
-          description:
-            "Un smoothie tropical onctueux et vitaminé, à base de mangue, fruit de la passion et lait de coco.",
-          category: "Boissons",
-          difficulty: "Facile",
-          diffColor: "#6ee7b7",
-          time: "8 min",
-          servings: "2 pers.",
-          prepTime: "8 min",
-          cookTime: "0 min",
-          image:
-            "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=700&q=80",
-          ingredients: [
-            "1 mangue bien mûre",
-            "2 fruits de la passion",
-            "200ml de lait de coco",
-            "1 banane",
-            "Jus d'un citron vert",
-            "1 c. à s. de miel",
-            "Glaçons",
-          ],
-          steps: [
-            "Épluchez la mangue et la banane. Coupez la mangue en morceaux.",
-            "Coupez les fruits de la passion en deux, prélevez la pulpe avec une cuillère.",
-            "Placez tous les ingrédients dans un blender avec les glaçons.",
-            "Mixez à haute vitesse pendant 1 minute jusqu'à obtenir une texture lisse. Servez aussitôt.",
-          ],
-        },
-      ];
-
-      let favorites = [];
-      let currentFilter = "Tout";
-      let previousPage = "recipes";
-      let nextId = 9;
-
-      // THEME
-      function toggleTheme() {
-        const html = document.documentElement;
-        const isDark = html.getAttribute("data-theme") === "dark";
-        html.setAttribute("data-theme", isDark ? "light" : "dark");
-        document.getElementById("theme-icon").textContent = isDark
-          ? "🌙"
-          : "☀️";
-      }
-
-      // PAGES
-      function showPage(name) {
-        document
-          .querySelectorAll(".page")
-          .forEach((p) => p.classList.remove("active"));
-        document.getElementById("page-" + name).classList.add("active");
-        document
-          .querySelectorAll(
-            ".nav-links button:not(.add-recipe-nav-btn):not(.theme-toggle)",
-          )
-          .forEach((b) => b.classList.remove("active"));
-        const nb = document.getElementById("nav-" + name);
-        if (nb) nb.classList.add("active");
-        window.scrollTo(0, 0);
-        if (name === "home") renderHomeGrid();
-        if (name === "recipes") renderRecipes();
-        if (name === "favorites") renderFavorites();
-      }
-
-      function goBack() {
-        showPage(previousPage);
-      }
-
-      function doHeroSearch() {
-        const val = document.getElementById("hero-search").value;
-        document.getElementById("recipe-search").value = val;
-        currentFilter = "Tout";
-        document
-          .querySelectorAll(".filter-btn")
-          .forEach((b) => b.classList.remove("active"));
-        document.querySelectorAll(".filter-btn")[0].classList.add("active");
-        showPage("recipes");
-      }
-
-      function setFilter(cat, btn) {
-        currentFilter = cat;
-        document
-          .querySelectorAll(".filter-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderRecipes();
-      }
-
-      function filterByCategory(cat) {
-        currentFilter = cat;
-        document.getElementById("recipe-search").value = "";
-        showPage("recipes");
-        document.querySelectorAll(".filter-btn").forEach((b) => {
-          b.classList.remove("active");
-          if (b.textContent.trim() === cat) b.classList.add("active");
-        });
-      }
-
-      function getFiltered() {
-        const q = (
-          document.getElementById("recipe-search")?.value || ""
-        ).toLowerCase();
-        return recipes.filter((r) => {
-          const matchCat =
-            currentFilter === "Tout" || r.category === currentFilter;
-          const matchQ =
-            !q ||
-            r.title.toLowerCase().includes(q) ||
-            r.description.toLowerCase().includes(q);
-          return matchCat && matchQ;
-        });
-      }
-
-      function createCard(r, container) {
-        const isFav = favorites.includes(r.id);
-        const card = document.createElement("div");
-        card.className = "recipe-card fadeup";
-        const userTag = r.isUserRecipe
-          ? `<span class="user-badge">Ma recette</span>`
-          : "";
-        card.innerHTML = `
-          <div class="recipe-img">
-            <img src="${r.image || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80"}" alt="${r.title}" loading="lazy">
-            <span class="badge badge-diff" style="background:${r.diffColor};color:#1a1a1a">${r.difficulty}</span>
-            <span class="badge badge-cat">${r.category}</span>
-          </div>
-          <div class="recipe-body">
-            <div class="recipe-header">
-              <div class="recipe-title">${r.title}${userTag}</div>
-              <button class="fav-btn ${isFav ? "active" : ""}" data-id="${r.id}" onclick="event.stopPropagation();toggleFav(${r.id})">${isFav ? "♥" : "♡"}</button>
-            </div>
-            <p class="recipe-desc">${r.description}</p>
-            <div class="recipe-meta"><span>🕐 ${r.time}</span><span>👥 ${r.servings}</span></div>
-          </div>`;
-        card.addEventListener("click", () => openRecipe(r));
-        container.appendChild(card);
-      }
-
-      function renderHomeGrid() {
-        const grid = document.getElementById("home-recipe-grid");
-        grid.innerHTML = "";
-        recipes.slice(0, 6).forEach((r) => createCard(r, grid));
-      }
-
-      function renderRecipes() {
-        const grid = document.getElementById("recipe-grid");
-        const empty = document.getElementById("recipe-empty");
-        const count = document.getElementById("recipe-count");
-        const filtered = getFiltered();
-        grid.innerHTML = "";
-        if (filtered.length === 0) {
-          empty.style.display = "block";
-          grid.style.display = "none";
-        } else {
-          empty.style.display = "none";
-          grid.style.display = "grid";
-          filtered.forEach((r) => createCard(r, grid));
-        }
-        count.textContent = `${filtered.length} recette${filtered.length !== 1 ? "s" : ""} trouvée${filtered.length !== 1 ? "s" : ""}`;
-      }
-
-      function renderFavorites() {
-        const grid = document.getElementById("fav-grid");
-        const empty = document.getElementById("fav-empty");
-        const count = document.getElementById("fav-count");
-        const favRecipes = recipes.filter((r) => favorites.includes(r.id));
-        grid.innerHTML = "";
-        if (favRecipes.length === 0) {
-          empty.style.display = "block";
-          grid.style.display = "none";
-        } else {
-          empty.style.display = "none";
-          grid.style.display = "grid";
-          favRecipes.forEach((r) => createCard(r, grid));
-        }
-        count.textContent = `${favRecipes.length} recette${favRecipes.length !== 1 ? "s" : ""} sauvegardée${favRecipes.length !== 1 ? "s" : ""}`;
-      }
-
-      function toggleFav(id) {
-        if (favorites.includes(id))
-          favorites = favorites.filter((f) => f !== id);
-        else favorites.push(id);
-        updateFavBadge();
-        document
-          .querySelectorAll(`.fav-btn[data-id="${id}"]`)
-          .forEach((btn) => {
-            btn.classList.toggle("active", favorites.includes(id));
-            btn.textContent = favorites.includes(id) ? "♥" : "♡";
-          });
-        const addBtn = document.getElementById("detail-fav-btn");
-        if (addBtn && parseInt(addBtn.dataset.id) === id) {
-          const isFav = favorites.includes(id);
-          addBtn.classList.toggle("active", isFav);
-          addBtn.innerHTML = `${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}`;
-        }
-        if (
-          document.getElementById("page-favorites").classList.contains("active")
-        )
-          renderFavorites();
-      }
-
-      function updateFavBadge() {
-        const badge = document.getElementById("fav-badge");
-        if (favorites.length > 0) {
-          badge.style.display = "inline";
-          badge.textContent = favorites.length;
-        } else badge.style.display = "none";
-      }
-
-      function openRecipe(r) {
-        previousPage =
-          document.querySelector(".page.active")?.id?.replace("page-", "") ||
-          "recipes";
-        const isFav = favorites.includes(r.id);
-        const userTag = r.isUserRecipe
-          ? `<span class="user-badge" style="font-size:13px;padding:3px 10px">✏️ Ma recette</span>`
-          : "";
-        document.getElementById("detail-content").innerHTML = `
-          <div class="detail-hero">
-            <img src="${r.image || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80"}" alt="${r.title}">
-            <div class="detail-hero-info">
-              <div class="detail-badges">
-                <span class="badge" style="background:${r.diffColor};color:#1a1a1a;position:static">🔥 ${r.difficulty}</span>
-                <span class="badge badge-cat" style="position:static">${r.category}</span>
-                ${r.isUserRecipe ? '<span class="badge" style="position:static;background:rgba(255,255,255,0.9);color:#ff6b00">✏️ Ma recette</span>' : ""}
-              </div>
-              <div class="detail-title">${r.title}</div>
-            </div>
-          </div>
-          <div class="meta-bar">
-            <div class="meta-bar-items">
-              <div><div class="meta-item-label">Préparation</div><div class="meta-item-value">🕐 ${r.prepTime}</div></div>
-              <div><div class="meta-item-label">Cuisson</div><div class="meta-item-value">🕐 ${r.cookTime}</div></div>
-              <div><div class="meta-item-label">Portions</div><div class="meta-item-value">👥 ${r.servings}</div></div>
-            </div>
-            <button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}" onclick="toggleFav(${r.id})">
-              ${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}
-            </button>
-          </div>
-          <p class="detail-desc">${r.description}</p>
-          <div class="detail-cols">
-            <div class="ingredients-box">
-              <div class="box-title">📋 Ingrédients</div>
-              ${r.ingredients.map((ing) => `<div class="ingredient-item"><div class="ingredient-dot"></div>${ing}</div>`).join("")}
-            </div>
-            <div>
-              <div class="box-title" style="margin-bottom:20px">👨‍🍳 Préparation</div>
-              <div class="steps-list">
-                ${r.steps.map((s, i) => `<div class="step-card fadeup"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join("")}
-              </div>
-            </div>
-          </div>`;
-        showPage("recipe");
-      }
-
-      // ADD RECIPE MODAL
-      function openAddModal() {
-        initFormLists();
-        document.getElementById("add-modal").classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeAddModal() {
-        document.getElementById("add-modal").classList.remove("open");
-        document.body.style.overflow = "";
-        resetForm();
-      }
-
-      function closeModalOutside(e) {
-        if (e.target === document.getElementById("add-modal")) closeAddModal();
-      }
-
-      function initFormLists() {
-        const ingList = document.getElementById("ing-list");
-        const stepList = document.getElementById("step-list");
-        ingList.innerHTML = "";
-        stepList.innerHTML = "";
-        addIngredient();
-        addIngredient();
-        addIngredient();
-        addStep();
-        addStep();
-      }
-
-      function addIngredient(val = "") {
-        const list = document.getElementById("ing-list");
-        const item = document.createElement("div");
-        item.className = "dynamic-item";
-        item.innerHTML = `<span style="color:#ff6b00;font-size:18px">•</span><input type="text" placeholder="Ex: 200g de farine" value="${val}" /><button class="dynamic-remove" onclick="this.parentElement.remove()">✕</button>`;
-        list.appendChild(item);
-      }
-
-      function addStep(val = "") {
-        const list = document.getElementById("step-list");
-        const n = list.children.length + 1;
-        const item = document.createElement("div");
-        item.className = "dynamic-item";
-        item.innerHTML = `<span style="background:linear-gradient(135deg,#ff6b00,#ff9d00);color:#fff;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0">${n}</span><input type="text" placeholder="Décrivez cette étape..." value="${val}" /><button class="dynamic-remove" onclick="removeStep(this)">✕</button>`;
-        list.appendChild(item);
-      }
-
-      function removeStep(btn) {
-        btn.parentElement.remove();
-        document
-          .querySelectorAll("#step-list .dynamic-item")
-          .forEach((item, i) => {
-            item.querySelector("span").textContent = i + 1;
-          });
-      }
-
-      function previewImg() {
-        const url = document.getElementById("f-img").value;
-        const preview = document.getElementById("img-preview");
-        if (url) {
-          preview.src = url;
-          preview.style.display = "block";
-        } else preview.style.display = "none";
-      }
-
-      function resetForm() {
-        [
-          "f-title",
-          "f-desc",
-          "f-cat",
-          "f-diff",
-          "f-time",
-          "f-prep",
-          "f-serv",
-          "f-img",
-        ].forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) el.value = id === "f-diff" ? "Facile" : "";
-        });
-        document.getElementById("img-preview").style.display = "none";
-        document.getElementById("form-error").style.display = "none";
-        document.getElementById("ing-list").innerHTML = "";
-        document.getElementById("step-list").innerHTML = "";
-      }
-
-      function submitRecipe() {
-        const err = document.getElementById("form-error");
-        const title = document.getElementById("f-title").value.trim();
-        const desc = document.getElementById("f-desc").value.trim();
-        const cat = document.getElementById("f-cat").value;
-        const diff = document.getElementById("f-diff").value;
-
-        const ings = Array.from(document.querySelectorAll("#ing-list input"))
-          .map((i) => i.value.trim())
-          .filter(Boolean);
-        const steps = Array.from(document.querySelectorAll("#step-list input"))
-          .map((i) => i.value.trim())
-          .filter(Boolean);
-
-        if (!title || !desc || !cat) {
-          err.textContent =
-            "⚠️ Veuillez remplir le titre, la description et la catégorie.";
-          err.style.display = "block";
-          return;
-        }
-        if (ings.length === 0) {
-          err.textContent = "⚠️ Ajoutez au moins un ingrédient.";
-          err.style.display = "block";
-          return;
-        }
-        if (steps.length === 0) {
-          err.textContent = "⚠️ Ajoutez au moins une étape de préparation.";
-          err.style.display = "block";
-          return;
-        }
-
-        const newRecipe = {
-          id: nextId++,
-          title,
-          description: desc,
-          category: cat,
-          difficulty: diff,
-          diffColor: diffColors[diff] || "#6ee7b7",
-          time: document.getElementById("f-time").value.trim() || "—",
-          servings: document.getElementById("f-serv").value.trim() || "—",
-          prepTime: document.getElementById("f-prep").value.trim() || "—",
-          cookTime: "—",
-          image:
-            document.getElementById("f-img").value.trim() ||
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80",
-          ingredients: ings,
-          steps,
-          isUserRecipe: true,
+      (function () {
+        /* ============================================================
+     CONSTANTES & DONNÉES PAR DÉFAUT
+  ============================================================ */
+        const DIFF_COLORS = {
+          Facile: "#6ee7b7",
+          Moyen: "#fcd34d",
+          Difficile: "#fca5a5",
         };
+        const ADMIN_PASSWORD = "admin123";
+        const LS_RECIPES = "chefmaison_recipes";
+        const LS_USERS = "chefmaison_users";
+        const LS_SESSION = "chefmaison_session";
+        const LS_FAVORITES = "chefmaison_favorites";
+        const LS_REVIEWS = "chefmaison_reviews";
 
-        recipes.unshift(newRecipe);
-        closeAddModal();
+        const DEFAULT_RECIPES = [
+          {
+            id: 1,
+            title: "Salade César Classique",
+            description:
+              "Une salade fraîche et croquante avec sa sauce César maison, des croûtons dorés et du parmesan.",
+            category: "Entrées",
+            difficulty: "Facile",
+            time: "20 min",
+            servings: "4 pers.",
+            prepTime: "15 min",
+            cookTime: "5 min",
+            image:
+              "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=700&q=80",
+            youtubeId: "r9CVirYimUQ",
+            ingredients: [
+              "1 laitue romaine",
+              "50g de parmesan râpé",
+              "Croûtons maison",
+              "Sauce César",
+              "2 filets d'anchois",
+              "1 gousse d'ail",
+              "Jus de citron",
+            ],
+            steps: [
+              "Lavez et essorez la laitue romaine, coupez-la en morceaux généreux.",
+              "Préparez la sauce César en mixant anchois, ail, jaune d'œuf, moutarde, citron et huile d'olive.",
+              "Faites dorer les croûtons à la poêle avec du beurre et de l'ail.",
+              "Mélangez la laitue avec la sauce, ajoutez les croûtons et le parmesan en copeaux.",
+            ],
+          },
+          {
+            id: 2,
+            title: "Soupe à l'Oignon Gratinée",
+            description:
+              "La traditionnelle soupe à l'oignon française, gratinée au four avec du gruyère fondant.",
+            category: "Entrées",
+            difficulty: "Moyen",
+            time: "65 min",
+            servings: "6 pers.",
+            prepTime: "20 min",
+            cookTime: "45 min",
+            image:
+              "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&q=80",
+            youtubeId: "opXF_nWYiXs",
+            ingredients: [
+              "6 gros oignons",
+              "1L de bouillon de bœuf",
+              "200g de gruyère râpé",
+              "½ baguette",
+              "50g de beurre",
+              "1 verre de vin blanc sec",
+              "Thym, laurier",
+            ],
+            steps: [
+              "Émincez finement les oignons. Faites-les fondre dans le beurre à feu doux 30 min jusqu'à caramélisation.",
+              "Déglacez avec le vin blanc, laissez réduire 5 minutes.",
+              "Versez le bouillon chaud, ajoutez thym et laurier. Mijotez 15 minutes.",
+              "Répartissez dans des bols, couvrez de pain et gruyère. Gratinez 10 min au four.",
+            ],
+          },
+          {
+            id: 3,
+            title: "Poulet Rôti aux Herbes",
+            description:
+              "Un poulet rôti doré et juteux, parfumé aux herbes de Provence et accompagné de légumes de saison.",
+            category: "Plats",
+            difficulty: "Moyen",
+            time: "110 min",
+            servings: "6 pers.",
+            prepTime: "20 min",
+            cookTime: "90 min",
+            image:
+              "https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg",
+            youtubeId: "zFz15E1egFk",
+            ingredients: [
+              "1 poulet entier 1.5kg",
+              "Herbes de Provence",
+              "4 gousses d'ail",
+              "1 citron",
+              "4 c. à s. d'huile d'olive",
+              "Carottes et pommes de terre",
+              "Sel, poivre",
+            ],
+            steps: [
+              "Préchauffez le four à 200°C. Badigeonnez le poulet d'huile et frottez avec les herbes, sel et poivre.",
+              "Glissez les gousses d'ail et le citron coupé en deux dans la cavité du poulet.",
+              "Disposez les légumes autour dans un plat. Enfournez 90 min en arrosant toutes les 20 min.",
+              "Laissez reposer 10 min sous du papier aluminium avant de découper.",
+            ],
+          },
+          {
+            id: 4,
+            title: "Ratatouille Provençale",
+            description:
+              "Un mélange coloré de légumes du soleil mijotés lentement avec des herbes aromatiques.",
+            category: "Plats",
+            difficulty: "Facile",
+            time: "85 min",
+            servings: "6 pers.",
+            prepTime: "25 min",
+            cookTime: "60 min",
+            image:
+              "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=700&q=80",
+            youtubeId: "1cHP_-AMquQ",
+            ingredients: [
+              "2 courgettes",
+              "2 aubergines",
+              "4 tomates mûres",
+              "2 poivrons",
+              "2 oignons",
+              "Herbes de Provence",
+              "Huile d'olive",
+            ],
+            steps: [
+              "Coupez tous les légumes en dés de taille égale.",
+              "Faites revenir l'oignon et l'ail dans l'huile d'olive 5 minutes.",
+              "Ajoutez les poivrons, aubergines, courgettes et tomates. Assaisonnez.",
+              "Couvrez et mijotez à feu doux 45 min en remuant régulièrement.",
+            ],
+          },
+          {
+            id: 5,
+            title: "Tarte Tatin aux Pommes",
+            description:
+              "La célèbre tarte renversée aux pommes caramélisées, croustillante et fondante à la fois.",
+            category: "Desserts",
+            difficulty: "Moyen",
+            time: "70 min",
+            servings: "8 pers.",
+            prepTime: "30 min",
+            cookTime: "40 min",
+            image:
+              "https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5?w=700&q=80",
+            youtubeId: "39WJlFzr_yk",
+            ingredients: [
+              "1 pâte feuilletée",
+              "6 pommes Golden",
+              "100g de beurre",
+              "150g de sucre",
+              "1 c. à c. de cannelle",
+              "1 pincée de sel",
+            ],
+            steps: [
+              "Préchauffez le four à 180°C. Épluchez et coupez les pommes en quartiers.",
+              "Dans un moule, faites fondre le beurre avec le sucre pour obtenir un caramel doré.",
+              "Disposez les quartiers de pommes en rosace, saupoudrez de cannelle.",
+              "Cuire les pommes 15 min à feu moyen, couvrir de pâte, enfourner 25 min. Retournez aussitôt.",
+            ],
+          },
+          {
+            id: 6,
+            title: "Mousse au Chocolat",
+            description:
+              "Une mousse au chocolat aérienne et intense, le dessert classique par excellence.",
+            category: "Desserts",
+            difficulty: "Facile",
+            time: "30 min",
+            servings: "4 pers.",
+            prepTime: "20 min",
+            cookTime: "10 min",
+            image:
+              "https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg",
+            youtubeId: "IeTNZQiVIrI",
+            ingredients: [
+              "200g de chocolat noir 70%",
+              "6 œufs",
+              "30g de sucre",
+              "1 pincée de sel",
+              "20g de beurre",
+            ],
+            steps: [
+              "Faites fondre le chocolat avec le beurre au bain-marie. Laissez tiédir.",
+              "Séparez les blancs des jaunes. Incorporez les jaunes au chocolat un par un.",
+              "Montez les blancs en neige ferme avec la pincée de sel et le sucre.",
+              "Incorporez délicatement les blancs en 3 fois. Réfrigérez au moins 2 heures.",
+            ],
+          },
+          {
+            id: 7,
+            title: "Mojito Classique",
+            description:
+              "Le cocktail cubain par excellence : frais, mentholé et légèrement sucré, parfait pour l'été.",
+            category: "Boissons",
+            difficulty: "Facile",
+            time: "10 min",
+            servings: "1 pers.",
+            prepTime: "10 min",
+            cookTime: "0 min",
+            image:
+              "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&q=80",
+            youtubeId: "sIvYdLHwv8A",
+            ingredients: [
+              "4 cl de rhum blanc",
+              "1 citron vert",
+              "10 feuilles de menthe fraîche",
+              "2 c. à s. de sucre de canne",
+              "Eau gazeuse",
+              "Glaçons",
+              "1 tranche de citron (décoration)",
+            ],
+            steps: [
+              "Lavez le citron vert et coupez-le en quartiers. Placez-les dans un verre avec le sucre.",
+              "Écrasez doucement les quartiers de citron avec un pilon pour en extraire le jus.",
+              "Ajoutez les feuilles de menthe et écrasez-les légèrement sans les déchirer.",
+              "Remplissez le verre de glaçons, versez le rhum, puis complétez avec l'eau gazeuse. Mélangez et décorez.",
+            ],
+          },
+          {
+            id: 8,
+            title: "Smoothie Mangue Passion",
+            description:
+              "Un smoothie tropical onctueux et vitaminé, à base de mangue, fruit de la passion et lait de coco.",
+            category: "Boissons",
+            difficulty: "Facile",
+            time: "8 min",
+            servings: "2 pers.",
+            prepTime: "8 min",
+            cookTime: "0 min",
+            image:
+              "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=700&q=80",
+            youtubeId: "tIsNZY7gmPw",
+            ingredients: [
+              "1 mangue bien mûre",
+              "2 fruits de la passion",
+              "200ml de lait de coco",
+              "1 banane",
+              "Jus d'un citron vert",
+              "1 c. à s. de miel",
+              "Glaçons",
+            ],
+            steps: [
+              "Épluchez la mangue et la banane. Coupez la mangue en morceaux.",
+              "Coupez les fruits de la passion en deux, prélevez la pulpe avec une cuillère.",
+              "Placez tous les ingrédients dans un blender avec les glaçons.",
+              "Mixez à haute vitesse pendant 1 minute jusqu'à obtenir une texture lisse. Servez aussitôt.",
+            ],
+          },
+        ];
 
-        const activePage = document
-          .querySelector(".page.active")
-          ?.id?.replace("page-", "");
-        if (activePage === "home") renderHomeGrid();
-        else if (activePage === "recipes") renderRecipes();
+        /* ============================================================
+     LOCALSTORAGE — BASE DE DONNÉES LOCALE
+  ============================================================ */
+        function lsGet(key, fallback) {
+          try {
+            const v = localStorage.getItem(key);
+            return v ? JSON.parse(v) : fallback;
+          } catch {
+            return fallback;
+          }
+        }
+        function lsSet(key, val) {
+          try {
+            localStorage.setItem(key, JSON.stringify(val));
+          } catch (e) {
+            console.warn("LS error", e);
+          }
+        }
 
-        // Show success toast
-        const toast = document.createElement("div");
-        toast.style.cssText =
-          "position:fixed;bottom:30px;right:30px;background:#ff6b00;color:#fff;padding:14px 24px;border-radius:14px;font-weight:800;font-size:15px;font-family:Nunito,sans-serif;box-shadow:0 8px 30px rgba(255,107,0,0.4);z-index:9999;animation:fadeUp 0.3s ease";
-        toast.textContent = "✅ Recette publiée avec succès !";
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
-      }
+        // Initialise les recettes si 1ère visite
+        function loadRecipes() {
+          const stored = lsGet(LS_RECIPES, null);
+          if (!stored) {
+            lsSet(LS_RECIPES, DEFAULT_RECIPES);
+            return DEFAULT_RECIPES;
+          }
+          return stored;
+        }
+        function saveRecipes() {
+          lsSet(LS_RECIPES, recipes);
+        }
 
-      // Init
-      renderHomeGrid();
-      renderRecipes();
+        function loadUsers() {
+          return lsGet(LS_USERS, []);
+        }
+        function saveUsers() {
+          lsSet(LS_USERS, users);
+        }
+
+        function loadSession() {
+          return lsGet(LS_SESSION, null);
+        }
+        function saveSession() {
+          lsSet(LS_SESSION, currentUser);
+        }
+
+        function loadFavorites(userId) {
+          return lsGet(LS_FAVORITES + "_" + userId, []);
+        }
+        function saveFavorites(userId) {
+          lsSet(LS_FAVORITES + "_" + userId, favorites);
+        }
+
+        function loadReviews() {
+          return lsGet(LS_REVIEWS, {});
+        }
+        function saveReviews() {
+          lsSet(LS_REVIEWS, reviews);
+        }
+
+        /* ============================================================
+     ÉTAT
+  ============================================================ */
+        let recipes = loadRecipes();
+        let users = loadUsers();
+        let currentUser = loadSession(); // {id,username,email}
+        let favorites = currentUser ? loadFavorites(currentUser.id) : [];
+        let reviews = loadReviews(); // {recipeId:[{id,userId,username,stars,text,date}]}
+        let isAdmin = false;
+        let currentFilter = "Tout";
+        let previousPage = "recipes";
+        let nextId = Math.max(...recipes.map((r) => r.id), 8) + 1;
+        let currentEditId = null;
+        let pendingDeleteId = null;
+        let tempStarRating = 0;
+        let currentRecipeId = null;
+
+        /* ============================================================
+     UTILITAIRES
+  ============================================================ */
+        function extractYouTubeId(input) {
+          if (!input) return null;
+          input = input.trim();
+          if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
+          const patterns = [
+            /(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/,
+            /(?:youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+            /(?:youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+            /(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
+          ];
+          for (const p of patterns) {
+            const m = input.match(p);
+            if (m) return m[1];
+          }
+          return null;
+        }
+
+        function showToast(msg, color = "#ff6b00") {
+          const t = document.createElement("div");
+          t.style.cssText = `position:fixed;bottom:30px;right:30px;background:${color};color:#fff;padding:14px 24px;border-radius:14px;font-weight:800;font-size:15px;font-family:Nunito,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,0.25);z-index:9999;animation:fadeUp 0.3s ease`;
+          t.textContent = msg;
+          document.body.appendChild(t);
+          setTimeout(() => t.remove(), 3000);
+        }
+
+        function starsHTML(n, total = 5) {
+          let s = "";
+          for (let i = 1; i <= total; i++) s += i <= Math.round(n) ? "★" : "☆";
+          return s;
+        }
+
+        function getAvgRating(recipeId) {
+          const rs = reviews[recipeId] || [];
+          if (!rs.length) return null;
+          return {
+            avg: (rs.reduce((a, r) => a + r.stars, 0) / rs.length).toFixed(1),
+            count: rs.length,
+          };
+        }
+
+        /* ============================================================
+     AUTH
+  ============================================================ */
+        function updateAuthUI() {
+          const btn = document.getElementById("user-auth-btn");
+          const icon = document.getElementById("user-auth-icon");
+          const label = document.getElementById("user-auth-label");
+          if (currentUser) {
+            btn.classList.add("logged-in");
+            icon.textContent = "✓";
+            label.textContent = currentUser.username;
+          } else {
+            btn.classList.remove("logged-in");
+            icon.textContent = "👤";
+            label.textContent = "Connexion";
+          }
+        }
+
+        function openAuthModal() {
+          if (currentUser) {
+            // Logout
+            currentUser = null;
+            favorites = [];
+            saveSession();
+            updateAuthUI();
+            updateFavBadge();
+            showToast("👋 Déconnexion réussie");
+            const active = document.querySelector(".page.active")?.id;
+            if (active === "page-favorites") showPage("home");
+            else {
+              renderHomeGrid();
+              renderRecipes();
+            }
+          } else {
+            document.getElementById("auth-overlay").classList.add("open");
+            document.body.style.overflow = "hidden";
+            showLoginForm();
+          }
+        }
+
+        function showLoginForm() {
+          document.getElementById("login-form").style.display = "block";
+          document.getElementById("register-form").style.display = "none";
+          document.getElementById("tab-login").classList.add("active");
+          document.getElementById("tab-register").classList.remove("active");
+          document.getElementById("login-error").style.display = "none";
+        }
+        function showRegisterForm() {
+          document.getElementById("register-form").style.display = "block";
+          document.getElementById("login-form").style.display = "none";
+          document.getElementById("tab-register").classList.add("active");
+          document.getElementById("tab-login").classList.remove("active");
+          document.getElementById("reg-error").style.display = "none";
+        }
+
+        function doLogin() {
+          const username = document
+            .getElementById("login-username")
+            .value.trim();
+          const password = document.getElementById("login-password").value;
+          const errEl = document.getElementById("login-error");
+          if (!username || !password) {
+            errEl.textContent = "Remplissez tous les champs.";
+            errEl.style.display = "block";
+            return;
+          }
+          const user = users.find(
+            (u) => u.username === username && u.password === password,
+          );
+          if (!user) {
+            errEl.textContent = "Identifiants incorrects.";
+            errEl.style.display = "block";
+            return;
+          }
+          currentUser = {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+          };
+          favorites = loadFavorites(currentUser.id);
+          saveSession();
+          document.getElementById("auth-overlay").classList.remove("open");
+          document.body.style.overflow = "";
+          updateAuthUI();
+          updateFavBadge();
+          showToast("🎉 Bienvenue, " + currentUser.username + " !");
+          renderHomeGrid();
+          renderRecipes();
+        }
+
+        function doRegister() {
+          const username = document.getElementById("reg-username").value.trim();
+          const email = document.getElementById("reg-email").value.trim();
+          const password = document.getElementById("reg-password").value;
+          const errEl = document.getElementById("reg-error");
+          if (!username || !email || !password) {
+            errEl.textContent = "Remplissez tous les champs.";
+            errEl.style.display = "block";
+            return;
+          }
+          if (password.length < 6) {
+            errEl.textContent = "Mot de passe trop court (min. 6 caractères).";
+            errEl.style.display = "block";
+            return;
+          }
+          if (users.find((u) => u.username === username)) {
+            errEl.textContent = "Ce pseudo est déjà utilisé.";
+            errEl.style.display = "block";
+            return;
+          }
+          if (users.find((u) => u.email === email)) {
+            errEl.textContent = "Cet email est déjà utilisé.";
+            errEl.style.display = "block";
+            return;
+          }
+          const newUser = { id: Date.now(), username, email, password };
+          users.push(newUser);
+          saveUsers();
+          currentUser = { id: newUser.id, username, email };
+          favorites = [];
+          saveSession();
+          document.getElementById("auth-overlay").classList.remove("open");
+          document.body.style.overflow = "";
+          updateAuthUI();
+          updateFavBadge();
+          showToast("🎉 Compte créé ! Bienvenue, " + username + " !");
+          renderHomeGrid();
+          renderRecipes();
+        }
+
+        /* ============================================================
+     NAVIGATION
+  ============================================================ */
+        function showPage(name) {
+          document
+            .querySelectorAll(".page")
+            .forEach((p) => p.classList.remove("active"));
+          const page = document.getElementById("page-" + name);
+          if (page) page.classList.add("active");
+          document
+            .querySelectorAll(".nav-btn")
+            .forEach((b) => b.classList.remove("active"));
+          const nb = document.getElementById("nav-" + name);
+          if (nb) nb.classList.add("active");
+          window.scrollTo(0, 0);
+          if (name === "home") renderHomeGrid();
+          if (name === "recipes") renderRecipes();
+          if (name === "favorites") renderFavorites();
+        }
+
+        /* ============================================================
+     ADMIN
+  ============================================================ */
+        function updateAdminUI() {
+          const adminBtn = document.getElementById("admin-login-btn");
+          const statusEl = document.getElementById("footer-admin-status");
+          const statusText = document.getElementById(
+            "footer-admin-status-text",
+          );
+          if (isAdmin) {
+            if (adminBtn) {
+              adminBtn.textContent = "🚪 Déconnexion Admin";
+              adminBtn.classList.add("admin-mode");
+            }
+            if (statusEl) statusEl.classList.add("active-admin");
+            if (statusText)
+              statusText.textContent = "Connecté en tant qu'admin";
+          } else {
+            if (adminBtn) {
+              adminBtn.textContent = "🔐 Connexion Admin";
+              adminBtn.classList.remove("admin-mode");
+            }
+            if (statusEl) statusEl.classList.remove("active-admin");
+            if (statusText) statusText.textContent = "Non connecté";
+          }
+          const active = document.querySelector(".page.active")?.id;
+          if (active === "page-recipe" && currentRecipeId) {
+            const r = recipes.find((x) => x.id === currentRecipeId);
+            if (r) openRecipe(r);
+          }
+        }
+
+        function toggleAdmin() {
+          if (isAdmin) {
+            isAdmin = false;
+            updateAdminUI();
+            showToast("👋 Mode visiteur activé");
+          } else {
+            const pwd = prompt("🔐 Mot de passe administrateur :");
+            if (pwd === ADMIN_PASSWORD) {
+              isAdmin = true;
+              updateAdminUI();
+              showToast("✅ Mode administrateur activé");
+            } else if (pwd !== null) alert("❌ Mot de passe incorrect");
+          }
+        }
+
+        /* ============================================================
+     THÈME
+  ============================================================ */
+        function toggleTheme() {
+          const html = document.documentElement;
+          const isDark = html.getAttribute("data-theme") === "dark";
+          html.setAttribute("data-theme", isDark ? "light" : "dark");
+          document.getElementById("theme-icon").textContent = isDark
+            ? "🌙"
+            : "☀️";
+        }
+
+        /* ============================================================
+     FAVORIS
+  ============================================================ */
+        function updateFavBadge() {
+          const badge = document.getElementById("fav-badge");
+          if (!badge) return;
+          badge.style.display = favorites.length > 0 ? "inline" : "none";
+          badge.textContent = favorites.length;
+        }
+
+        function toggleFav(id) {
+          if (!currentUser) {
+            showToast("🔐 Connectez-vous pour ajouter aux favoris", "#555");
+            openAuthModal();
+            return;
+          }
+          if (favorites.includes(id))
+            favorites = favorites.filter((f) => f !== id);
+          else favorites.push(id);
+          saveFavorites(currentUser.id);
+          updateFavBadge();
+          document
+            .querySelectorAll(`.fav-btn[data-id="${id}"]`)
+            .forEach((btn) => {
+              btn.classList.toggle("active", favorites.includes(id));
+              btn.textContent = favorites.includes(id) ? "♥" : "♡";
+            });
+          const detailBtn = document.getElementById("detail-fav-btn");
+          if (detailBtn && parseInt(detailBtn.dataset.id) === id) {
+            const isFav = favorites.includes(id);
+            detailBtn.classList.toggle("active", isFav);
+            detailBtn.innerHTML = `${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}`;
+          }
+          if (
+            document
+              .getElementById("page-favorites")
+              .classList.contains("active")
+          )
+            renderFavorites();
+        }
+
+        /* ============================================================
+     CARTES
+  ============================================================ */
+        function createCard(r, container) {
+          const isFav = favorites.includes(r.id);
+          const card = document.createElement("div");
+          card.className = "recipe-card fadeup";
+          const diffColor = DIFF_COLORS[r.difficulty] || "#6ee7b7";
+          const userTag = r.isUserRecipe
+            ? `<span class="user-badge">👤 Communauté</span>`
+            : "";
+          const videoInd = r.youtubeId
+            ? `<div class="video-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vidéo</div>`
+            : "";
+          const img =
+            r.image ||
+            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
+          const rInfo = getAvgRating(r.id);
+          const ratingMini = rInfo
+            ? `<div class="recipe-rating-mini"><span class="stars-mini">${starsHTML(rInfo.avg)}</span><span>${rInfo.avg} (${rInfo.count})</span></div>`
+            : "";
+          card.innerHTML = `
+      <div class="recipe-img">
+        <img src="${img}" alt="${r.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80'">
+        <span class="badge badge-diff" style="background:${diffColor};color:#1a1a1a">${r.difficulty}</span>
+        <span class="badge badge-cat">${r.category}</span>
+        ${videoInd}
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-header">
+          <div class="recipe-title">${r.title}${userTag}</div>
+          <button class="fav-btn ${isFav ? "active" : ""}" data-id="${r.id}">${isFav ? "♥" : "♡"}</button>
+        </div>
+        <p class="recipe-desc">${r.description}</p>
+        ${ratingMini}
+        <div class="recipe-meta"><span>🕐 ${r.time || "—"}</span><span>👥 ${r.servings || "—"}</span></div>
+      </div>`;
+          card.querySelector(".fav-btn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleFav(r.id);
+          });
+          card.addEventListener("click", () => openRecipe(r));
+          container.appendChild(card);
+        }
+
+        function renderHomeGrid() {
+          const grid = document.getElementById("home-recipe-grid");
+          if (!grid) return;
+          grid.innerHTML = "";
+          recipes.slice(0, 6).forEach((r) => createCard(r, grid));
+        }
+
+        function getFiltered() {
+          const q = (
+            document.getElementById("recipe-search")?.value || ""
+          ).toLowerCase();
+          return recipes.filter((r) => {
+            const matchCat =
+              currentFilter === "Tout" || r.category === currentFilter;
+            const matchQ =
+              !q ||
+              r.title.toLowerCase().includes(q) ||
+              r.description.toLowerCase().includes(q);
+            return matchCat && matchQ;
+          });
+        }
+
+        function renderRecipes() {
+          const grid = document.getElementById("recipe-grid");
+          const empty = document.getElementById("recipe-empty");
+          const count = document.getElementById("recipe-count");
+          if (!grid || !empty || !count) return;
+          const filtered = getFiltered();
+          grid.innerHTML = "";
+          if (filtered.length === 0) {
+            empty.style.display = "block";
+            grid.style.display = "none";
+          } else {
+            empty.style.display = "none";
+            grid.style.display = "grid";
+            filtered.forEach((r) => createCard(r, grid));
+          }
+          count.textContent = `${filtered.length} recette${filtered.length !== 1 ? "s" : ""} trouvée${filtered.length !== 1 ? "s" : ""}`;
+        }
+
+        function renderFavorites() {
+          const grid = document.getElementById("fav-grid");
+          const empty = document.getElementById("fav-empty");
+          const count = document.getElementById("fav-count");
+          if (!grid || !empty || !count) return;
+          const favRecipes = recipes.filter((r) => favorites.includes(r.id));
+          grid.innerHTML = "";
+          if (favRecipes.length === 0) {
+            empty.style.display = "block";
+            grid.style.display = "none";
+          } else {
+            empty.style.display = "none";
+            grid.style.display = "grid";
+            favRecipes.forEach((r) => createCard(r, grid));
+          }
+          count.textContent = `${favRecipes.length} recette${favRecipes.length !== 1 ? "s" : ""} sauvegardée${favRecipes.length !== 1 ? "s" : ""}`;
+        }
+
+        /* ============================================================
+     DETAIL + AVIS
+  ============================================================ */
+        function buildVideoSection(r) {
+          if (!isAdmin && !r.youtubeId) return "";
+          if (!r.youtubeId) {
+            return isAdmin
+              ? `<div class="video-section"><div class="video-empty-slot" id="add-video-slot"><div style="font-size:32px">▶</div><div style="font-weight:800">Ajouter une vidéo YouTube</div><div style="font-size:12px">Collez un lien YouTube pour cette recette</div></div></div>`
+              : "";
+          }
+          const thumb = `https://img.youtube.com/vi/${r.youtubeId}/hqdefault.jpg`;
+          const ytUrl = `https://www.youtube.com/watch?v=${r.youtubeId}`;
+          return `<div class="video-section">
+      <div class="box-title">▶ Vidéo de la recette</div>
+      <a href="${ytUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none">
+        <div class="video-thumb-wrap">
+          <img src="${thumb}" alt="Vidéo ${r.title}" onerror="this.style.opacity='.3'"/>
+          <div class="video-play-overlay">
+            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="video-play-label">▶ Regarder sur YouTube</div>
+            <div class="video-play-sub">S'ouvre dans un nouvel onglet</div>
+          </div>
+          <div class="yt-corner-badge">YouTube</div>
+        </div>
+      </a>
+    </div>`;
+        }
+
+        function buildRatingSection(r) {
+          const rList = reviews[r.id] || [];
+          const rInfo = getAvgRating(r.id);
+          // Barre de distribution
+          const dist = [5, 4, 3, 2, 1]
+            .map((star) => {
+              const cnt = rList.filter((x) => x.stars === star).length;
+              const pct = rList.length
+                ? Math.round((cnt / rList.length) * 100)
+                : 0;
+              return `<div class="rating-bar-row"><span style="width:14px;text-align:right">${star}</span><span style="color:#f59e0b">★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:${pct}%"></div></div><span style="width:32px">${pct}%</span></div>`;
+            })
+            .join("");
+
+          const alreadyReviewed =
+            currentUser && rList.find((rv) => rv.userId === currentUser.id);
+          const addForm = !currentUser
+            ? `<div class="login-prompt">Connectez-vous pour laisser un avis <button id="login-for-review-btn">Se connecter</button></div>`
+            : alreadyReviewed
+              ? `<div class="login-prompt" style="text-align:left">✅ Vous avez déjà laissé un avis pour cette recette.</div>`
+              : `<div class="add-rating-form">
+          <h4>Votre avis</h4>
+          <div class="star-input" id="star-input">
+            <span data-s="1">★</span><span data-s="2">★</span><span data-s="3">★</span><span data-s="4">★</span><span data-s="5">★</span>
+          </div>
+          <textarea class="rating-textarea" id="review-text" placeholder="Partagez votre expérience avec cette recette..."></textarea>
+          <button class="submit-rating-btn" id="submit-review-btn">📝 Publier mon avis</button>
+        </div>`;
+
+          const reviewsList = rList.length
+            ? rList
+                .slice()
+                .reverse()
+                .map((rv) => {
+                  const canDelete =
+                    isAdmin || (currentUser && currentUser.id === rv.userId);
+                  return `<div class="review-card">
+        <div class="review-header">
+          <div><span class="review-author">👤 ${rv.username}</span><span class="review-date"> · ${rv.date}</span></div>
+          ${canDelete ? `<button class="delete-review-btn" data-rid="${rv.id}" data-recid="${r.id}">🗑</button>` : ""}
+        </div>
+        <div class="review-stars">${starsHTML(rv.stars)}</div>
+        <div class="review-text">${rv.text || ""}</div>
+      </div>`;
+                })
+                .join("")
+            : `<p style="color:var(--text3);font-size:14px">Aucun avis pour l'instant. Soyez le premier !</p>`;
+
+          return `<div class="rating-section">
+      <div class="box-title">⭐ Avis & Notes</div>
+      <div class="rating-summary">
+        <div class="rating-big">
+          <div class="rating-big-num">${rInfo ? rInfo.avg : "—"}</div>
+          <div class="rating-big-stars">${rInfo ? starsHTML(rInfo.avg) : "☆☆☆☆☆"}</div>
+          <div class="rating-big-count">${rList.length} avis</div>
+        </div>
+        <div class="rating-bars">${dist}</div>
+      </div>
+      ${addForm}
+      <div class="reviews-list" id="reviews-list">${reviewsList}</div>
+    </div>`;
+        }
+
+        function openRecipe(r) {
+          previousPage =
+            document.querySelector(".page.active")?.id?.replace("page-", "") ||
+            "recipes";
+          currentRecipeId = r.id;
+          const isFav = favorites.includes(r.id);
+          const img =
+            r.image ||
+            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
+          const diffColor = DIFF_COLORS[r.difficulty] || "#6ee7b7";
+          const rInfo = getAvgRating(r.id);
+          const ratingBadge = rInfo
+            ? `<span class="badge" style="position:static;background:rgba(255,255,255,.9);color:#f59e0b">⭐ ${rInfo.avg}</span>`
+            : "";
+
+          const adminBtns = isAdmin
+            ? `<div style="display:flex;gap:10px">
+        <button class="edit-recipe-btn" id="detail-edit-btn">✎ Modifier</button>
+        <button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}">${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}</button>
+      </div>`
+            : `<div style="display:flex;gap:10px">
+        <button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}">${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}</button>
+      </div>`;
+
+          const deleteBtn = isAdmin
+            ? `<div style="display:flex;justify-content:flex-end;margin-top:20px"><button class="delete-recipe-btn" id="detail-delete-btn">🗑️ Supprimer cette recette</button></div>`
+            : r.isUserRecipe && currentUser
+              ? `<div style="display:flex;justify-content:flex-end;margin-top:20px"><button class="delete-recipe-btn" id="detail-delete-btn">🗑️ Supprimer ma recette</button></div>`
+              : "";
+
+          document.getElementById("detail-content").innerHTML = `
+      <div class="detail-hero">
+        <img src="${img}" alt="${r.title}" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80'">
+        <div class="detail-hero-info">
+          <div class="detail-badges">
+            <span class="badge" style="background:${diffColor};color:#1a1a1a;position:static">🔥 ${r.difficulty}</span>
+            <span class="badge badge-cat" style="position:static">${r.category}</span>
+            ${ratingBadge}
+            ${r.isUserRecipe ? '<span class="badge" style="position:static;background:rgba(255,255,255,.9);color:#ff6b00">👤 Communauté</span>' : ""}
+          </div>
+          <div class="detail-title">${r.title}</div>
+        </div>
+      </div>
+      <div class="meta-bar">
+        <div class="meta-bar-items">
+          <div><div class="meta-item-label">Préparation</div><div class="meta-item-value">🕐 ${r.prepTime || "—"}</div></div>
+          <div><div class="meta-item-label">Cuisson</div><div class="meta-item-value">🕐 ${r.cookTime || "—"}</div></div>
+          <div><div class="meta-item-label">Portions</div><div class="meta-item-value">👥 ${r.servings || "—"}</div></div>
+        </div>
+        ${adminBtns}
+      </div>
+      <p class="detail-desc">${r.description}</p>
+      ${buildVideoSection(r)}
+      <div class="detail-cols">
+        <div class="ingredients-box">
+          <div class="box-title">📋 Ingrédients</div>
+          ${(r.ingredients || []).map((ing) => `<div class="ingredient-item"><div class="ingredient-dot"></div>${ing}</div>`).join("")}
+        </div>
+        <div>
+          <div class="box-title" style="margin-bottom:20px">👨‍🍳 Préparation</div>
+          <div class="steps-list">
+            ${(r.steps || []).map((s, i) => `<div class="step-card fadeup"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join("")}
+          </div>
+        </div>
+      </div>
+      ${buildRatingSection(r)}
+      ${deleteBtn}`;
+
+          // Events
+          document
+            .getElementById("detail-fav-btn")
+            ?.addEventListener("click", () => toggleFav(r.id));
+          document
+            .getElementById("detail-edit-btn")
+            ?.addEventListener("click", () => openEditModal(r.id));
+          document
+            .getElementById("detail-delete-btn")
+            ?.addEventListener("click", () => deleteRecipe(r.id));
+          document
+            .getElementById("add-video-slot")
+            ?.addEventListener("click", () => openEditVideoModal(r.id));
+          document
+            .getElementById("login-for-review-btn")
+            ?.addEventListener("click", openAuthModal);
+
+          // Star input
+          const starInput = document.getElementById("star-input");
+          if (starInput) {
+            tempStarRating = 0;
+            const stars = starInput.querySelectorAll("span");
+            stars.forEach((s) => {
+              s.addEventListener("mouseenter", () => {
+                const n = parseInt(s.dataset.s);
+                stars.forEach((x, i) => x.classList.toggle("hover", i < n));
+              });
+              s.addEventListener("mouseleave", () => {
+                stars.forEach((x, i) => {
+                  x.classList.remove("hover");
+                  x.classList.toggle("selected", i < tempStarRating);
+                });
+              });
+              s.addEventListener("click", () => {
+                tempStarRating = parseInt(s.dataset.s);
+                stars.forEach((x, i) =>
+                  x.classList.toggle("selected", i < tempStarRating),
+                );
+              });
+            });
+          }
+
+          document
+            .getElementById("submit-review-btn")
+            ?.addEventListener("click", () => submitReview(r.id));
+
+          // Delete review buttons
+          document.querySelectorAll(".delete-review-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const rid = btn.dataset.rid;
+              const recId = parseInt(btn.dataset.recid);
+              deleteReview(rid, recId);
+            });
+          });
+
+          showPage("recipe");
+        }
+
+        /* ============================================================
+     AVIS
+  ============================================================ */
+        function submitReview(recipeId) {
+          if (!currentUser) {
+            openAuthModal();
+            return;
+          }
+          if (!tempStarRating) {
+            showToast("⭐ Choisissez une note", "#555");
+            return;
+          }
+          const text =
+            document.getElementById("review-text")?.value.trim() || "";
+          const rList = reviews[recipeId] || [];
+          if (rList.find((rv) => rv.userId === currentUser.id)) {
+            showToast("Vous avez déjà laissé un avis", "#555");
+            return;
+          }
+          const newReview = {
+            id: Date.now().toString(),
+            userId: currentUser.id,
+            username: currentUser.username,
+            stars: tempStarRating,
+            text,
+            date: new Date().toLocaleDateString("fr-FR", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            }),
+          };
+          if (!reviews[recipeId]) reviews[recipeId] = [];
+          reviews[recipeId].push(newReview);
+          saveReviews();
+          showToast("✅ Votre avis a été publié !");
+          const r = recipes.find((x) => x.id === recipeId);
+          if (r) openRecipe(r);
+        }
+
+        function deleteReview(reviewId, recipeId) {
+          if (!reviews[recipeId]) return;
+          reviews[recipeId] = reviews[recipeId].filter(
+            (rv) => rv.id !== reviewId,
+          );
+          saveReviews();
+          showToast("🗑️ Avis supprimé");
+          const r = recipes.find((x) => x.id === recipeId);
+          if (r) openRecipe(r);
+        }
+
+        /* ============================================================
+     MODAL AJOUT/ÉDITION
+  ============================================================ */
+        function openAddModal() {
+          currentEditId = null;
+          document.getElementById("modal-title").textContent =
+            "✨ Nouvelle Recette";
+          document.getElementById("submit-btn").textContent =
+            "🍽️ Publier ma recette";
+          resetForm();
+          initFormLists();
+          document.getElementById("add-modal").classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+
+        function openEditModal(recipeId) {
+          if (!isAdmin) return;
+          const r = recipes.find((x) => x.id === recipeId);
+          if (!r) return;
+          currentEditId = recipeId;
+          document.getElementById("modal-title").textContent =
+            "✎ Modifier la recette";
+          document.getElementById("submit-btn").textContent =
+            "💾 Enregistrer les modifications";
+          document.getElementById("f-title").value = r.title || "";
+          document.getElementById("f-desc").value = r.description || "";
+          document.getElementById("f-cat").value = r.category || "";
+          document.getElementById("f-diff").value = r.difficulty || "Facile";
+          document.getElementById("f-time").value = r.time || "";
+          document.getElementById("f-prep").value = r.prepTime || "";
+          document.getElementById("f-serv").value = r.servings || "";
+          document.getElementById("f-img").value = r.image || "";
+          document.getElementById("f-yt").value = r.youtubeId
+            ? `https://www.youtube.com/watch?v=${r.youtubeId}`
+            : "";
+          if (r.image) {
+            const p = document.getElementById("img-preview");
+            p.src = r.image;
+            p.style.display = "block";
+          }
+          const ingList = document.getElementById("ing-list");
+          ingList.innerHTML = "";
+          (r.ingredients || []).forEach((v) => addIngredientRow(v));
+          const stepList = document.getElementById("step-list");
+          stepList.innerHTML = "";
+          (r.steps || []).forEach((v) => addStepRow(v));
+          document.getElementById("add-modal").classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeAddModal() {
+          document.getElementById("add-modal").classList.remove("open");
+          document.body.style.overflow = "";
+          resetForm();
+        }
+
+        function resetForm() {
+          [
+            "f-title",
+            "f-desc",
+            "f-cat",
+            "f-time",
+            "f-prep",
+            "f-serv",
+            "f-img",
+            "f-yt",
+          ].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) el.value = "";
+          });
+          const diff = document.getElementById("f-diff");
+          if (diff) diff.value = "Facile";
+          const preview = document.getElementById("img-preview");
+          if (preview) preview.style.display = "none";
+          const err = document.getElementById("form-error");
+          if (err) err.style.display = "none";
+        }
+
+        function initFormLists() {
+          document.getElementById("ing-list").innerHTML = "";
+          document.getElementById("step-list").innerHTML = "";
+          addIngredientRow();
+          addIngredientRow();
+          addIngredientRow();
+          addStepRow();
+          addStepRow();
+        }
+
+        function addIngredientRow(val = "") {
+          const list = document.getElementById("ing-list");
+          if (!list) return;
+          const item = document.createElement("div");
+          item.className = "dynamic-item";
+          item.innerHTML = `<span style="color:#ff6b00;font-size:18px">•</span><input type="text" placeholder="Ex: 200g de farine" value="${val.replace(/"/g, "&quot;")}"/><button class="dynamic-remove">✕</button>`;
+          item
+            .querySelector(".dynamic-remove")
+            .addEventListener("click", () => item.remove());
+          list.appendChild(item);
+        }
+
+        function addStepRow(val = "") {
+          const list = document.getElementById("step-list");
+          if (!list) return;
+          const n = list.children.length + 1;
+          const item = document.createElement("div");
+          item.className = "dynamic-item";
+          item.innerHTML = `<span style="background:linear-gradient(135deg,#ff6b00,#ff9d00);color:#fff;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0">${n}</span><input type="text" placeholder="Décrivez cette étape..." value="${val.replace(/"/g, "&quot;")}"/><button class="dynamic-remove">✕</button>`;
+          item
+            .querySelector(".dynamic-remove")
+            .addEventListener("click", () => {
+              item.remove();
+              document
+                .querySelectorAll("#step-list .dynamic-item")
+                .forEach((el, i) => {
+                  const s = el.querySelector("span");
+                  if (s) s.textContent = i + 1;
+                });
+            });
+          list.appendChild(item);
+        }
+
+        function submitRecipe() {
+          const err = document.getElementById("form-error");
+          const title = document.getElementById("f-title").value.trim();
+          const desc = document.getElementById("f-desc").value.trim();
+          const cat = document.getElementById("f-cat").value;
+          const diff = document.getElementById("f-diff").value;
+          const ytRaw = document.getElementById("f-yt").value.trim();
+          const ytId = ytRaw ? extractYouTubeId(ytRaw) : null;
+          const ings = Array.from(document.querySelectorAll("#ing-list input"))
+            .map((i) => i.value.trim())
+            .filter(Boolean);
+          const steps = Array.from(
+            document.querySelectorAll("#step-list input"),
+          )
+            .map((i) => i.value.trim())
+            .filter(Boolean);
+          if (!title || !desc || !cat) {
+            err.textContent =
+              "⚠️ Veuillez remplir le titre, la description et la catégorie.";
+            err.style.display = "block";
+            return;
+          }
+          if (ings.length === 0) {
+            err.textContent = "⚠️ Ajoutez au moins un ingrédient.";
+            err.style.display = "block";
+            return;
+          }
+          if (steps.length === 0) {
+            err.textContent = "⚠️ Ajoutez au moins une étape de préparation.";
+            err.style.display = "block";
+            return;
+          }
+          if (ytRaw && !ytId) {
+            err.textContent = "⚠️ Le lien YouTube ne semble pas valide.";
+            err.style.display = "block";
+            return;
+          }
+          const imgVal =
+            document.getElementById("f-img").value.trim() ||
+            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
+
+          if (currentEditId && isAdmin) {
+            const idx = recipes.findIndex((r) => r.id === currentEditId);
+            if (idx !== -1) {
+              recipes[idx] = {
+                ...recipes[idx],
+                title,
+                description: desc,
+                category: cat,
+                difficulty: diff,
+                time: document.getElementById("f-time").value.trim() || "—",
+                servings: document.getElementById("f-serv").value.trim() || "—",
+                prepTime: document.getElementById("f-prep").value.trim() || "—",
+                image: imgVal,
+                youtubeId: ytId || null,
+                ingredients: ings,
+                steps,
+              };
+            }
+            saveRecipes();
+            closeAddModal();
+            showToast("✅ Recette modifiée avec succès !");
+            const updated = recipes.find((r) => r.id === currentEditId);
+            if (updated) openRecipe(updated);
+          } else {
+            const newR = {
+              id: nextId++,
+              title,
+              description: desc,
+              category: cat,
+              difficulty: diff,
+              time: document.getElementById("f-time").value.trim() || "—",
+              servings: document.getElementById("f-serv").value.trim() || "—",
+              prepTime: document.getElementById("f-prep").value.trim() || "—",
+              cookTime: "—",
+              image: imgVal,
+              youtubeId: ytId || null,
+              ingredients: ings,
+              steps,
+              isUserRecipe: true,
+              authorId: currentUser?.id || null,
+              authorName: currentUser?.username || "Anonyme",
+            };
+            recipes.unshift(newR);
+            saveRecipes();
+            closeAddModal();
+            showToast("🎉 Votre recette a été publiée !");
+            showPage("recipes");
+          }
+        }
+
+        /* ============================================================
+     MODAL VIDÉO
+  ============================================================ */
+        function openEditVideoModal(recipeId) {
+          if (!isAdmin) return;
+          const r = recipes.find((x) => x.id === recipeId);
+          if (!r) return;
+          const overlay = document.getElementById("edit-video-overlay");
+          document.getElementById("edit-video-input").value = r.youtubeId
+            ? `https://www.youtube.com/watch?v=${r.youtubeId}`
+            : "";
+          overlay.dataset.recipeId = recipeId;
+          document.getElementById("edit-video-error").style.display = "none";
+          overlay.classList.add("open");
+          document.getElementById("edit-video-input").focus();
+        }
+
+        function saveEditVideo() {
+          const overlay = document.getElementById("edit-video-overlay");
+          const recipeId = parseInt(overlay.dataset.recipeId);
+          const raw = document.getElementById("edit-video-input").value.trim();
+          const ytId = raw ? extractYouTubeId(raw) : null;
+          if (raw && !ytId) {
+            document.getElementById("edit-video-error").style.display = "block";
+            return;
+          }
+          const r = recipes.find((x) => x.id === recipeId);
+          if (r) {
+            r.youtubeId = ytId;
+            saveRecipes();
+            overlay.classList.remove("open");
+            openRecipe(r);
+            showToast("✅ Vidéo mise à jour");
+          }
+        }
+
+        /* ============================================================
+     SUPPRESSION
+  ============================================================ */
+        function deleteRecipe(recipeId) {
+          const r = recipes.find((x) => x.id === recipeId);
+          if (!r) return;
+          // Admin peut tout supprimer, user seulement ses propres recettes
+          if (
+            !isAdmin &&
+            !(r.isUserRecipe && currentUser && r.authorId === currentUser.id)
+          )
+            return;
+          pendingDeleteId = recipeId;
+          document.getElementById("confirm-title").textContent =
+            "🗑️ Supprimer la recette";
+          document.getElementById("confirm-message").innerHTML =
+            `Êtes-vous sûr de vouloir supprimer "<strong>${r.title}</strong>" ? Cette action est irréversible.`;
+          document.getElementById("confirm-overlay").classList.add("open");
+        }
+
+        function confirmDelete() {
+          if (!pendingDeleteId) return;
+          favorites = favorites.filter((f) => f !== pendingDeleteId);
+          if (currentUser) saveFavorites(currentUser.id);
+          recipes = recipes.filter((r) => r.id !== pendingDeleteId);
+          saveRecipes();
+          pendingDeleteId = null;
+          updateFavBadge();
+          document.getElementById("confirm-overlay").classList.remove("open");
+          showPage(previousPage);
+          showToast("✅ Recette supprimée avec succès");
+        }
+
+        /* ============================================================
+     INIT
+  ============================================================ */
+        document.addEventListener("DOMContentLoaded", function () {
+          // Nav
+          document
+            .getElementById("logo-btn")
+            .addEventListener("click", () => showPage("home"));
+          document
+            .getElementById("nav-home")
+            .addEventListener("click", () => showPage("home"));
+          document
+            .getElementById("nav-recipes")
+            .addEventListener("click", () => showPage("recipes"));
+          document
+            .getElementById("nav-favorites")
+            .addEventListener("click", () => showPage("favorites"));
+          document
+            .getElementById("admin-login-btn")
+            .addEventListener("click", toggleAdmin);
+          document
+            .getElementById("theme-toggle-btn")
+            .addEventListener("click", toggleTheme);
+          document
+            .getElementById("add-recipe-btn")
+            .addEventListener("click", openAddModal);
+          document
+            .getElementById("back-btn")
+            .addEventListener("click", () => showPage(previousPage));
+          document
+            .getElementById("user-auth-btn")
+            .addEventListener("click", openAuthModal);
+
+          // Footer navigation
+          document
+            .querySelectorAll(".footer-links button[data-page]")
+            .forEach((btn) => {
+              btn.addEventListener("click", () => showPage(btn.dataset.page));
+            });
+          document
+            .getElementById("footer-add-recipe-btn")
+            .addEventListener("click", openAddModal);
+          document.querySelectorAll(".footer-cat-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              currentFilter = btn.dataset.cat;
+              document.getElementById("recipe-search").value = "";
+              showPage("recipes");
+              document.querySelectorAll(".filter-btn").forEach((b) => {
+                b.classList.toggle(
+                  "active",
+                  b.dataset.filter === currentFilter,
+                );
+              });
+            });
+          });
+
+          // Auth modal
+          document
+            .getElementById("auth-close-btn")
+            .addEventListener("click", () => {
+              document.getElementById("auth-overlay").classList.remove("open");
+              document.body.style.overflow = "";
+            });
+          document
+            .getElementById("tab-login")
+            .addEventListener("click", showLoginForm);
+          document
+            .getElementById("tab-register")
+            .addEventListener("click", showRegisterForm);
+          document
+            .getElementById("login-submit-btn")
+            .addEventListener("click", doLogin);
+          document
+            .getElementById("reg-submit-btn")
+            .addEventListener("click", doRegister);
+          document
+            .getElementById("login-password")
+            .addEventListener("keydown", (e) => {
+              if (e.key === "Enter") doLogin();
+            });
+          document
+            .getElementById("auth-overlay")
+            .addEventListener("click", (e) => {
+              if (e.target === document.getElementById("auth-overlay")) {
+                document
+                  .getElementById("auth-overlay")
+                  .classList.remove("open");
+                document.body.style.overflow = "";
+              }
+            });
+
+          // Recherche hero
+          document
+            .getElementById("hero-search-btn")
+            .addEventListener("click", () => {
+              const val = document.getElementById("hero-search").value;
+              document.getElementById("recipe-search").value = val;
+              currentFilter = "Tout";
+              document
+                .querySelectorAll(".filter-btn")
+                .forEach((b) => b.classList.remove("active"));
+              document
+                .querySelector(".filter-btn[data-filter='Tout']")
+                .classList.add("active");
+              showPage("recipes");
+            });
+          document
+            .getElementById("hero-search")
+            .addEventListener("keydown", (e) => {
+              if (e.key === "Enter")
+                document.getElementById("hero-search-btn").click();
+            });
+
+          // Catégories
+          document.querySelectorAll(".cat-card[data-cat]").forEach((card) => {
+            card.addEventListener("click", () => {
+              currentFilter = card.dataset.cat;
+              document.getElementById("recipe-search").value = "";
+              showPage("recipes");
+              document.querySelectorAll(".filter-btn").forEach((b) => {
+                b.classList.toggle(
+                  "active",
+                  b.dataset.filter === currentFilter,
+                );
+              });
+            });
+          });
+          document
+            .getElementById("add-cat-card")
+            .addEventListener("click", openAddModal);
+
+          // Filtres
+          document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              currentFilter = btn.dataset.filter;
+              document
+                .querySelectorAll(".filter-btn")
+                .forEach((b) => b.classList.remove("active"));
+              btn.classList.add("active");
+              renderRecipes();
+            });
+          });
+          document
+            .getElementById("recipe-search")
+            .addEventListener("input", renderRecipes);
+          document.querySelectorAll(".see-all[data-page]").forEach((btn) => {
+            btn.addEventListener("click", () => showPage(btn.dataset.page));
+          });
+
+          // Modal ajout
+          document
+            .getElementById("modal-close-btn")
+            .addEventListener("click", closeAddModal);
+          document
+            .getElementById("add-modal")
+            .addEventListener("click", (e) => {
+              if (e.target === document.getElementById("add-modal"))
+                closeAddModal();
+            });
+          document
+            .getElementById("add-ing-btn")
+            .addEventListener("click", () => addIngredientRow());
+          document
+            .getElementById("add-step-btn")
+            .addEventListener("click", () => addStepRow());
+          document
+            .getElementById("submit-btn")
+            .addEventListener("click", submitRecipe);
+          document.getElementById("f-img").addEventListener("input", () => {
+            const url = document.getElementById("f-img").value;
+            const p = document.getElementById("img-preview");
+            if (url.trim()) {
+              p.src = url;
+              p.style.display = "block";
+              p.onerror = () => (p.style.display = "none");
+            } else p.style.display = "none";
+          });
+
+          // Modal vidéo
+          document
+            .getElementById("close-video-btn")
+            .addEventListener("click", () =>
+              document
+                .getElementById("edit-video-overlay")
+                .classList.remove("open"),
+            );
+          document
+            .getElementById("save-video-btn")
+            .addEventListener("click", saveEditVideo);
+          document
+            .getElementById("edit-video-input")
+            .addEventListener("keydown", (e) => {
+              if (e.key === "Enter") saveEditVideo();
+            });
+          document
+            .getElementById("edit-video-overlay")
+            .addEventListener("click", (e) => {
+              if (e.target === document.getElementById("edit-video-overlay"))
+                document
+                  .getElementById("edit-video-overlay")
+                  .classList.remove("open");
+            });
+
+          // Modal suppression
+          document
+            .getElementById("cancel-delete-btn")
+            .addEventListener("click", () => {
+              document
+                .getElementById("confirm-overlay")
+                .classList.remove("open");
+              pendingDeleteId = null;
+            });
+          document
+            .getElementById("confirm-delete-btn")
+            .addEventListener("click", confirmDelete);
+          document
+            .getElementById("confirm-overlay")
+            .addEventListener("click", (e) => {
+              if (e.target === document.getElementById("confirm-overlay")) {
+                document
+                  .getElementById("confirm-overlay")
+                  .classList.remove("open");
+                pendingDeleteId = null;
+              }
+            });
+
+          // Init render
+          renderHomeGrid();
+          renderRecipes();
+          updateFavBadge();
+          updateAdminUI();
+          updateAuthUI();
+        });
+      })();
     </script>
   </body>
 </html>
