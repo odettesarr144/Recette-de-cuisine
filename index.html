@@ -100,7 +100,7 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 10px;
       }
       .nav-btn {
         background: none;
@@ -129,6 +129,191 @@
         padding: 1px 7px;
         margin-left: 4px;
       }
+
+      /* NAV DIVIDER */
+      .nav-divider {
+        width: 1px;
+        height: 22px;
+        background: var(--border);
+        margin: 0 2px;
+      }
+
+      /* COMPACT ADD BUTTON */
+      .add-recipe-nav-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 12px;
+        font-weight: 900;
+        font-size: 20px;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.15s;
+        line-height: 1;
+        width: 38px;
+        height: 38px;
+        position: relative;
+      }
+      .add-recipe-nav-btn:hover {
+        opacity: 0.88;
+        transform: scale(1.08) rotate(90deg);
+      }
+      .add-recipe-nav-btn .add-tooltip {
+        position: absolute;
+        bottom: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 9px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 10;
+      }
+      .add-recipe-nav-btn:hover .add-tooltip {
+        opacity: 1;
+      }
+
+      /* ICON BUTTON — user auth & theme */
+      .icon-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--filter-bg);
+        border: 1.5px solid var(--border);
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.2s;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        border-color: #ff6b00;
+        background: rgba(255, 107, 0, 0.06);
+      }
+      .icon-btn.logged-in {
+        background: #fff3e8;
+        border-color: #ff6b00;
+      }
+      .icon-btn .icon-tooltip {
+        position: absolute;
+        bottom: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 9px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 10;
+      }
+      .icon-btn:hover .icon-tooltip {
+        opacity: 1;
+      }
+      .user-avatar-mini {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      /* Keep old user-auth-btn for JS compat but override visually */
+      .user-auth-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--filter-bg);
+        border: 1.5px solid var(--border);
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.2s;
+        position: relative;
+        flex-shrink: 0;
+        font-family: "Nunito", sans-serif;
+      }
+      .user-auth-btn:hover {
+        border-color: #ff6b00;
+        background: rgba(255, 107, 0, 0.06);
+      }
+      .user-auth-btn.logged-in {
+        background: #fff3e8;
+        border-color: #ff6b00;
+      }
+      #user-auth-label {
+        display: none;
+      }
+
+      /* Theme toggle — icon only */
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        cursor: pointer;
+        border-radius: 10px;
+        background: var(--toggle-bg);
+        border: 1.5px solid var(--border);
+        transition: all 0.3s;
+        font-size: 17px;
+        position: relative;
+      }
+      .theme-toggle:hover {
+        border-color: #ff6b00;
+      }
+      .toggle-track {
+        display: none;
+      }
+      .theme-toggle .icon-tooltip {
+        position: absolute;
+        bottom: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 9px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 10;
+      }
+      .theme-toggle:hover .icon-tooltip {
+        opacity: 1;
+      }
+
       /* FOOTER */
       .site-footer {
         background: #1a1a1a;
@@ -303,37 +488,19 @@
           gap: 32px;
         }
         .site-footer {
-          padding: 40px 20px 24px;
+          padding: 40px 24px 24px;
         }
       }
       @media (max-width: 600px) {
         .footer-grid {
           grid-template-columns: 1fr;
+          gap: 28px;
         }
         .footer-bottom {
           flex-direction: column;
           gap: 12px;
           text-align: center;
         }
-      }
-      .add-recipe-nav-btn {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        background: linear-gradient(135deg, #ff6b00, #ff9d00);
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        padding: 9px 18px;
-        font-weight: 800;
-        font-size: 14px;
-        font-family: "Nunito", sans-serif;
-        cursor: pointer;
-        transition: opacity 0.2s;
-        white-space: nowrap;
-      }
-      .add-recipe-nav-btn:hover {
-        opacity: 0.88;
       }
       /* User auth button */
       .user-auth-btn {
@@ -371,50 +538,6 @@
         justify-content: center;
         font-size: 12px;
         font-weight: 900;
-      }
-      .theme-toggle {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        cursor: pointer;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: var(--toggle-bg);
-        border: 1.5px solid var(--border);
-        transition: all 0.3s;
-        font-size: 14px;
-        font-family: "Nunito", sans-serif;
-        font-weight: 700;
-        color: var(--text2);
-      }
-      .theme-toggle:hover {
-        border-color: #ff6b00;
-        color: #ff6b00;
-      }
-      .toggle-track {
-        width: 38px;
-        height: 20px;
-        background: var(--border);
-        border-radius: 999px;
-        position: relative;
-        transition: background 0.3s;
-      }
-      [data-theme="dark"] .toggle-track {
-        background: #ff6b00;
-      }
-      .toggle-thumb {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 14px;
-        height: 14px;
-        background: #fff;
-        border-radius: 50%;
-        transition: transform 0.3s;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-      }
-      [data-theme="dark"] .toggle-thumb {
-        transform: translateX(18px);
       }
       .page {
         display: none;
@@ -1714,53 +1837,550 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
-      /* Toast */
-      @media (max-width: 900px) {
-        .cat-grid,
-        .recipe-grid {
-          grid-template-columns: repeat(2, 1fr);
+      /* =============================================
+         HAMBURGER MENU (mobile)
+      ============================================= */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 6px;
+        border-radius: 8px;
+        transition: background 0.2s;
+        z-index: 300;
+      }
+      .hamburger:hover {
+        background: var(--border2);
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2.5px;
+        background: var(--text);
+        border-radius: 4px;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
+
+      /* Mobile nav drawer */
+      .mobile-nav-drawer {
+        display: none;
+        position: fixed;
+        top: 66px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--border2);
+        box-shadow: 0 8px 32px var(--shadow2);
+        z-index: 199;
+        padding: 16px 20px 24px;
+        flex-direction: column;
+        gap: 4px;
+        animation: slideDown 0.25s ease;
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
         }
-        .detail-cols {
-          grid-template-columns: 1fr;
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .mobile-nav-drawer.open {
+        display: flex;
+      }
+      .mobile-nav-item {
+        background: none;
+        border: none;
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text2);
+        padding: 13px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .mobile-nav-item:hover,
+      .mobile-nav-item.active {
+        background: rgba(255, 107, 0, 0.08);
+        color: #ff6b00;
+      }
+      .mobile-nav-divider {
+        height: 1px;
+        background: var(--border2);
+        margin: 8px 0;
+      }
+      .mobile-nav-add {
+        background: linear-gradient(135deg, #ff6b00, #ff9d00);
+        color: #fff !important;
+        border-radius: 12px;
+        justify-content: center;
+        font-size: 15px;
+        margin-top: 4px;
+      }
+      .mobile-nav-add:hover {
+        opacity: 0.9;
+        background: linear-gradient(135deg, #ff6b00, #ff9d00) !important;
+      }
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        top: 66px;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 198;
+      }
+      .mobile-overlay.open {
+        display: block;
+      }
+
+      /* =============================================
+         LARGE DESKTOP  ≥ 1400px
+      ============================================= */
+      @media (min-width: 1400px) {
+        .section {
+          padding: 64px 80px;
+        }
+        nav {
+          padding: 0 80px;
+        }
+        .cat-grid {
+          grid-template-columns: repeat(5, 1fr);
+        }
+        .recipe-grid {
+          grid-template-columns: repeat(3, 1fr);
         }
         .hero-content {
-          padding: 0 32px;
+          padding: 0 100px;
         }
         .hero-content h1 {
-          font-size: 36px;
+          font-size: 62px;
         }
-        nav,
+        .detail-wrap {
+          max-width: 1200px;
+          padding: 0 60px 100px;
+        }
+      }
+
+      /* =============================================
+         TABLET LANDSCAPE  900px – 1199px
+      ============================================= */
+      @media (max-width: 1199px) {
+        nav {
+          padding: 0 32px;
+        }
         .section {
-          padding-left: 20px;
-          padding-right: 20px;
+          padding: 48px 32px;
+        }
+        .cat-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+        .cat-card {
+          height: 210px;
+        }
+        .recipe-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+        .hero-content {
+          padding: 0 48px;
+        }
+        .hero-content h1 {
+          font-size: 44px;
+        }
+        .detail-wrap {
+          padding: 0 32px 80px;
+        }
+        .detail-title {
+          font-size: 34px;
+        }
+        .meta-bar-items {
+          gap: 28px;
+          flex-wrap: wrap;
         }
         .form-row {
           grid-template-columns: 1fr 1fr;
         }
+        .modal {
+          padding: 32px;
+        }
+      }
+
+      /* =============================================
+         TABLET PORTRAIT  600px – 899px
+      ============================================= */
+      @media (max-width: 899px) {
+        /* Nav — hide text links, show hamburger */
+        nav {
+          padding: 0 20px;
+          height: 60px;
+        }
+        .mobile-nav-drawer {
+          top: 60px;
+        }
+        .mobile-overlay {
+          top: 60px;
+        }
         .nav-links {
-          gap: 10px;
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+
+        /* Hero */
+        .hero {
+          height: 380px;
+        }
+        .hero-content {
+          padding: 0 28px;
+        }
+        .hero-content h1 {
+          font-size: 34px;
+        }
+        .hero-content p {
+          font-size: 14px;
+        }
+        .search-bar {
+          max-width: 100%;
+        }
+
+        /* Sections */
+        .section {
+          padding: 36px 20px;
+        }
+        .section-title {
+          font-size: 24px;
+        }
+
+        /* Grids */
+        .cat-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+        .cat-card {
+          height: 190px;
+        }
+        .recipe-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+
+        /* Detail */
+        .detail-wrap {
+          padding: 0 20px 60px;
+        }
+        .detail-hero {
+          height: 260px;
+        }
+        .detail-title {
+          font-size: 28px;
+        }
+        .detail-cols {
+          grid-template-columns: 1fr;
+          gap: 20px;
         }
         .meta-bar {
           flex-direction: column;
           gap: 16px;
           align-items: flex-start;
+          padding: 20px;
         }
         .meta-bar-items {
-          gap: 24px;
+          gap: 20px;
           flex-wrap: wrap;
         }
+
+        /* Modal */
+        .modal {
+          padding: 28px 22px;
+          border-radius: 18px;
+          width: 95%;
+        }
+        .form-row {
+          grid-template-columns: 1fr 1fr;
+        }
+        .modal-title {
+          font-size: 20px;
+        }
+
+        /* Rating */
+        .rating-summary {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
       }
-      @media (max-width: 600px) {
-        .cat-grid,
-        .recipe-grid {
-          grid-template-columns: 1fr;
+
+      /* =============================================
+         MOBILE  ≤ 599px
+      ============================================= */
+      @media (max-width: 599px) {
+        /* Nav */
+        nav {
+          padding: 0 16px;
+        }
+        .logo-text {
+          font-size: 14px;
+        }
+        .logo-icon {
+          width: 32px;
+          height: 32px;
+          font-size: 16px;
+        }
+
+        /* Hero */
+        .hero {
+          height: 300px;
+        }
+        .hero-content {
+          padding: 0 20px;
         }
         .hero-content h1 {
-          font-size: 28px;
+          font-size: 26px;
+          line-height: 1.15;
+        }
+        .hero-content p {
+          font-size: 13px;
+          margin-bottom: 18px;
+        }
+        .search-bar input {
+          padding: 12px 16px;
+          font-size: 14px;
+        }
+        .search-bar button {
+          padding: 12px 18px;
+          font-size: 14px;
+        }
+
+        /* Sections */
+        .section {
+          padding: 28px 16px;
+        }
+        .section-title {
+          font-size: 22px;
+        }
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .section-heading {
+          gap: 10px;
+        }
+        .section-icon {
+          width: 38px;
+          height: 38px;
+          font-size: 18px;
+        }
+
+        /* Grids — single column on mobile */
+        .cat-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+        .cat-card {
+          height: 150px;
+        }
+        .cat-name {
+          font-size: 15px;
+        }
+        .cat-info {
+          bottom: 14px;
+          left: 14px;
+        }
+        .recipe-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .recipe-img {
+          height: 200px;
+        }
+
+        /* Detail */
+        .detail-wrap {
+          padding: 0 16px 50px;
+        }
+        .back-btn {
+          padding: 16px 0;
+          font-size: 14px;
+        }
+        .detail-hero {
+          height: 220px;
+          border-radius: 14px;
+        }
+        .detail-title {
+          font-size: 22px;
+        }
+        .detail-badges {
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+        .detail-desc {
+          font-size: 14px;
+        }
+        .meta-bar {
+          padding: 16px;
+          border-radius: 12px;
+        }
+        .meta-bar-items {
+          gap: 16px;
+        }
+        .meta-item-value {
+          font-size: 15px;
+        }
+        .meta-item-label {
+          font-size: 11px;
+        }
+        .detail-cols {
+          gap: 16px;
+        }
+        .ingredients-box {
+          padding: 20px 16px;
+        }
+        .box-title {
+          font-size: 16px;
+        }
+        .step-card {
+          padding: 16px;
+          gap: 12px;
+        }
+        .step-text {
+          font-size: 14px;
+        }
+
+        /* Buttons in meta bar */
+        .add-fav-btn,
+        .edit-recipe-btn {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+        .delete-recipe-btn {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+
+        /* Modal */
+        .modal {
+          padding: 22px 18px;
+          border-radius: 16px;
+          max-height: 95vh;
+        }
+        .modal-title {
+          font-size: 18px;
         }
         .form-row,
         .form-cols {
           grid-template-columns: 1fr;
+        }
+        .form-label {
+          font-size: 12px;
+        }
+        .auth-modal {
+          padding: 28px 20px;
+          border-radius: 18px;
+        }
+
+        /* Filters */
+        .filters {
+          gap: 8px;
+        }
+        .filter-input {
+          width: 100%;
+        }
+        .filter-btn {
+          padding: 9px 14px;
+          font-size: 13px;
+        }
+
+        /* Rating */
+        .rating-section {
+          padding: 20px 16px;
+        }
+        .rating-big-num {
+          font-size: 40px;
+        }
+        .rating-summary {
+          flex-direction: column;
+          gap: 14px;
+        }
+        .star-input span {
+          font-size: 24px;
+        }
+
+        /* Review cards */
+        .review-card {
+          padding: 14px 16px;
+        }
+
+        /* Video */
+        .video-play-btn {
+          width: 60px;
+          height: 60px;
+        }
+        .video-play-label {
+          font-size: 13px;
+        }
+
+        /* Footer */
+        .site-footer {
+          padding: 36px 16px 20px;
+        }
+        .footer-bottom-links {
+          gap: 12px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      /* =============================================
+         VERY SMALL  ≤ 380px
+      ============================================= */
+      @media (max-width: 380px) {
+        .hero {
+          height: 260px;
+        }
+        .hero-content h1 {
+          font-size: 22px;
+        }
+        .cat-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+        }
+        .cat-card {
+          height: 130px;
+        }
+        .recipe-title {
+          font-size: 15px;
+        }
+        .detail-title {
+          font-size: 18px;
+        }
+        .logo-text {
+          display: none;
         }
       }
     </style>
@@ -1779,19 +2399,67 @@
             >0</span
           >
         </button>
-        <button id="add-recipe-btn" class="add-recipe-nav-btn">
-          + Ajouter une recette
+
+        <div class="nav-divider"></div>
+
+        <!-- Bouton Ajouter — icône + uniquement -->
+        <button
+          id="add-recipe-btn"
+          class="add-recipe-nav-btn"
+          title="Ajouter une recette"
+        >
+          +
+          <span class="add-tooltip">Ajouter une recette</span>
         </button>
-        <button id="user-auth-btn" class="user-auth-btn">
-          <span id="user-auth-icon">👤</span
-          ><span id="user-auth-label">Connexion</span>
+
+        <!-- Bouton Connexion — icône uniquement -->
+        <button
+          id="user-auth-btn"
+          class="user-auth-btn"
+          title="Connexion / Mon compte"
+        >
+          <span id="user-auth-icon">👤</span><span id="user-auth-label"></span>
         </button>
-        <button id="theme-toggle-btn" class="theme-toggle">
+
+        <!-- Bouton thème — icône uniquement -->
+        <button
+          id="theme-toggle-btn"
+          class="theme-toggle"
+          title="Changer le thème"
+        >
           <span id="theme-icon">🌙</span>
           <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="icon-tooltip" id="theme-tooltip">Mode sombre</span>
         </button>
       </div>
+
+      <!-- Hamburger visible uniquement mobile/tablette -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- Drawer mobile -->
+    <div class="mobile-nav-drawer" id="mobile-drawer">
+      <button class="mobile-nav-item" id="m-nav-home">🏠 Accueil</button>
+      <button class="mobile-nav-item" id="m-nav-recipes">📖 Recettes</button>
+      <button class="mobile-nav-item" id="m-nav-favorites">
+        ♡ Favoris
+        <span id="m-fav-badge" class="fav-badge" style="display: none">0</span>
+      </button>
+      <div class="mobile-nav-divider"></div>
+      <button class="mobile-nav-item mobile-nav-add" id="m-add-recipe-btn">
+        + Ajouter une recette
+      </button>
+      <div class="mobile-nav-divider"></div>
+      <button class="mobile-nav-item" id="m-user-auth-btn">
+        👤 <span id="m-user-label">Connexion</span>
+      </button>
+      <button class="mobile-nav-item" id="m-theme-btn">
+        🌙 <span id="m-theme-label">Mode sombre</span>
+      </button>
+    </div>
+    <div class="mobile-overlay" id="mobile-overlay"></div>
 
     <!-- PAGE ACCUEIL -->
     <div id="page-home" class="page active">
@@ -1989,7 +2657,6 @@
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-grid">
-        <!-- Branding -->
         <div class="footer-brand">
           <div
             style="
@@ -2020,8 +2687,6 @@
             <a href="#" title="Pinterest">📌</a>
           </div>
         </div>
-
-        <!-- Navigation -->
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul class="footer-links">
@@ -2033,8 +2698,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- Catégories -->
         <div class="footer-col">
           <h4>Catégories</h4>
           <ul class="footer-links">
@@ -2060,8 +2723,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- Zone Admin -->
         <div class="footer-col">
           <h4>Administration</h4>
           <div class="footer-admin-box">
@@ -2079,9 +2740,7 @@
           </div>
         </div>
       </div>
-
       <hr class="footer-divider" />
-
       <div class="footer-bottom">
         <span>© 2025 Chef à la Maison · Fait avec ❤️ et 🧑‍🍳</span>
         <div class="footer-bottom-links">
@@ -2100,8 +2759,8 @@
           <button class="modal-close" id="modal-close-btn">✕</button>
         </div>
         <div class="form-group">
-          <label class="form-label">Titre de la recette *</label
-          ><input
+          <label class="form-label">Titre de la recette *</label>
+          <input
             class="form-input"
             id="f-title"
             type="text"
@@ -2109,8 +2768,8 @@
           />
         </div>
         <div class="form-group">
-          <label class="form-label">Description *</label
-          ><textarea
+          <label class="form-label">Description *</label>
+          <textarea
             class="form-textarea"
             id="f-desc"
             placeholder="Décrivez votre recette en quelques mots..."
@@ -2118,8 +2777,8 @@
         </div>
         <div class="form-cols">
           <div class="form-group">
-            <label class="form-label">Catégorie *</label
-            ><select class="form-select" id="f-cat">
+            <label class="form-label">Catégorie *</label>
+            <select class="form-select" id="f-cat">
               <option value="">Choisir...</option>
               <option value="Entrées">Entrées</option>
               <option value="Plats">Plats</option>
@@ -2128,8 +2787,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Difficulté</label
-            ><select class="form-select" id="f-diff">
+            <label class="form-label">Difficulté</label>
+            <select class="form-select" id="f-diff">
               <option value="Facile">Facile</option>
               <option value="Moyen">Moyen</option>
               <option value="Difficile">Difficile</option>
@@ -2138,8 +2797,8 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Temps total</label
-            ><input
+            <label class="form-label">Temps total</label>
+            <input
               class="form-input"
               id="f-time"
               type="text"
@@ -2147,8 +2806,8 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-label">Préparation</label
-            ><input
+            <label class="form-label">Préparation</label>
+            <input
               class="form-input"
               id="f-prep"
               type="text"
@@ -2156,8 +2815,8 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-label">Portions</label
-            ><input
+            <label class="form-label">Portions</label>
+            <input
               class="form-input"
               id="f-serv"
               type="text"
@@ -2166,17 +2825,18 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">URL de l'image</label
-          ><input
+          <label class="form-label">URL de l'image</label>
+          <input
             class="form-input"
             id="f-img"
             type="text"
             placeholder="https://..."
-          /><img id="img-preview" class="img-preview" alt="Aperçu" />
+          />
+          <img id="img-preview" class="img-preview" alt="Aperçu" />
         </div>
         <div class="form-group">
-          <label class="form-label">📺 Vidéo YouTube (optionnel)</label
-          ><input
+          <label class="form-label">📺 Vidéo YouTube (optionnel)</label>
+          <input
             class="form-input"
             id="f-yt"
             type="text"
@@ -2286,14 +2946,16 @@
           <button class="auth-tab active" id="tab-login">Connexion</button>
           <button class="auth-tab" id="tab-register">Inscription</button>
         </div>
-        <!-- Login -->
+
+        <!-- FORMULAIRE CONNEXION -->
         <div id="login-form">
-          <label class="auth-label">Nom d'utilisateur</label>
+          <label class="auth-label">Email ou pseudo</label>
           <input
             class="auth-field"
             id="login-username"
             type="text"
-            placeholder="Votre pseudo"
+            placeholder="votre@email.com ou pseudo"
+            autocomplete="username"
           />
           <label class="auth-label">Mot de passe</label>
           <input
@@ -2301,20 +2963,87 @@
             id="login-password"
             type="password"
             placeholder="••••••••"
+            autocomplete="current-password"
           />
-          <div class="auth-error" id="login-error"></div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin: 10px 0 4px;
+            "
+          >
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                font-size: 13px;
+                color: var(--text2);
+                cursor: pointer;
+              "
+            >
+              <input
+                type="checkbox"
+                id="login-remember"
+                style="accent-color: #ff6b00"
+              />
+              Se souvenir de moi
+            </label>
+            <button
+              id="forgot-link"
+              style="
+                background: none;
+                border: none;
+                color: #ff6b00;
+                font-size: 13px;
+                font-weight: 700;
+                cursor: pointer;
+                font-family: Nunito, sans-serif;
+              "
+            >
+              Mot de passe oublié ?
+            </button>
+          </div>
+          <div class="auth-error" id="login-error" style="display: none"></div>
           <button class="auth-submit" id="login-submit-btn">
             Se connecter
           </button>
+          <p
+            style="
+              text-align: center;
+              margin-top: 14px;
+              font-size: 13px;
+              color: var(--text3);
+            "
+          >
+            Pas encore de compte ?
+            <button
+              id="go-register-link"
+              style="
+                background: none;
+                border: none;
+                color: #ff6b00;
+                font-weight: 700;
+                cursor: pointer;
+                font-family: Nunito, sans-serif;
+                font-size: 13px;
+              "
+            >
+              S'inscrire
+            </button>
+          </p>
         </div>
-        <!-- Register -->
+
+        <!-- FORMULAIRE INSCRIPTION -->
         <div id="register-form" style="display: none">
           <label class="auth-label">Nom d'utilisateur *</label>
           <input
             class="auth-field"
             id="reg-username"
             type="text"
-            placeholder="Choisissez un pseudo"
+            placeholder="Choisissez un pseudo (3-30 car.)"
+            autocomplete="username"
           />
           <label class="auth-label">Email *</label>
           <input
@@ -2322,52 +3051,794 @@
             id="reg-email"
             type="email"
             placeholder="votre@email.com"
+            autocomplete="email"
           />
           <label class="auth-label">Mot de passe *</label>
           <input
             class="auth-field"
             id="reg-password"
             type="password"
-            placeholder="Minimum 6 caractères"
+            placeholder="Min. 8 car. · 1 maj · 1 chiffre"
+            autocomplete="new-password"
           />
-          <div class="auth-error" id="reg-error"></div>
+          <div
+            id="pw-strength"
+            style="
+              display: none;
+              margin: -6px 0 10px;
+              font-size: 12px;
+              font-weight: 700;
+            "
+          ></div>
+          <div class="auth-error" id="reg-error" style="display: none"></div>
           <button class="auth-submit" id="reg-submit-btn">
             Créer mon compte
+          </button>
+          <p
+            style="
+              text-align: center;
+              margin-top: 14px;
+              font-size: 12px;
+              color: var(--text3);
+              line-height: 1.6;
+            "
+          >
+            En créant un compte vous acceptez nos conditions d'utilisation.<br />
+            Un <strong>email de vérification</strong> vous sera envoyé.
+          </p>
+        </div>
+
+        <!-- FORMULAIRE MOT DE PASSE OUBLIÉ -->
+        <div id="forgot-form" style="display: none">
+          <div style="text-align: center; margin-bottom: 16px">
+            <div style="font-size: 36px">🔐</div>
+            <p
+              style="
+                color: var(--text2);
+                font-size: 14px;
+                margin-top: 8px;
+                line-height: 1.6;
+              "
+            >
+              Entrez votre email et nous vous enverrons un lien pour
+              réinitialiser votre mot de passe.
+            </p>
+          </div>
+          <label class="auth-label">Votre email</label>
+          <input
+            class="auth-field"
+            id="forgot-email"
+            type="email"
+            placeholder="votre@email.com"
+          />
+          <div
+            class="auth-error"
+            id="forgot-message"
+            style="
+              display: none;
+              background: rgba(255, 107, 0, 0.1);
+              color: #ff6b00;
+              border: none;
+            "
+          ></div>
+          <button class="auth-submit" id="forgot-submit-btn">
+            📧 Envoyer le lien
+          </button>
+          <button
+            id="forgot-back-btn"
+            style="
+              display: block;
+              width: 100%;
+              margin-top: 10px;
+              background: none;
+              border: 1.5px solid var(--border);
+              border-radius: 12px;
+              padding: 11px;
+              font-family: Nunito, sans-serif;
+              font-size: 14px;
+              font-weight: 700;
+              color: var(--text2);
+              cursor: pointer;
+            "
+          >
+            ← Retour à la connexion
           </button>
         </div>
       </div>
     </div>
 
     <script>
-      (function () {
-        /* ============================================================
-     CONSTANTES & DONNÉES PAR DÉFAUT
-  ============================================================ */
-        const DIFF_COLORS = {
-          Facile: "#6ee7b7",
-          Moyen: "#fcd34d",
-          Difficile: "#fca5a5",
-        };
-        const ADMIN_PASSWORD = "admin123";
-        const LS_RECIPES = "chefmaison_recipes";
-        const LS_USERS = "chefmaison_users";
-        const LS_SESSION = "chefmaison_session";
-        const LS_FAVORITES = "chefmaison_favorites";
-        const LS_REVIEWS = "chefmaison_reviews";
+      /* ════════════════════════════════════════════════════
+       DB — IndexedDB wrapper (vraie base de données locale)
+    ════════════════════════════════════════════════════ */
+      const DB_NAME = "chefmaison_v2";
+      const DB_VERSION = 1;
+
+      function openDB() {
+        return new Promise((resolve, reject) => {
+          const req = indexedDB.open(DB_NAME, DB_VERSION);
+          req.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains("users")) {
+              const us = db.createObjectStore("users", { keyPath: "id" });
+              us.createIndex("email", "email", { unique: true });
+              us.createIndex("username", "username", { unique: true });
+            }
+            if (!db.objectStoreNames.contains("tokens")) {
+              const ts = db.createObjectStore("tokens", { keyPath: "token" });
+              ts.createIndex("userId", "userId");
+            }
+            if (!db.objectStoreNames.contains("sessions")) {
+              const ss = db.createObjectStore("sessions", { keyPath: "id" });
+              ss.createIndex("userId", "userId");
+            }
+            if (!db.objectStoreNames.contains("recipes")) {
+              const rs = db.createObjectStore("recipes", {
+                keyPath: "id",
+                autoIncrement: true,
+              });
+              rs.createIndex("category", "category");
+              rs.createIndex("authorId", "authorId");
+            }
+            if (!db.objectStoreNames.contains("favorites")) {
+              const fs = db.createObjectStore("favorites", { keyPath: "key" });
+              fs.createIndex("userId", "userId");
+            }
+            if (!db.objectStoreNames.contains("reviews")) {
+              const rvs = db.createObjectStore("reviews", { keyPath: "id" });
+              rvs.createIndex("recipeId", "recipeId");
+              rvs.createIndex("userId", "userId");
+            }
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      const dbOps = {
+        async get(store, key) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db.transaction(store).objectStore(store).get(key);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+        async getByIndex(store, index, value) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db
+              .transaction(store)
+              .objectStore(store)
+              .index(index)
+              .get(value);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+        async getAllByIndex(store, index, value) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db
+              .transaction(store)
+              .objectStore(store)
+              .index(index)
+              .getAll(value);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+        async getAll(store) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db.transaction(store).objectStore(store).getAll();
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+        async put(store, obj) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db
+              .transaction(store, "readwrite")
+              .objectStore(store)
+              .put(obj);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+        async delete(store, key) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db
+              .transaction(store, "readwrite")
+              .objectStore(store)
+              .delete(key);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+        async add(store, obj) {
+          const db = await openDB();
+          return new Promise((res, rej) => {
+            const req = db
+              .transaction(store, "readwrite")
+              .objectStore(store)
+              .add(obj);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        },
+      };
+
+      /* ════════════════════════════════════════════════════
+       CRYPTO — Hash mot de passe (Web Crypto API)
+    ════════════════════════════════════════════════════ */
+      async function hashPassword(password) {
+        const salt = crypto.getRandomValues(new Uint8Array(16));
+        const enc = new TextEncoder();
+        const keyMaterial = await crypto.subtle.importKey(
+          "raw",
+          enc.encode(password),
+          "PBKDF2",
+          false,
+          ["deriveBits"],
+        );
+        const hash = await crypto.subtle.deriveBits(
+          { name: "PBKDF2", salt, iterations: 100000, hash: "SHA-256" },
+          keyMaterial,
+          256,
+        );
+        const saltHex = Array.from(salt)
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        const hashHex = Array.from(new Uint8Array(hash))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        return saltHex + ":" + hashHex;
+      }
+
+      async function verifyPassword(password, stored) {
+        const [saltHex, hashHex] = stored.split(":");
+        const salt = new Uint8Array(
+          saltHex.match(/.{2}/g).map((b) => parseInt(b, 16)),
+        );
+        const enc = new TextEncoder();
+        const keyMaterial = await crypto.subtle.importKey(
+          "raw",
+          enc.encode(password),
+          "PBKDF2",
+          false,
+          ["deriveBits"],
+        );
+        const hash = await crypto.subtle.deriveBits(
+          { name: "PBKDF2", salt, iterations: 100000, hash: "SHA-256" },
+          keyMaterial,
+          256,
+        );
+        const testHex = Array.from(new Uint8Array(hash))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        return testHex === hashHex;
+      }
+
+      function genId() {
+        return crypto.randomUUID
+          ? crypto.randomUUID()
+          : Date.now().toString(36) + Math.random().toString(36).slice(2);
+      }
+
+      /* ════════════════════════════════════════════════════
+       EMAIL — EmailJS (envoi d'email sans serveur)
+       Config : remplissez vos clés EmailJS ici
+    ════════════════════════════════════════════════════ */
+      const EMAILJS_CONFIG = {
+        serviceId: localStorage.getItem("ejs_service") || "",
+        templateId: localStorage.getItem("ejs_template") || "",
+        publicKey: localStorage.getItem("ejs_pubkey") || "",
+        adminEmail: localStorage.getItem("ejs_admin") || "",
+      };
+
+      async function sendEmail(to, subject, content, templateParams = {}) {
+        if (!EMAILJS_CONFIG.serviceId || !EMAILJS_CONFIG.publicKey) {
+          console.warn("EmailJS non configuré — email simulé:", {
+            to,
+            subject,
+          });
+          return { simulated: true };
+        }
+        try {
+          const params = {
+            to_email: to,
+            subject,
+            content,
+            ...templateParams,
+          };
+          const resp = await fetch(
+            "https://api.emailjs.com/api/v1.0/email/send",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                service_id: EMAILJS_CONFIG.serviceId,
+                template_id: EMAILJS_CONFIG.templateId,
+                user_id: EMAILJS_CONFIG.publicKey,
+                template_params: params,
+              }),
+            },
+          );
+          return { ok: resp.ok };
+        } catch (e) {
+          console.error("Email send failed:", e);
+          return { error: e.message };
+        }
+      }
+
+      async function sendVerificationEmail(user, token) {
+        const verifyUrl =
+          window.location.href.split("?")[0] + "?action=verify&token=" + token;
+        const html = `Bonjour ${user.username},\n\nCliquez sur ce lien pour activer votre compte :\n${verifyUrl}\n\nCe lien expire dans 24 heures.`;
+        return sendEmail(
+          user.email,
+          "✅ Activez votre compte Chef à la Maison",
+          html,
+          {
+            to_name: user.username,
+            action_url: verifyUrl,
+            action_label: "Activer mon compte",
+          },
+        );
+      }
+
+      async function sendPasswordResetEmail(user, token) {
+        const resetUrl =
+          window.location.href.split("?")[0] + "?action=reset&token=" + token;
+        const html = `Bonjour ${user.username},\n\nRéinitialisez votre mot de passe :\n${resetUrl}\n\nCe lien expire dans 1 heure.`;
+        return sendEmail(
+          user.email,
+          "🔐 Réinitialisation de votre mot de passe",
+          html,
+          {
+            to_name: user.username,
+            action_url: resetUrl,
+            action_label: "Réinitialiser mon mot de passe",
+          },
+        );
+      }
+
+      /* ════════════════════════════════════════════════════
+       AUTH SERVICE
+    ════════════════════════════════════════════════════ */
+      const Auth = {
+        SESSION_KEY: "cm_session",
+
+        getSession() {
+          try {
+            return JSON.parse(localStorage.getItem(this.SESSION_KEY) || "null");
+          } catch {
+            return null;
+          }
+        },
+        setSession(data) {
+          localStorage.setItem(this.SESSION_KEY, JSON.stringify(data));
+        },
+        clearSession() {
+          localStorage.removeItem(this.SESSION_KEY);
+        },
+
+        async getCurrentUser() {
+          const sess = this.getSession();
+          if (!sess || new Date(sess.expiresAt) < new Date()) {
+            this.clearSession();
+            return null;
+          }
+          return dbOps.get("users", sess.userId);
+        },
+
+        async register(username, email, password) {
+          // Validation
+          if (!username || username.length < 3)
+            throw new Error("Pseudo trop court (min 3 caractères)");
+          if (!email || !email.includes("@")) throw new Error("Email invalide");
+          if (!password || password.length < 8)
+            throw new Error("Mot de passe trop court (min 8 caractères)");
+          if (!/[A-Z]/.test(password) || !/[0-9]/.test(password))
+            throw new Error(
+              "Mot de passe doit contenir une majuscule et un chiffre",
+            );
+
+          // Unicité
+          const byEmail = await dbOps.getByIndex(
+            "users",
+            "email",
+            email.toLowerCase().trim(),
+          );
+          if (byEmail) throw new Error("Cet email est déjà utilisé");
+          const byUsername = await dbOps.getByIndex(
+            "users",
+            "username",
+            username.toLowerCase().trim(),
+          );
+          if (byUsername) throw new Error("Ce pseudo est déjà pris");
+
+          const id = genId();
+          const hash = await hashPassword(password);
+          const user = {
+            id,
+            username: username.trim(),
+            email: email.toLowerCase().trim(),
+            passwordHash: hash,
+            isVerified: false,
+            isAdmin: false,
+            avatarLetter: username.trim().charAt(0).toUpperCase(),
+            createdAt: new Date().toISOString(),
+            loginCount: 0,
+            isBanned: false,
+          };
+          await dbOps.put("users", user);
+
+          // Token de vérification (24h)
+          const vToken = genId();
+          await dbOps.put("tokens", {
+            token: vToken,
+            userId: id,
+            type: "verify_email",
+            expiresAt: new Date(Date.now() + 86400000).toISOString(),
+            used: false,
+          });
+
+          // Envoyer email de vérification
+          const emailResult = await sendVerificationEmail(user, vToken);
+
+          return {
+            user,
+            verifyToken: vToken,
+            emailSent: !emailResult.simulated,
+          };
+        },
+
+        async verifyEmail(token) {
+          const tok = await dbOps.get("tokens", token);
+          if (
+            !tok ||
+            tok.type !== "verify_email" ||
+            tok.used ||
+            new Date(tok.expiresAt) < new Date()
+          ) {
+            throw new Error(
+              "Lien invalide ou expiré. Demandez un nouveau lien.",
+            );
+          }
+          const user = await dbOps.get("users", tok.userId);
+          user.isVerified = true;
+          await dbOps.put("users", user);
+          await dbOps.put("tokens", { ...tok, used: true });
+
+          // Email de bienvenue
+          sendEmail(
+            user.email,
+            "🎉 Bienvenue sur Chef à la Maison !",
+            `Bienvenue ${user.username} ! Votre compte est activé.`,
+            {
+              to_name: user.username,
+              action_url: window.location.href.split("?")[0],
+              action_label: "Découvrir les recettes",
+            },
+          );
+
+          return this._createSession(user, false);
+        },
+
+        async resendVerification(email) {
+          const user = await dbOps.getByIndex(
+            "users",
+            "email",
+            email.toLowerCase().trim(),
+          );
+          if (!user || user.isVerified) return;
+          const vToken = genId();
+          await dbOps.put("tokens", {
+            token: vToken,
+            userId: user.id,
+            type: "verify_email",
+            expiresAt: new Date(Date.now() + 86400000).toISOString(),
+            used: false,
+          });
+          await sendVerificationEmail(user, vToken);
+        },
+
+        async login(identifier, password, rememberMe) {
+          identifier = identifier.trim().toLowerCase();
+          let user =
+            (await dbOps.getByIndex("users", "email", identifier)) ||
+            (await dbOps.getByIndex("users", "username", identifier));
+
+          if (!user) throw new Error("Identifiants incorrects");
+          if (user.isBanned) throw new Error("Compte suspendu");
+
+          const valid = await verifyPassword(password, user.passwordHash);
+          if (!valid) throw new Error("Identifiants incorrects");
+
+          if (!user.isVerified) {
+            const err = new Error(
+              "Email non vérifié. Consultez votre boîte email.",
+            );
+            err.code = "EMAIL_NOT_VERIFIED";
+            err.email = user.email;
+            throw err;
+          }
+
+          user.loginCount = (user.loginCount || 0) + 1;
+          user.lastLoginAt = new Date().toISOString();
+          await dbOps.put("users", user);
+
+          return this._createSession(user, rememberMe);
+        },
+
+        async _createSession(user, rememberMe) {
+          const days = rememberMe ? 30 : 7;
+          const sess = {
+            userId: user.id,
+            username: user.username,
+            isAdmin: user.isAdmin,
+            createdAt: new Date().toISOString(),
+            expiresAt: new Date(Date.now() + days * 86400000).toISOString(),
+          };
+          this.setSession(sess);
+          return {
+            user: {
+              id: user.id,
+              username: user.username,
+              email: user.email,
+              isAdmin: user.isAdmin,
+              isVerified: user.isVerified,
+              avatarLetter: user.avatarLetter,
+            },
+          };
+        },
+
+        logout() {
+          this.clearSession();
+        },
+
+        async forgotPassword(email) {
+          const user = await dbOps.getByIndex(
+            "users",
+            "email",
+            email.toLowerCase().trim(),
+          );
+          if (user && user.isVerified) {
+            const rToken = genId();
+            await dbOps.put("tokens", {
+              token: rToken,
+              userId: user.id,
+              type: "reset_password",
+              expiresAt: new Date(Date.now() + 3600000).toISOString(),
+              used: false,
+            });
+            await sendPasswordResetEmail(user, rToken);
+          }
+        },
+
+        async resetPassword(token, newPassword) {
+          if (
+            newPassword.length < 8 ||
+            !/[A-Z]/.test(newPassword) ||
+            !/[0-9]/.test(newPassword)
+          ) {
+            throw new Error(
+              "Mot de passe doit contenir min 8 car., 1 majuscule et 1 chiffre",
+            );
+          }
+          const tok = await dbOps.get("tokens", token);
+          if (
+            !tok ||
+            tok.type !== "reset_password" ||
+            tok.used ||
+            new Date(tok.expiresAt) < new Date()
+          ) {
+            throw new Error("Lien invalide ou expiré.");
+          }
+          const user = await dbOps.get("users", tok.userId);
+          user.passwordHash = await hashPassword(newPassword);
+          await dbOps.put("users", user);
+          await dbOps.put("tokens", { ...tok, used: true });
+          this.clearSession();
+        },
+
+        async changePassword(userId, currentPw, newPw) {
+          const user = await dbOps.get("users", userId);
+          const valid = await verifyPassword(currentPw, user.passwordHash);
+          if (!valid) throw new Error("Mot de passe actuel incorrect");
+          if (
+            newPw.length < 8 ||
+            !/[A-Z]/.test(newPw) ||
+            !/[0-9]/.test(newPw)
+          ) {
+            throw new Error("Nouveau mot de passe trop faible");
+          }
+          user.passwordHash = await hashPassword(newPw);
+          await dbOps.put("users", user);
+          this.clearSession();
+        },
+      };
+
+      /* ════════════════════════════════════════════════════
+       RECETTES SERVICE
+    ════════════════════════════════════════════════════ */
+      const RecipeService = {
+        async getAll(category, q) {
+          let all = await dbOps.getAll("recipes");
+          if (category && category !== "Tout")
+            all = all.filter((r) => r.category === category);
+          if (q) {
+            const lq = q.toLowerCase();
+            all = all.filter(
+              (r) =>
+                r.title.toLowerCase().includes(lq) ||
+                r.description.toLowerCase().includes(lq),
+            );
+          }
+          // Enrichir avec ratings
+          for (const r of all) {
+            const revs = await dbOps.getAllByIndex("reviews", "recipeId", r.id);
+            r.rating = revs.length
+              ? {
+                  avg: (
+                    revs.reduce((s, rv) => s + rv.stars, 0) / revs.length
+                  ).toFixed(1),
+                  count: revs.length,
+                }
+              : null;
+          }
+          return all.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+          );
+        },
+
+        async get(id) {
+          const r = await dbOps.get("recipes", id);
+          if (!r) return null;
+          const revs = await dbOps.getAllByIndex("reviews", "recipeId", id);
+          r.rating = revs.length
+            ? {
+                avg: (
+                  revs.reduce((s, rv) => s + rv.stars, 0) / revs.length
+                ).toFixed(1),
+                count: revs.length,
+              }
+            : null;
+          return r;
+        },
+
+        async create(data, authorId, authorName) {
+          const recipe = {
+            ...data,
+            authorId,
+            authorName,
+            isCommunity: true,
+            isFeatured: false,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          };
+          const id = await dbOps.add("recipes", recipe);
+          return this.get(id);
+        },
+
+        async update(id, data, userId, isAdmin) {
+          const existing = await dbOps.get("recipes", id);
+          if (!existing) throw new Error("Recette introuvable");
+          if (!isAdmin && existing.authorId !== userId)
+            throw new Error("Non autorisé");
+          const updated = {
+            ...existing,
+            ...data,
+            id,
+            updatedAt: new Date().toISOString(),
+          };
+          await dbOps.put("recipes", updated);
+          return this.get(id);
+        },
+
+        async delete(id, userId, isAdmin) {
+          const existing = await dbOps.get("recipes", id);
+          if (!existing) throw new Error("Recette introuvable");
+          if (!isAdmin && existing.authorId !== userId)
+            throw new Error("Non autorisé");
+          await dbOps.delete("recipes", id);
+          // Supprimer favoris et avis liés
+          const favs = await dbOps.getAllByIndex("favorites", "userId", userId);
+          for (const f of favs)
+            if (f.recipeId === id) await dbOps.delete("favorites", f.key);
+          const revs = await dbOps.getAllByIndex("reviews", "recipeId", id);
+          for (const rv of revs) await dbOps.delete("reviews", rv.id);
+        },
+      };
+
+      /* ════════════════════════════════════════════════════
+       FAVORIS SERVICE
+    ════════════════════════════════════════════════════ */
+      const FavService = {
+        async getIds(userId) {
+          const favs = await dbOps.getAllByIndex("favorites", "userId", userId);
+          return favs.map((f) => f.recipeId);
+        },
+        async toggle(userId, recipeId) {
+          const key = userId + ":" + recipeId;
+          const existing = await dbOps.get("favorites", key);
+          if (existing) {
+            await dbOps.delete("favorites", key);
+            return false;
+          } else {
+            await dbOps.put("favorites", {
+              key,
+              userId,
+              recipeId,
+              createdAt: new Date().toISOString(),
+            });
+            return true;
+          }
+        },
+      };
+
+      /* ════════════════════════════════════════════════════
+       REVIEWS SERVICE
+    ════════════════════════════════════════════════════ */
+      const ReviewService = {
+        async getForRecipe(recipeId) {
+          const revs = await dbOps.getAllByIndex(
+            "reviews",
+            "recipeId",
+            recipeId,
+          );
+          return revs.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+          );
+        },
+        async add(recipeId, userId, username, stars, text) {
+          const existing = (
+            await dbOps.getAllByIndex("reviews", "recipeId", recipeId)
+          ).find((r) => r.userId === userId);
+          if (existing) throw new Error("Vous avez déjà laissé un avis");
+          const rv = {
+            id: genId(),
+            recipeId,
+            userId,
+            username,
+            stars,
+            text: text || "",
+            createdAt: new Date().toISOString(),
+          };
+          await dbOps.put("reviews", rv);
+          return rv;
+        },
+        async delete(reviewId, userId, isAdmin) {
+          const rv = await dbOps.get("reviews", reviewId);
+          if (!rv) throw new Error("Avis introuvable");
+          if (!isAdmin && rv.userId !== userId) throw new Error("Non autorisé");
+          await dbOps.delete("reviews", reviewId);
+        },
+      };
+
+      /* ════════════════════════════════════════════════════
+       SEED — données par défaut (si DB vide)
+    ════════════════════════════════════════════════════ */
+      async function seedIfEmpty() {
+        const all = await dbOps.getAll("recipes");
+        if (all.length > 0) return;
 
         const DEFAULT_RECIPES = [
           {
-            id: 1,
             title: "Salade César Classique",
             description:
-              "Une salade fraîche et croquante avec sa sauce César maison, des croûtons dorés et du parmesan.",
+              "Une salade fraîche et croquante avec sa sauce César maison, des croûtons dorés et du parmesan râpé.",
             category: "Entrées",
             difficulty: "Facile",
             time: "20 min",
-            servings: "4 pers.",
             prepTime: "15 min",
             cookTime: "5 min",
-            image:
+            servings: "4 pers.",
+            imageUrl:
               "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=700&q=80",
             youtubeId: "r9CVirYimUQ",
             ingredients: [
@@ -2383,21 +3854,20 @@
               "Lavez et essorez la laitue romaine, coupez-la en morceaux généreux.",
               "Préparez la sauce César en mixant anchois, ail, jaune d'œuf, moutarde, citron et huile d'olive.",
               "Faites dorer les croûtons à la poêle avec du beurre et de l'ail.",
-              "Mélangez la laitue avec la sauce, ajoutez les croûtons et le parmesan en copeaux.",
+              "Mélangez la laitue avec la sauce, ajoutez les croûtons et le parmesan.",
             ],
           },
           {
-            id: 2,
             title: "Soupe à l'Oignon Gratinée",
             description:
               "La traditionnelle soupe à l'oignon française, gratinée au four avec du gruyère fondant.",
             category: "Entrées",
             difficulty: "Moyen",
             time: "65 min",
-            servings: "6 pers.",
             prepTime: "20 min",
             cookTime: "45 min",
-            image:
+            servings: "6 pers.",
+            imageUrl:
               "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&q=80",
             youtubeId: "opXF_nWYiXs",
             ingredients: [
@@ -2410,24 +3880,23 @@
               "Thym, laurier",
             ],
             steps: [
-              "Émincez finement les oignons. Faites-les fondre dans le beurre à feu doux 30 min jusqu'à caramélisation.",
+              "Émincez finement les oignons. Faites-les fondre dans le beurre à feu doux 30 min.",
               "Déglacez avec le vin blanc, laissez réduire 5 minutes.",
               "Versez le bouillon chaud, ajoutez thym et laurier. Mijotez 15 minutes.",
-              "Répartissez dans des bols, couvrez de pain et gruyère. Gratinez 10 min au four.",
+              "Répartissez dans des bols, couvrez de pain et gruyère. Gratinez 10 min.",
             ],
           },
           {
-            id: 3,
             title: "Poulet Rôti aux Herbes",
             description:
               "Un poulet rôti doré et juteux, parfumé aux herbes de Provence et accompagné de légumes de saison.",
             category: "Plats",
             difficulty: "Moyen",
             time: "110 min",
-            servings: "6 pers.",
             prepTime: "20 min",
             cookTime: "90 min",
-            image:
+            servings: "6 pers.",
+            imageUrl:
               "https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg",
             youtubeId: "zFz15E1egFk",
             ingredients: [
@@ -2435,59 +3904,28 @@
               "Herbes de Provence",
               "4 gousses d'ail",
               "1 citron",
-              "4 c. à s. d'huile d'olive",
+              "4 c.s. d'huile d'olive",
               "Carottes et pommes de terre",
               "Sel, poivre",
             ],
             steps: [
-              "Préchauffez le four à 200°C. Badigeonnez le poulet d'huile et frottez avec les herbes, sel et poivre.",
-              "Glissez les gousses d'ail et le citron coupé en deux dans la cavité du poulet.",
-              "Disposez les légumes autour dans un plat. Enfournez 90 min en arrosant toutes les 20 min.",
-              "Laissez reposer 10 min sous du papier aluminium avant de découper.",
+              "Préchauffez le four à 200°C. Badigeonnez le poulet d'huile et frottez avec les herbes.",
+              "Glissez les gousses d'ail et le citron dans la cavité du poulet.",
+              "Disposez les légumes autour. Enfournez 90 min en arrosant toutes les 20 min.",
+              "Laissez reposer 10 min sous papier alu avant de découper.",
             ],
           },
           {
-            id: 4,
-            title: "Ratatouille Provençale",
-            description:
-              "Un mélange coloré de légumes du soleil mijotés lentement avec des herbes aromatiques.",
-            category: "Plats",
-            difficulty: "Facile",
-            time: "85 min",
-            servings: "6 pers.",
-            prepTime: "25 min",
-            cookTime: "60 min",
-            image:
-              "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=700&q=80",
-            youtubeId: "1cHP_-AMquQ",
-            ingredients: [
-              "2 courgettes",
-              "2 aubergines",
-              "4 tomates mûres",
-              "2 poivrons",
-              "2 oignons",
-              "Herbes de Provence",
-              "Huile d'olive",
-            ],
-            steps: [
-              "Coupez tous les légumes en dés de taille égale.",
-              "Faites revenir l'oignon et l'ail dans l'huile d'olive 5 minutes.",
-              "Ajoutez les poivrons, aubergines, courgettes et tomates. Assaisonnez.",
-              "Couvrez et mijotez à feu doux 45 min en remuant régulièrement.",
-            ],
-          },
-          {
-            id: 5,
             title: "Tarte Tatin aux Pommes",
             description:
               "La célèbre tarte renversée aux pommes caramélisées, croustillante et fondante à la fois.",
             category: "Desserts",
             difficulty: "Moyen",
             time: "70 min",
-            servings: "8 pers.",
             prepTime: "30 min",
             cookTime: "40 min",
-            image:
+            servings: "8 pers.",
+            imageUrl:
               "https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5?w=700&q=80",
             youtubeId: "39WJlFzr_yk",
             ingredients: [
@@ -2495,1361 +3933,1479 @@
               "6 pommes Golden",
               "100g de beurre",
               "150g de sucre",
-              "1 c. à c. de cannelle",
-              "1 pincée de sel",
+              "1 c.c. de cannelle",
             ],
             steps: [
               "Préchauffez le four à 180°C. Épluchez et coupez les pommes en quartiers.",
-              "Dans un moule, faites fondre le beurre avec le sucre pour obtenir un caramel doré.",
-              "Disposez les quartiers de pommes en rosace, saupoudrez de cannelle.",
-              "Cuire les pommes 15 min à feu moyen, couvrir de pâte, enfourner 25 min. Retournez aussitôt.",
+              "Faites fondre beurre + sucre pour un caramel doré.",
+              "Disposez les pommes en rosace, saupoudrez de cannelle.",
+              "Couvrez de pâte, enfournez 25 min. Retournez aussitôt.",
             ],
           },
           {
-            id: 6,
-            title: "Mousse au Chocolat",
+            title: "Bœuf Bourguignon",
             description:
-              "Une mousse au chocolat aérienne et intense, le dessert classique par excellence.",
-            category: "Desserts",
-            difficulty: "Facile",
-            time: "30 min",
-            servings: "4 pers.",
-            prepTime: "20 min",
-            cookTime: "10 min",
-            image:
-              "https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg",
-            youtubeId: "IeTNZQiVIrI",
+              "Le grand classique mijoté au vin rouge. Une viande fondante avec légumes et champignons.",
+            category: "Plats",
+            difficulty: "Difficile",
+            time: "3h30",
+            prepTime: "30 min",
+            cookTime: "3h",
+            servings: "6 pers.",
+            imageUrl:
+              "https://images.unsplash.com/photo-1574484284002-952d92456975?w=700&q=80",
+            youtubeId: null,
             ingredients: [
-              "200g de chocolat noir 70%",
-              "6 œufs",
-              "30g de sucre",
-              "1 pincée de sel",
-              "20g de beurre",
+              "1.5kg de bœuf à braiser",
+              "1 bouteille de Bourgogne rouge",
+              "200g de lardons",
+              "300g de champignons",
+              "2 carottes",
+              "3 gousses d'ail",
+              "Bouquet garni",
+              "Farine, beurre",
             ],
             steps: [
-              "Faites fondre le chocolat avec le beurre au bain-marie. Laissez tiédir.",
-              "Séparez les blancs des jaunes. Incorporez les jaunes au chocolat un par un.",
-              "Montez les blancs en neige ferme avec la pincée de sel et le sucre.",
-              "Incorporez délicatement les blancs en 3 fois. Réfrigérez au moins 2 heures.",
+              "Faites mariner le bœuf dans le vin avec les légumes 12h.",
+              "Égouttez et faites revenir la viande en morceaux.",
+              "Ajoutez la marinade, la farine et les lardons. Mijotez 3h à feu doux.",
+              "Ajoutez les champignons 30 min avant la fin.",
             ],
           },
           {
-            id: 7,
+            title: "Crème Brûlée Vanille",
+            description:
+              "La crème brûlée au caramel craquant. Un classique raffiné et simple à réaliser.",
+            category: "Desserts",
+            difficulty: "Moyen",
+            time: "50 min",
+            prepTime: "20 min",
+            cookTime: "30 min",
+            servings: "6 pers.",
+            imageUrl:
+              "https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?w=700&q=80",
+            youtubeId: null,
+            ingredients: [
+              "500ml crème entière",
+              "6 jaunes d'œufs",
+              "100g sucre",
+              "1 gousse de vanille",
+              "Sucre roux pour caraméliser",
+            ],
+            steps: [
+              "Préchauffez à 160°C. Faites chauffer la crème avec la vanille.",
+              "Fouettez les jaunes et le sucre jusqu'à blanchiment.",
+              "Versez la crème chaude sur les jaunes, filtrez.",
+              "Cuisez au bain-marie 30 min. Caramélisez au chalumeau avant de servir.",
+            ],
+          },
+          {
             title: "Mojito Classique",
             description:
-              "Le cocktail cubain par excellence : frais, mentholé et légèrement sucré, parfait pour l'été.",
+              "Le cocktail cubain par excellence : frais, mentholé et légèrement sucré.",
             category: "Boissons",
             difficulty: "Facile",
             time: "10 min",
-            servings: "1 pers.",
             prepTime: "10 min",
             cookTime: "0 min",
-            image:
+            servings: "1 pers.",
+            imageUrl:
               "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&q=80",
             youtubeId: "sIvYdLHwv8A",
             ingredients: [
               "4 cl de rhum blanc",
               "1 citron vert",
-              "10 feuilles de menthe fraîche",
-              "2 c. à s. de sucre de canne",
+              "10 feuilles de menthe",
+              "2 c.s. de sucre de canne",
               "Eau gazeuse",
               "Glaçons",
-              "1 tranche de citron (décoration)",
             ],
             steps: [
-              "Lavez le citron vert et coupez-le en quartiers. Placez-les dans un verre avec le sucre.",
-              "Écrasez doucement les quartiers de citron avec un pilon pour en extraire le jus.",
-              "Ajoutez les feuilles de menthe et écrasez-les légèrement sans les déchirer.",
-              "Remplissez le verre de glaçons, versez le rhum, puis complétez avec l'eau gazeuse. Mélangez et décorez.",
+              "Coupez le citron en quartiers, placez dans un verre avec le sucre.",
+              "Écrasez les quartiers avec un pilon pour libérer le jus.",
+              "Ajoutez la menthe, les glaçons, puis le rhum.",
+              "Complétez avec l'eau gazeuse. Mélangez doucement et servez.",
             ],
           },
           {
-            id: 8,
-            title: "Smoothie Mangue Passion",
+            title: "Quiche Lorraine",
             description:
-              "Un smoothie tropical onctueux et vitaminé, à base de mangue, fruit de la passion et lait de coco.",
-            category: "Boissons",
+              "La vraie quiche lorraine avec lardons fumés et crème légère. Un incontournable.",
+            category: "Plats",
             difficulty: "Facile",
-            time: "8 min",
-            servings: "2 pers.",
-            prepTime: "8 min",
-            cookTime: "0 min",
-            image:
-              "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=700&q=80",
-            youtubeId: "tIsNZY7gmPw",
+            time: "55 min",
+            prepTime: "15 min",
+            cookTime: "40 min",
+            servings: "6 pers.",
+            imageUrl:
+              "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=700&q=80",
+            youtubeId: null,
             ingredients: [
-              "1 mangue bien mûre",
-              "2 fruits de la passion",
-              "200ml de lait de coco",
-              "1 banane",
-              "Jus d'un citron vert",
-              "1 c. à s. de miel",
-              "Glaçons",
+              "1 pâte brisée",
+              "200g de lardons fumés",
+              "4 œufs",
+              "300ml de crème fraîche",
+              "100ml de lait",
+              "Sel, poivre, muscade",
             ],
             steps: [
-              "Épluchez la mangue et la banane. Coupez la mangue en morceaux.",
-              "Coupez les fruits de la passion en deux, prélevez la pulpe avec une cuillère.",
-              "Placez tous les ingrédients dans un blender avec les glaçons.",
-              "Mixez à haute vitesse pendant 1 minute jusqu'à obtenir une texture lisse. Servez aussitôt.",
+              "Préchauffez à 180°C. Foncez un moule avec la pâte, piquez le fond.",
+              "Faites revenir les lardons à la poêle sans matière grasse.",
+              "Fouettez les œufs, la crème et le lait. Assaisonnez.",
+              "Répartissez les lardons sur la pâte, versez l'appareil. Enfournez 40 min.",
             ],
           },
         ];
 
-        /* ============================================================
-     LOCALSTORAGE — BASE DE DONNÉES LOCALE
-  ============================================================ */
-        function lsGet(key, fallback) {
-          try {
-            const v = localStorage.getItem(key);
-            return v ? JSON.parse(v) : fallback;
-          } catch {
-            return fallback;
-          }
+        for (const r of DEFAULT_RECIPES) {
+          await dbOps.add("recipes", {
+            ...r,
+            isCommunity: false,
+            isFeatured: false,
+            authorId: null,
+            authorName: "Chef à la Maison",
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          });
         }
-        function lsSet(key, val) {
-          try {
-            localStorage.setItem(key, JSON.stringify(val));
-          } catch (e) {
-            console.warn("LS error", e);
-          }
-        }
+        console.log("✅ DB seeded with", DEFAULT_RECIPES.length, "recipes");
+      }
 
-        // Initialise les recettes si 1ère visite
-        function loadRecipes() {
-          const stored = lsGet(LS_RECIPES, null);
-          if (!stored) {
-            lsSet(LS_RECIPES, DEFAULT_RECIPES);
-            return DEFAULT_RECIPES;
-          }
-          return stored;
-        }
-        function saveRecipes() {
-          lsSet(LS_RECIPES, recipes);
-        }
+      /* ════════════════════════════════════════════════════
+       ÉTAT GLOBAL
+    ════════════════════════════════════════════════════ */
+      const DIFF_COLORS = {
+        Facile: "#6ee7b7",
+        Moyen: "#fcd34d",
+        Difficile: "#fca5a5",
+      };
+      let recipes = [];
+      let currentUser = null;
+      let favorites = [];
+      let currentFilter = "Tout";
+      let previousPage = "recipes";
+      let tempStarRating = 0;
+      let currentRecipeId = null;
+      let searchQuery = "";
+      let pendingDeleteId = null;
+      let currentEditId = null;
 
-        function loadUsers() {
-          return lsGet(LS_USERS, []);
-        }
-        function saveUsers() {
-          lsSet(LS_USERS, users);
-        }
+      /* ════════════════════════════════════════════════════
+       INIT
+    ════════════════════════════════════════════════════ */
+      async function initApp() {
+        await seedIfEmpty();
+        currentUser = await Auth.getCurrentUser();
+        if (currentUser) favorites = await FavService.getIds(currentUser.id);
+        updateAuthUI();
+        updateFavBadge();
+        await loadAndRenderRecipes();
+        checkUrlParams();
+      }
 
-        function loadSession() {
-          return lsGet(LS_SESSION, null);
-        }
-        function saveSession() {
-          lsSet(LS_SESSION, currentUser);
-        }
+      function checkUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        const action = params.get("action");
+        const token = params.get("token");
+        if (action === "verify" && token) handleEmailVerification(token);
+        else if (action === "reset" && token) openResetPasswordModal(token);
+      }
 
-        function loadFavorites(userId) {
-          return lsGet(LS_FAVORITES + "_" + userId, []);
-        }
-        function saveFavorites(userId) {
-          lsSet(LS_FAVORITES + "_" + userId, favorites);
-        }
+      async function loadAndRenderRecipes() {
+        recipes = await RecipeService.getAll(
+          currentFilter !== "Tout" ? currentFilter : null,
+          searchQuery || null,
+        );
+        renderRecipes();
+        renderHomeGrid();
+      }
 
-        function loadReviews() {
-          return lsGet(LS_REVIEWS, {});
-        }
-        function saveReviews() {
-          lsSet(LS_REVIEWS, reviews);
-        }
+      /* ════════════════════════════════════════════════════
+       AUTH FUNCTIONS
+    ════════════════════════════════════════════════════ */
+      async function doRegister() {
+        const username = document.getElementById("reg-username").value.trim();
+        const email = document.getElementById("reg-email").value.trim();
+        const password = document.getElementById("reg-password").value;
+        const errEl = document.getElementById("reg-error");
+        errEl.style.display = "none";
 
-        /* ============================================================
-     ÉTAT
-  ============================================================ */
-        let recipes = loadRecipes();
-        let users = loadUsers();
-        let currentUser = loadSession(); // {id,username,email}
-        let favorites = currentUser ? loadFavorites(currentUser.id) : [];
-        let reviews = loadReviews(); // {recipeId:[{id,userId,username,stars,text,date}]}
-        let isAdmin = false;
-        let currentFilter = "Tout";
-        let previousPage = "recipes";
-        let nextId = Math.max(...recipes.map((r) => r.id), 8) + 1;
-        let currentEditId = null;
-        let pendingDeleteId = null;
-        let tempStarRating = 0;
-        let currentRecipeId = null;
+        const btn = document.getElementById("reg-submit-btn");
+        btn.disabled = true;
+        btn.textContent = "Création...";
 
-        /* ============================================================
-     UTILITAIRES
-  ============================================================ */
-        function extractYouTubeId(input) {
-          if (!input) return null;
-          input = input.trim();
-          if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
-          const patterns = [
-            /(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/,
-            /(?:youtu\.be\/)([a-zA-Z0-9_-]{11})/,
-            /(?:youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
-            /(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
-          ];
-          for (const p of patterns) {
-            const m = input.match(p);
-            if (m) return m[1];
-          }
-          return null;
-        }
-
-        function showToast(msg, color = "#ff6b00") {
-          const t = document.createElement("div");
-          t.style.cssText = `position:fixed;bottom:30px;right:30px;background:${color};color:#fff;padding:14px 24px;border-radius:14px;font-weight:800;font-size:15px;font-family:Nunito,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,0.25);z-index:9999;animation:fadeUp 0.3s ease`;
-          t.textContent = msg;
-          document.body.appendChild(t);
-          setTimeout(() => t.remove(), 3000);
-        }
-
-        function starsHTML(n, total = 5) {
-          let s = "";
-          for (let i = 1; i <= total; i++) s += i <= Math.round(n) ? "★" : "☆";
-          return s;
-        }
-
-        function getAvgRating(recipeId) {
-          const rs = reviews[recipeId] || [];
-          if (!rs.length) return null;
-          return {
-            avg: (rs.reduce((a, r) => a + r.stars, 0) / rs.length).toFixed(1),
-            count: rs.length,
-          };
-        }
-
-        /* ============================================================
-     AUTH
-  ============================================================ */
-        function updateAuthUI() {
-          const btn = document.getElementById("user-auth-btn");
-          const icon = document.getElementById("user-auth-icon");
-          const label = document.getElementById("user-auth-label");
-          if (currentUser) {
-            btn.classList.add("logged-in");
-            icon.textContent = "✓";
-            label.textContent = currentUser.username;
-          } else {
-            btn.classList.remove("logged-in");
-            icon.textContent = "👤";
-            label.textContent = "Connexion";
-          }
-        }
-
-        function openAuthModal() {
-          if (currentUser) {
-            // Logout
-            currentUser = null;
-            favorites = [];
-            saveSession();
-            updateAuthUI();
-            updateFavBadge();
-            showToast("👋 Déconnexion réussie");
-            const active = document.querySelector(".page.active")?.id;
-            if (active === "page-favorites") showPage("home");
-            else {
-              renderHomeGrid();
-              renderRecipes();
-            }
-          } else {
-            document.getElementById("auth-overlay").classList.add("open");
-            document.body.style.overflow = "hidden";
-            showLoginForm();
-          }
-        }
-
-        function showLoginForm() {
-          document.getElementById("login-form").style.display = "block";
-          document.getElementById("register-form").style.display = "none";
-          document.getElementById("tab-login").classList.add("active");
-          document.getElementById("tab-register").classList.remove("active");
-          document.getElementById("login-error").style.display = "none";
-        }
-        function showRegisterForm() {
-          document.getElementById("register-form").style.display = "block";
-          document.getElementById("login-form").style.display = "none";
-          document.getElementById("tab-register").classList.add("active");
-          document.getElementById("tab-login").classList.remove("active");
-          document.getElementById("reg-error").style.display = "none";
-        }
-
-        function doLogin() {
-          const username = document
-            .getElementById("login-username")
-            .value.trim();
-          const password = document.getElementById("login-password").value;
-          const errEl = document.getElementById("login-error");
-          if (!username || !password) {
-            errEl.textContent = "Remplissez tous les champs.";
-            errEl.style.display = "block";
-            return;
-          }
-          const user = users.find(
-            (u) => u.username === username && u.password === password,
+        try {
+          const { verifyToken, emailSent } = await Auth.register(
+            username,
+            email,
+            password,
           );
-          if (!user) {
-            errEl.textContent = "Identifiants incorrects.";
-            errEl.style.display = "block";
-            return;
+          document.getElementById("auth-overlay").classList.remove("open");
+          document.body.style.overflow = "";
+
+          if (!emailSent) {
+            // EmailJS non configuré — afficher le lien directement
+            showVerificationModal(email, verifyToken, false);
+          } else {
+            showVerificationModal(email, null, true);
           }
-          currentUser = {
-            id: user.id,
-            username: user.username,
-            email: user.email,
-          };
-          favorites = loadFavorites(currentUser.id);
-          saveSession();
+        } catch (e) {
+          errEl.textContent = e.message;
+          errEl.style.display = "block";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Créer mon compte";
+        }
+      }
+
+      async function doLogin() {
+        const identifier = document
+          .getElementById("login-username")
+          .value.trim();
+        const password = document.getElementById("login-password").value;
+        const rememberMe =
+          document.getElementById("login-remember")?.checked || false;
+        const errEl = document.getElementById("login-error");
+        errEl.style.display = "none";
+
+        const btn = document.getElementById("login-submit-btn");
+        btn.disabled = true;
+        btn.textContent = "Connexion...";
+
+        try {
+          const { user } = await Auth.login(identifier, password, rememberMe);
+          currentUser = user;
+          favorites = await FavService.getIds(user.id);
+
           document.getElementById("auth-overlay").classList.remove("open");
           document.body.style.overflow = "";
           updateAuthUI();
           updateFavBadge();
-          showToast("🎉 Bienvenue, " + currentUser.username + " !");
-          renderHomeGrid();
-          renderRecipes();
+          showToast("🎉 Bienvenue, " + user.username + " !");
+          await loadAndRenderRecipes();
+        } catch (e) {
+          if (e.code === "EMAIL_NOT_VERIFIED") {
+            errEl.innerHTML = `Email non vérifié. <button onclick="resendVerification('${e.email}')" style="color:#ff6b00;background:none;border:none;cursor:pointer;font-weight:700;text-decoration:underline;font-family:Nunito,sans-serif">Renvoyer le lien</button>`;
+          } else {
+            errEl.textContent = e.message;
+          }
+          errEl.style.display = "block";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Se connecter";
         }
+      }
 
-        function doRegister() {
-          const username = document.getElementById("reg-username").value.trim();
-          const email = document.getElementById("reg-email").value.trim();
-          const password = document.getElementById("reg-password").value;
-          const errEl = document.getElementById("reg-error");
-          if (!username || !email || !password) {
-            errEl.textContent = "Remplissez tous les champs.";
-            errEl.style.display = "block";
-            return;
-          }
-          if (password.length < 6) {
-            errEl.textContent = "Mot de passe trop court (min. 6 caractères).";
-            errEl.style.display = "block";
-            return;
-          }
-          if (users.find((u) => u.username === username)) {
-            errEl.textContent = "Ce pseudo est déjà utilisé.";
-            errEl.style.display = "block";
-            return;
-          }
-          if (users.find((u) => u.email === email)) {
-            errEl.textContent = "Cet email est déjà utilisé.";
-            errEl.style.display = "block";
-            return;
-          }
-          const newUser = { id: Date.now(), username, email, password };
-          users.push(newUser);
-          saveUsers();
-          currentUser = { id: newUser.id, username, email };
-          favorites = [];
-          saveSession();
-          document.getElementById("auth-overlay").classList.remove("open");
-          document.body.style.overflow = "";
+      async function doLogout() {
+        Auth.logout();
+        currentUser = null;
+        favorites = [];
+        updateAuthUI();
+        updateFavBadge();
+        showToast("👋 Déconnexion réussie");
+        await loadAndRenderRecipes();
+        const active = document
+          .querySelector(".page.active")
+          ?.id?.replace("page-", "");
+        if (active === "favorites") showPage("home");
+      }
+
+      async function resendVerification(email) {
+        try {
+          await Auth.resendVerification(email);
+          showToast("📧 Email de vérification renvoyé !");
+        } catch {
+          showToast("Erreur lors de l'envoi", "#555");
+        }
+      }
+
+      async function handleEmailVerification(token) {
+        try {
+          const { user } = await Auth.verifyEmail(token);
+          currentUser = user;
+          favorites = await FavService.getIds(user.id);
           updateAuthUI();
           updateFavBadge();
-          showToast("🎉 Compte créé ! Bienvenue, " + username + " !");
-          renderHomeGrid();
-          renderRecipes();
+          window.history.replaceState({}, "", window.location.pathname);
+          showToast("✅ Email vérifié ! Bienvenue " + user.username + " 🎉");
+          await loadAndRenderRecipes();
+        } catch (e) {
+          showToast("❌ " + e.message, "#dc2626");
         }
+      }
 
-        /* ============================================================
-     NAVIGATION
-  ============================================================ */
-        function showPage(name) {
-          document
-            .querySelectorAll(".page")
-            .forEach((p) => p.classList.remove("active"));
-          const page = document.getElementById("page-" + name);
-          if (page) page.classList.add("active");
-          document
-            .querySelectorAll(".nav-btn")
-            .forEach((b) => b.classList.remove("active"));
-          const nb = document.getElementById("nav-" + name);
-          if (nb) nb.classList.add("active");
-          window.scrollTo(0, 0);
-          if (name === "home") renderHomeGrid();
-          if (name === "recipes") renderRecipes();
-          if (name === "favorites") renderFavorites();
+      async function doForgotPassword() {
+        const email = document.getElementById("forgot-email")?.value.trim();
+        if (!email) return;
+        const btn = document.getElementById("forgot-submit-btn");
+        btn.disabled = true;
+        btn.textContent = "Envoi...";
+        await Auth.forgotPassword(email);
+        btn.disabled = false;
+        btn.textContent = "📧 Envoyer le lien";
+        const msgEl = document.getElementById("forgot-message");
+        if (msgEl) {
+          msgEl.textContent =
+            "Si un compte existe avec cet email, un lien de réinitialisation a été envoyé.";
+          msgEl.style.display = "block";
         }
+      }
 
-        /* ============================================================
-     ADMIN
-  ============================================================ */
-        function updateAdminUI() {
-          const adminBtn = document.getElementById("admin-login-btn");
-          const statusEl = document.getElementById("footer-admin-status");
-          const statusText = document.getElementById(
-            "footer-admin-status-text",
-          );
-          if (isAdmin) {
-            if (adminBtn) {
-              adminBtn.textContent = "🚪 Déconnexion Admin";
-              adminBtn.classList.add("admin-mode");
-            }
-            if (statusEl) statusEl.classList.add("active-admin");
-            if (statusText)
-              statusText.textContent = "Connecté en tant qu'admin";
-          } else {
-            if (adminBtn) {
-              adminBtn.textContent = "🔐 Connexion Admin";
-              adminBtn.classList.remove("admin-mode");
-            }
-            if (statusEl) statusEl.classList.remove("active-admin");
-            if (statusText) statusText.textContent = "Non connecté";
-          }
-          const active = document.querySelector(".page.active")?.id;
-          if (active === "page-recipe" && currentRecipeId) {
-            const r = recipes.find((x) => x.id === currentRecipeId);
-            if (r) openRecipe(r);
-          }
-        }
+      /* ════════════════════════════════════════════════════
+       MODALS VÉRIFICATION & RESET
+    ════════════════════════════════════════════════════ */
+      function showVerificationModal(email, verifyToken, emailSent) {
+        const overlay = document.createElement("div");
+        overlay.className = "overlay2 open";
+        overlay.style.zIndex = "1010";
 
-        function toggleAdmin() {
-          if (isAdmin) {
-            isAdmin = false;
-            updateAdminUI();
-            showToast("👋 Mode visiteur activé");
-          } else {
-            const pwd = prompt("🔐 Mot de passe administrateur :");
-            if (pwd === ADMIN_PASSWORD) {
-              isAdmin = true;
-              updateAdminUI();
-              showToast("✅ Mode administrateur activé");
-            } else if (pwd !== null) alert("❌ Mot de passe incorrect");
-          }
-        }
+        const directLinkHtml = verifyToken
+          ? `<div style="margin-top:14px;padding:12px 16px;background:rgba(255,107,0,.1);border-radius:10px;border:1.5px dashed #ff6b00">
+            <p style="font-size:12px;color:#ff6b00;font-weight:700;margin-bottom:8px">⚠️ EmailJS non configuré — utilisez ce lien pour activer votre compte :</p>
+            <button onclick="handleEmailVerification('${verifyToken}');this.closest('.overlay2').remove();document.body.style.overflow=''"
+              style="background:linear-gradient(135deg,#ff6b00,#ff9d00);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-weight:800;font-size:14px;font-family:Nunito,sans-serif;cursor:pointer;width:100%">
+              ✅ Activer mon compte maintenant
+            </button>
+          </div>`
+          : `<p style="font-size:12px;color:var(--text3);margin-top:14px">Pas reçu ? Vérifiez vos spams ou <button onclick="resendVerification('${email}');this.closest('.overlay2').remove();document.body.style.overflow=''" style="background:none;border:none;color:#ff6b00;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;font-size:12px">renvoyer</button></p>`;
 
-        /* ============================================================
-     THÈME
-  ============================================================ */
-        function toggleTheme() {
-          const html = document.documentElement;
-          const isDark = html.getAttribute("data-theme") === "dark";
-          html.setAttribute("data-theme", isDark ? "light" : "dark");
-          document.getElementById("theme-icon").textContent = isDark
-            ? "🌙"
-            : "☀️";
-        }
-
-        /* ============================================================
-     FAVORIS
-  ============================================================ */
-        function updateFavBadge() {
-          const badge = document.getElementById("fav-badge");
-          if (!badge) return;
-          badge.style.display = favorites.length > 0 ? "inline" : "none";
-          badge.textContent = favorites.length;
-        }
-
-        function toggleFav(id) {
-          if (!currentUser) {
-            showToast("🔐 Connectez-vous pour ajouter aux favoris", "#555");
-            openAuthModal();
-            return;
-          }
-          if (favorites.includes(id))
-            favorites = favorites.filter((f) => f !== id);
-          else favorites.push(id);
-          saveFavorites(currentUser.id);
-          updateFavBadge();
-          document
-            .querySelectorAll(`.fav-btn[data-id="${id}"]`)
-            .forEach((btn) => {
-              btn.classList.toggle("active", favorites.includes(id));
-              btn.textContent = favorites.includes(id) ? "♥" : "♡";
-            });
-          const detailBtn = document.getElementById("detail-fav-btn");
-          if (detailBtn && parseInt(detailBtn.dataset.id) === id) {
-            const isFav = favorites.includes(id);
-            detailBtn.classList.toggle("active", isFav);
-            detailBtn.innerHTML = `${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}`;
-          }
-          if (
-            document
-              .getElementById("page-favorites")
-              .classList.contains("active")
-          )
-            renderFavorites();
-        }
-
-        /* ============================================================
-     CARTES
-  ============================================================ */
-        function createCard(r, container) {
-          const isFav = favorites.includes(r.id);
-          const card = document.createElement("div");
-          card.className = "recipe-card fadeup";
-          const diffColor = DIFF_COLORS[r.difficulty] || "#6ee7b7";
-          const userTag = r.isUserRecipe
-            ? `<span class="user-badge">👤 Communauté</span>`
-            : "";
-          const videoInd = r.youtubeId
-            ? `<div class="video-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vidéo</div>`
-            : "";
-          const img =
-            r.image ||
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
-          const rInfo = getAvgRating(r.id);
-          const ratingMini = rInfo
-            ? `<div class="recipe-rating-mini"><span class="stars-mini">${starsHTML(rInfo.avg)}</span><span>${rInfo.avg} (${rInfo.count})</span></div>`
-            : "";
-          card.innerHTML = `
-      <div class="recipe-img">
-        <img src="${img}" alt="${r.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80'">
-        <span class="badge badge-diff" style="background:${diffColor};color:#1a1a1a">${r.difficulty}</span>
-        <span class="badge badge-cat">${r.category}</span>
-        ${videoInd}
-      </div>
-      <div class="recipe-body">
-        <div class="recipe-header">
-          <div class="recipe-title">${r.title}${userTag}</div>
-          <button class="fav-btn ${isFav ? "active" : ""}" data-id="${r.id}">${isFav ? "♥" : "♡"}</button>
-        </div>
-        <p class="recipe-desc">${r.description}</p>
-        ${ratingMini}
-        <div class="recipe-meta"><span>🕐 ${r.time || "—"}</span><span>👥 ${r.servings || "—"}</span></div>
-      </div>`;
-          card.querySelector(".fav-btn").addEventListener("click", (e) => {
-            e.stopPropagation();
-            toggleFav(r.id);
-          });
-          card.addEventListener("click", () => openRecipe(r));
-          container.appendChild(card);
-        }
-
-        function renderHomeGrid() {
-          const grid = document.getElementById("home-recipe-grid");
-          if (!grid) return;
-          grid.innerHTML = "";
-          recipes.slice(0, 6).forEach((r) => createCard(r, grid));
-        }
-
-        function getFiltered() {
-          const q = (
-            document.getElementById("recipe-search")?.value || ""
-          ).toLowerCase();
-          return recipes.filter((r) => {
-            const matchCat =
-              currentFilter === "Tout" || r.category === currentFilter;
-            const matchQ =
-              !q ||
-              r.title.toLowerCase().includes(q) ||
-              r.description.toLowerCase().includes(q);
-            return matchCat && matchQ;
-          });
-        }
-
-        function renderRecipes() {
-          const grid = document.getElementById("recipe-grid");
-          const empty = document.getElementById("recipe-empty");
-          const count = document.getElementById("recipe-count");
-          if (!grid || !empty || !count) return;
-          const filtered = getFiltered();
-          grid.innerHTML = "";
-          if (filtered.length === 0) {
-            empty.style.display = "block";
-            grid.style.display = "none";
-          } else {
-            empty.style.display = "none";
-            grid.style.display = "grid";
-            filtered.forEach((r) => createCard(r, grid));
-          }
-          count.textContent = `${filtered.length} recette${filtered.length !== 1 ? "s" : ""} trouvée${filtered.length !== 1 ? "s" : ""}`;
-        }
-
-        function renderFavorites() {
-          const grid = document.getElementById("fav-grid");
-          const empty = document.getElementById("fav-empty");
-          const count = document.getElementById("fav-count");
-          if (!grid || !empty || !count) return;
-          const favRecipes = recipes.filter((r) => favorites.includes(r.id));
-          grid.innerHTML = "";
-          if (favRecipes.length === 0) {
-            empty.style.display = "block";
-            grid.style.display = "none";
-          } else {
-            empty.style.display = "none";
-            grid.style.display = "grid";
-            favRecipes.forEach((r) => createCard(r, grid));
-          }
-          count.textContent = `${favRecipes.length} recette${favRecipes.length !== 1 ? "s" : ""} sauvegardée${favRecipes.length !== 1 ? "s" : ""}`;
-        }
-
-        /* ============================================================
-     DETAIL + AVIS
-  ============================================================ */
-        function buildVideoSection(r) {
-          if (!isAdmin && !r.youtubeId) return "";
-          if (!r.youtubeId) {
-            return isAdmin
-              ? `<div class="video-section"><div class="video-empty-slot" id="add-video-slot"><div style="font-size:32px">▶</div><div style="font-weight:800">Ajouter une vidéo YouTube</div><div style="font-size:12px">Collez un lien YouTube pour cette recette</div></div></div>`
-              : "";
-          }
-          const thumb = `https://img.youtube.com/vi/${r.youtubeId}/hqdefault.jpg`;
-          const ytUrl = `https://www.youtube.com/watch?v=${r.youtubeId}`;
-          return `<div class="video-section">
-      <div class="box-title">▶ Vidéo de la recette</div>
-      <a href="${ytUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none">
-        <div class="video-thumb-wrap">
-          <img src="${thumb}" alt="Vidéo ${r.title}" onerror="this.style.opacity='.3'"/>
-          <div class="video-play-overlay">
-            <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            <div class="video-play-label">▶ Regarder sur YouTube</div>
-            <div class="video-play-sub">S'ouvre dans un nouvel onglet</div>
-          </div>
-          <div class="yt-corner-badge">YouTube</div>
-        </div>
-      </a>
-    </div>`;
-        }
-
-        function buildRatingSection(r) {
-          const rList = reviews[r.id] || [];
-          const rInfo = getAvgRating(r.id);
-          // Barre de distribution
-          const dist = [5, 4, 3, 2, 1]
-            .map((star) => {
-              const cnt = rList.filter((x) => x.stars === star).length;
-              const pct = rList.length
-                ? Math.round((cnt / rList.length) * 100)
-                : 0;
-              return `<div class="rating-bar-row"><span style="width:14px;text-align:right">${star}</span><span style="color:#f59e0b">★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:${pct}%"></div></div><span style="width:32px">${pct}%</span></div>`;
-            })
-            .join("");
-
-          const alreadyReviewed =
-            currentUser && rList.find((rv) => rv.userId === currentUser.id);
-          const addForm = !currentUser
-            ? `<div class="login-prompt">Connectez-vous pour laisser un avis <button id="login-for-review-btn">Se connecter</button></div>`
-            : alreadyReviewed
-              ? `<div class="login-prompt" style="text-align:left">✅ Vous avez déjà laissé un avis pour cette recette.</div>`
-              : `<div class="add-rating-form">
-          <h4>Votre avis</h4>
-          <div class="star-input" id="star-input">
-            <span data-s="1">★</span><span data-s="2">★</span><span data-s="3">★</span><span data-s="4">★</span><span data-s="5">★</span>
-          </div>
-          <textarea class="rating-textarea" id="review-text" placeholder="Partagez votre expérience avec cette recette..."></textarea>
-          <button class="submit-rating-btn" id="submit-review-btn">📝 Publier mon avis</button>
+        overlay.innerHTML = `
+        <div class="confirm-modal" style="text-align:center;max-width:440px">
+          <div style="font-size:52px;margin-bottom:12px">📧</div>
+          <h3>Vérifiez votre email !</h3>
+          <p>Un email de vérification a été envoyé à<br><strong>${email}</strong><br><br>
+          Cliquez sur le lien dans l'email pour activer votre compte.</p>
+          ${directLinkHtml}
+          <button onclick="this.closest('.overlay2').remove();document.body.style.overflow=''"
+            style="margin-top:16px;background:var(--filter-bg);border:1.5px solid var(--border);border-radius:12px;padding:11px 24px;font-weight:800;font-size:14px;font-family:Nunito,sans-serif;cursor:pointer;color:var(--text2)">
+            Fermer
+          </button>
         </div>`;
+        document.body.appendChild(overlay);
+        document.body.style.overflow = "hidden";
+      }
 
-          const reviewsList = rList.length
-            ? rList
-                .slice()
-                .reverse()
-                .map((rv) => {
-                  const canDelete =
-                    isAdmin || (currentUser && currentUser.id === rv.userId);
-                  return `<div class="review-card">
-        <div class="review-header">
-          <div><span class="review-author">👤 ${rv.username}</span><span class="review-date"> · ${rv.date}</span></div>
-          ${canDelete ? `<button class="delete-review-btn" data-rid="${rv.id}" data-recid="${r.id}">🗑</button>` : ""}
-        </div>
-        <div class="review-stars">${starsHTML(rv.stars)}</div>
-        <div class="review-text">${rv.text || ""}</div>
-      </div>`;
-                })
-                .join("")
-            : `<p style="color:var(--text3);font-size:14px">Aucun avis pour l'instant. Soyez le premier !</p>`;
+      function openResetPasswordModal(token) {
+        const overlay = document.createElement("div");
+        overlay.id = "reset-pw-overlay";
+        overlay.className = "overlay2 open";
+        overlay.style.zIndex = "1010";
+        overlay.innerHTML = `
+        <div class="auth-modal">
+          <div style="text-align:center;margin-bottom:24px">
+            <div style="font-size:36px">🔐</div>
+            <h2 style="font-family:'Playfair Display',serif;font-size:22px;margin-top:8px;color:var(--text)">Nouveau mot de passe</h2>
+          </div>
+          <label class="auth-label">Nouveau mot de passe</label>
+          <input class="auth-field" id="new-password" type="password" placeholder="Min. 8 car. · 1 maj · 1 chiffre"/>
+          <label class="auth-label">Confirmer</label>
+          <input class="auth-field" id="confirm-password" type="password" placeholder="Répétez le mot de passe"/>
+          <div class="auth-error" id="reset-error" style="display:none"></div>
+          <button class="auth-submit" onclick="doResetPassword('${token}')">Réinitialiser</button>
+        </div>`;
+        document.body.appendChild(overlay);
+      }
 
-          return `<div class="rating-section">
-      <div class="box-title">⭐ Avis & Notes</div>
-      <div class="rating-summary">
-        <div class="rating-big">
-          <div class="rating-big-num">${rInfo ? rInfo.avg : "—"}</div>
-          <div class="rating-big-stars">${rInfo ? starsHTML(rInfo.avg) : "☆☆☆☆☆"}</div>
-          <div class="rating-big-count">${rList.length} avis</div>
-        </div>
-        <div class="rating-bars">${dist}</div>
-      </div>
-      ${addForm}
-      <div class="reviews-list" id="reviews-list">${reviewsList}</div>
-    </div>`;
+      async function doResetPassword(token) {
+        const pw = document.getElementById("new-password").value;
+        const cpw = document.getElementById("confirm-password").value;
+        const err = document.getElementById("reset-error");
+        if (pw !== cpw) {
+          err.textContent = "Les mots de passe ne correspondent pas";
+          err.style.display = "block";
+          return;
+        }
+        try {
+          await Auth.resetPassword(token, pw);
+          document.getElementById("reset-pw-overlay")?.remove();
+          window.history.replaceState({}, "", window.location.pathname);
+          showToast("✅ Mot de passe réinitialisé ! Reconnectez-vous.");
+          setTimeout(openAuthModal, 1000);
+        } catch (e) {
+          err.textContent = e.message;
+          err.style.display = "block";
+        }
+      }
+
+      /* ════════════════════════════════════════════════════
+       FAVORIS
+    ════════════════════════════════════════════════════ */
+      async function toggleFav(id) {
+        if (!currentUser) {
+          showToast("🔐 Connectez-vous pour ajouter aux favoris", "#555");
+          openAuthModal();
+          return;
+        }
+        if (!currentUser.isVerified) {
+          showToast("📧 Vérifiez votre email d'abord", "#ff6b00");
+          return;
         }
 
-        function openRecipe(r) {
-          previousPage =
-            document.querySelector(".page.active")?.id?.replace("page-", "") ||
-            "recipes";
-          currentRecipeId = r.id;
-          const isFav = favorites.includes(r.id);
-          const img =
-            r.image ||
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
-          const diffColor = DIFF_COLORS[r.difficulty] || "#6ee7b7";
-          const rInfo = getAvgRating(r.id);
-          const ratingBadge = rInfo
-            ? `<span class="badge" style="position:static;background:rgba(255,255,255,.9);color:#f59e0b">⭐ ${rInfo.avg}</span>`
-            : "";
+        const added = await FavService.toggle(currentUser.id, id);
+        if (added) favorites.push(id);
+        else favorites = favorites.filter((f) => f !== id);
 
-          const adminBtns = isAdmin
-            ? `<div style="display:flex;gap:10px">
-        <button class="edit-recipe-btn" id="detail-edit-btn">✎ Modifier</button>
-        <button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}">${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}</button>
-      </div>`
-            : `<div style="display:flex;gap:10px">
-        <button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}">${isFav ? "♥" : "♡"} ${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}</button>
-      </div>`;
-
-          const deleteBtn = isAdmin
-            ? `<div style="display:flex;justify-content:flex-end;margin-top:20px"><button class="delete-recipe-btn" id="detail-delete-btn">🗑️ Supprimer cette recette</button></div>`
-            : r.isUserRecipe && currentUser
-              ? `<div style="display:flex;justify-content:flex-end;margin-top:20px"><button class="delete-recipe-btn" id="detail-delete-btn">🗑️ Supprimer ma recette</button></div>`
-              : "";
-
-          document.getElementById("detail-content").innerHTML = `
-      <div class="detail-hero">
-        <img src="${img}" alt="${r.title}" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80'">
-        <div class="detail-hero-info">
-          <div class="detail-badges">
-            <span class="badge" style="background:${diffColor};color:#1a1a1a;position:static">🔥 ${r.difficulty}</span>
-            <span class="badge badge-cat" style="position:static">${r.category}</span>
-            ${ratingBadge}
-            ${r.isUserRecipe ? '<span class="badge" style="position:static;background:rgba(255,255,255,.9);color:#ff6b00">👤 Communauté</span>' : ""}
-          </div>
-          <div class="detail-title">${r.title}</div>
-        </div>
-      </div>
-      <div class="meta-bar">
-        <div class="meta-bar-items">
-          <div><div class="meta-item-label">Préparation</div><div class="meta-item-value">🕐 ${r.prepTime || "—"}</div></div>
-          <div><div class="meta-item-label">Cuisson</div><div class="meta-item-value">🕐 ${r.cookTime || "—"}</div></div>
-          <div><div class="meta-item-label">Portions</div><div class="meta-item-value">👥 ${r.servings || "—"}</div></div>
-        </div>
-        ${adminBtns}
-      </div>
-      <p class="detail-desc">${r.description}</p>
-      ${buildVideoSection(r)}
-      <div class="detail-cols">
-        <div class="ingredients-box">
-          <div class="box-title">📋 Ingrédients</div>
-          ${(r.ingredients || []).map((ing) => `<div class="ingredient-item"><div class="ingredient-dot"></div>${ing}</div>`).join("")}
-        </div>
-        <div>
-          <div class="box-title" style="margin-bottom:20px">👨‍🍳 Préparation</div>
-          <div class="steps-list">
-            ${(r.steps || []).map((s, i) => `<div class="step-card fadeup"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join("")}
-          </div>
-        </div>
-      </div>
-      ${buildRatingSection(r)}
-      ${deleteBtn}`;
-
-          // Events
-          document
-            .getElementById("detail-fav-btn")
-            ?.addEventListener("click", () => toggleFav(r.id));
-          document
-            .getElementById("detail-edit-btn")
-            ?.addEventListener("click", () => openEditModal(r.id));
-          document
-            .getElementById("detail-delete-btn")
-            ?.addEventListener("click", () => deleteRecipe(r.id));
-          document
-            .getElementById("add-video-slot")
-            ?.addEventListener("click", () => openEditVideoModal(r.id));
-          document
-            .getElementById("login-for-review-btn")
-            ?.addEventListener("click", openAuthModal);
-
-          // Star input
-          const starInput = document.getElementById("star-input");
-          if (starInput) {
-            tempStarRating = 0;
-            const stars = starInput.querySelectorAll("span");
-            stars.forEach((s) => {
-              s.addEventListener("mouseenter", () => {
-                const n = parseInt(s.dataset.s);
-                stars.forEach((x, i) => x.classList.toggle("hover", i < n));
-              });
-              s.addEventListener("mouseleave", () => {
-                stars.forEach((x, i) => {
-                  x.classList.remove("hover");
-                  x.classList.toggle("selected", i < tempStarRating);
-                });
-              });
-              s.addEventListener("click", () => {
-                tempStarRating = parseInt(s.dataset.s);
-                stars.forEach((x, i) =>
-                  x.classList.toggle("selected", i < tempStarRating),
-                );
-              });
-            });
-          }
-
-          document
-            .getElementById("submit-review-btn")
-            ?.addEventListener("click", () => submitReview(r.id));
-
-          // Delete review buttons
-          document.querySelectorAll(".delete-review-btn").forEach((btn) => {
-            btn.addEventListener("click", () => {
-              const rid = btn.dataset.rid;
-              const recId = parseInt(btn.dataset.recid);
-              deleteReview(rid, recId);
-            });
+        updateFavBadge();
+        document
+          .querySelectorAll(`.fav-btn[data-id="${id}"]`)
+          .forEach((btn) => {
+            const isFav = favorites.includes(id);
+            btn.classList.toggle("active", isFav);
+            btn.textContent = isFav ? "♥" : "♡";
           });
-
-          showPage("recipe");
+        const detailBtn = document.getElementById("detail-fav-btn");
+        if (detailBtn && Number(detailBtn.dataset.id) === id) {
+          const isFavNow = favorites.includes(id);
+          detailBtn.classList.toggle("active", isFavNow);
+          detailBtn.innerHTML = `${isFavNow ? "♥" : "♡"} ${isFavNow ? "Retirer des favoris" : "Ajouter aux favoris"}`;
         }
+        if (
+          document.getElementById("page-favorites").classList.contains("active")
+        )
+          renderFavorites();
+      }
 
-        /* ============================================================
-     AVIS
-  ============================================================ */
-        function submitReview(recipeId) {
-          if (!currentUser) {
-            openAuthModal();
-            return;
-          }
-          if (!tempStarRating) {
-            showToast("⭐ Choisissez une note", "#555");
-            return;
-          }
-          const text =
-            document.getElementById("review-text")?.value.trim() || "";
-          const rList = reviews[recipeId] || [];
-          if (rList.find((rv) => rv.userId === currentUser.id)) {
-            showToast("Vous avez déjà laissé un avis", "#555");
-            return;
-          }
-          const newReview = {
-            id: Date.now().toString(),
-            userId: currentUser.id,
-            username: currentUser.username,
-            stars: tempStarRating,
+      /* ════════════════════════════════════════════════════
+       AVIS
+    ════════════════════════════════════════════════════ */
+      async function submitReview(recipeId) {
+        if (!currentUser) {
+          openAuthModal();
+          return;
+        }
+        if (!tempStarRating) {
+          showToast("⭐ Choisissez une note", "#555");
+          return;
+        }
+        const text = document.getElementById("review-text")?.value.trim() || "";
+        try {
+          await ReviewService.add(
+            recipeId,
+            currentUser.id,
+            currentUser.username,
+            tempStarRating,
             text,
-            date: new Date().toLocaleDateString("fr-FR", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            }),
-          };
-          if (!reviews[recipeId]) reviews[recipeId] = [];
-          reviews[recipeId].push(newReview);
-          saveReviews();
-          showToast("✅ Votre avis a été publié !");
-          const r = recipes.find((x) => x.id === recipeId);
-          if (r) openRecipe(r);
-        }
-
-        function deleteReview(reviewId, recipeId) {
-          if (!reviews[recipeId]) return;
-          reviews[recipeId] = reviews[recipeId].filter(
-            (rv) => rv.id !== reviewId,
           );
-          saveReviews();
-          showToast("🗑️ Avis supprimé");
-          const r = recipes.find((x) => x.id === recipeId);
+          showToast("✅ Votre avis a été publié !");
+          const r = await RecipeService.get(recipeId);
           if (r) openRecipe(r);
+        } catch (e) {
+          showToast("❌ " + e.message, "#dc2626");
         }
+      }
 
-        /* ============================================================
-     MODAL AJOUT/ÉDITION
-  ============================================================ */
-        function openAddModal() {
-          currentEditId = null;
-          document.getElementById("modal-title").textContent =
-            "✨ Nouvelle Recette";
-          document.getElementById("submit-btn").textContent =
-            "🍽️ Publier ma recette";
-          resetForm();
-          initFormLists();
-          document.getElementById("add-modal").classList.add("open");
-          document.body.style.overflow = "hidden";
-        }
-
-        function openEditModal(recipeId) {
-          if (!isAdmin) return;
-          const r = recipes.find((x) => x.id === recipeId);
-          if (!r) return;
-          currentEditId = recipeId;
-          document.getElementById("modal-title").textContent =
-            "✎ Modifier la recette";
-          document.getElementById("submit-btn").textContent =
-            "💾 Enregistrer les modifications";
-          document.getElementById("f-title").value = r.title || "";
-          document.getElementById("f-desc").value = r.description || "";
-          document.getElementById("f-cat").value = r.category || "";
-          document.getElementById("f-diff").value = r.difficulty || "Facile";
-          document.getElementById("f-time").value = r.time || "";
-          document.getElementById("f-prep").value = r.prepTime || "";
-          document.getElementById("f-serv").value = r.servings || "";
-          document.getElementById("f-img").value = r.image || "";
-          document.getElementById("f-yt").value = r.youtubeId
-            ? `https://www.youtube.com/watch?v=${r.youtubeId}`
-            : "";
-          if (r.image) {
-            const p = document.getElementById("img-preview");
-            p.src = r.image;
-            p.style.display = "block";
-          }
-          const ingList = document.getElementById("ing-list");
-          ingList.innerHTML = "";
-          (r.ingredients || []).forEach((v) => addIngredientRow(v));
-          const stepList = document.getElementById("step-list");
-          stepList.innerHTML = "";
-          (r.steps || []).forEach((v) => addStepRow(v));
-          document.getElementById("add-modal").classList.add("open");
-          document.body.style.overflow = "hidden";
-        }
-
-        function closeAddModal() {
-          document.getElementById("add-modal").classList.remove("open");
-          document.body.style.overflow = "";
-          resetForm();
-        }
-
-        function resetForm() {
-          [
-            "f-title",
-            "f-desc",
-            "f-cat",
-            "f-time",
-            "f-prep",
-            "f-serv",
-            "f-img",
-            "f-yt",
-          ].forEach((id) => {
-            const el = document.getElementById(id);
-            if (el) el.value = "";
-          });
-          const diff = document.getElementById("f-diff");
-          if (diff) diff.value = "Facile";
-          const preview = document.getElementById("img-preview");
-          if (preview) preview.style.display = "none";
-          const err = document.getElementById("form-error");
-          if (err) err.style.display = "none";
-        }
-
-        function initFormLists() {
-          document.getElementById("ing-list").innerHTML = "";
-          document.getElementById("step-list").innerHTML = "";
-          addIngredientRow();
-          addIngredientRow();
-          addIngredientRow();
-          addStepRow();
-          addStepRow();
-        }
-
-        function addIngredientRow(val = "") {
-          const list = document.getElementById("ing-list");
-          if (!list) return;
-          const item = document.createElement("div");
-          item.className = "dynamic-item";
-          item.innerHTML = `<span style="color:#ff6b00;font-size:18px">•</span><input type="text" placeholder="Ex: 200g de farine" value="${val.replace(/"/g, "&quot;")}"/><button class="dynamic-remove">✕</button>`;
-          item
-            .querySelector(".dynamic-remove")
-            .addEventListener("click", () => item.remove());
-          list.appendChild(item);
-        }
-
-        function addStepRow(val = "") {
-          const list = document.getElementById("step-list");
-          if (!list) return;
-          const n = list.children.length + 1;
-          const item = document.createElement("div");
-          item.className = "dynamic-item";
-          item.innerHTML = `<span style="background:linear-gradient(135deg,#ff6b00,#ff9d00);color:#fff;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0">${n}</span><input type="text" placeholder="Décrivez cette étape..." value="${val.replace(/"/g, "&quot;")}"/><button class="dynamic-remove">✕</button>`;
-          item
-            .querySelector(".dynamic-remove")
-            .addEventListener("click", () => {
-              item.remove();
-              document
-                .querySelectorAll("#step-list .dynamic-item")
-                .forEach((el, i) => {
-                  const s = el.querySelector("span");
-                  if (s) s.textContent = i + 1;
-                });
-            });
-          list.appendChild(item);
-        }
-
-        function submitRecipe() {
-          const err = document.getElementById("form-error");
-          const title = document.getElementById("f-title").value.trim();
-          const desc = document.getElementById("f-desc").value.trim();
-          const cat = document.getElementById("f-cat").value;
-          const diff = document.getElementById("f-diff").value;
-          const ytRaw = document.getElementById("f-yt").value.trim();
-          const ytId = ytRaw ? extractYouTubeId(ytRaw) : null;
-          const ings = Array.from(document.querySelectorAll("#ing-list input"))
-            .map((i) => i.value.trim())
-            .filter(Boolean);
-          const steps = Array.from(
-            document.querySelectorAll("#step-list input"),
-          )
-            .map((i) => i.value.trim())
-            .filter(Boolean);
-          if (!title || !desc || !cat) {
-            err.textContent =
-              "⚠️ Veuillez remplir le titre, la description et la catégorie.";
-            err.style.display = "block";
-            return;
-          }
-          if (ings.length === 0) {
-            err.textContent = "⚠️ Ajoutez au moins un ingrédient.";
-            err.style.display = "block";
-            return;
-          }
-          if (steps.length === 0) {
-            err.textContent = "⚠️ Ajoutez au moins une étape de préparation.";
-            err.style.display = "block";
-            return;
-          }
-          if (ytRaw && !ytId) {
-            err.textContent = "⚠️ Le lien YouTube ne semble pas valide.";
-            err.style.display = "block";
-            return;
-          }
-          const imgVal =
-            document.getElementById("f-img").value.trim() ||
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
-
-          if (currentEditId && isAdmin) {
-            const idx = recipes.findIndex((r) => r.id === currentEditId);
-            if (idx !== -1) {
-              recipes[idx] = {
-                ...recipes[idx],
-                title,
-                description: desc,
-                category: cat,
-                difficulty: diff,
-                time: document.getElementById("f-time").value.trim() || "—",
-                servings: document.getElementById("f-serv").value.trim() || "—",
-                prepTime: document.getElementById("f-prep").value.trim() || "—",
-                image: imgVal,
-                youtubeId: ytId || null,
-                ingredients: ings,
-                steps,
-              };
-            }
-            saveRecipes();
-            closeAddModal();
-            showToast("✅ Recette modifiée avec succès !");
-            const updated = recipes.find((r) => r.id === currentEditId);
-            if (updated) openRecipe(updated);
-          } else {
-            const newR = {
-              id: nextId++,
-              title,
-              description: desc,
-              category: cat,
-              difficulty: diff,
-              time: document.getElementById("f-time").value.trim() || "—",
-              servings: document.getElementById("f-serv").value.trim() || "—",
-              prepTime: document.getElementById("f-prep").value.trim() || "—",
-              cookTime: "—",
-              image: imgVal,
-              youtubeId: ytId || null,
-              ingredients: ings,
-              steps,
-              isUserRecipe: true,
-              authorId: currentUser?.id || null,
-              authorName: currentUser?.username || "Anonyme",
-            };
-            recipes.unshift(newR);
-            saveRecipes();
-            closeAddModal();
-            showToast("🎉 Votre recette a été publiée !");
-            showPage("recipes");
-          }
-        }
-
-        /* ============================================================
-     MODAL VIDÉO
-  ============================================================ */
-        function openEditVideoModal(recipeId) {
-          if (!isAdmin) return;
-          const r = recipes.find((x) => x.id === recipeId);
-          if (!r) return;
-          const overlay = document.getElementById("edit-video-overlay");
-          document.getElementById("edit-video-input").value = r.youtubeId
-            ? `https://www.youtube.com/watch?v=${r.youtubeId}`
-            : "";
-          overlay.dataset.recipeId = recipeId;
-          document.getElementById("edit-video-error").style.display = "none";
-          overlay.classList.add("open");
-          document.getElementById("edit-video-input").focus();
-        }
-
-        function saveEditVideo() {
-          const overlay = document.getElementById("edit-video-overlay");
-          const recipeId = parseInt(overlay.dataset.recipeId);
-          const raw = document.getElementById("edit-video-input").value.trim();
-          const ytId = raw ? extractYouTubeId(raw) : null;
-          if (raw && !ytId) {
-            document.getElementById("edit-video-error").style.display = "block";
-            return;
-          }
-          const r = recipes.find((x) => x.id === recipeId);
+      async function deleteReview(reviewId, recipeId) {
+        try {
+          await ReviewService.delete(
+            reviewId,
+            currentUser.id,
+            currentUser.isAdmin,
+          );
+          showToast("🗑️ Avis supprimé");
+          const r = await RecipeService.get(recipeId);
           if (r) {
-            r.youtubeId = ytId;
-            saveRecipes();
-            overlay.classList.remove("open");
+            const idx = recipes.findIndex((x) => x.id === recipeId);
+            if (idx !== -1) recipes[idx] = r;
             openRecipe(r);
-            showToast("✅ Vidéo mise à jour");
           }
+        } catch (e) {
+          showToast("❌ " + e.message, "#dc2626");
+        }
+      }
+
+      /* ════════════════════════════════════════════════════
+       RECETTES CRUD
+    ════════════════════════════════════════════════════ */
+      function extractYouTubeId(input) {
+        if (!input) return null;
+        input = input.trim();
+        if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
+        const patterns = [
+          /(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/,
+          /(?:youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+          /(?:youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+          /(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
+        ];
+        for (const p of patterns) {
+          const m = input.match(p);
+          if (m) return m[1];
+        }
+        return null;
+      }
+
+      async function submitRecipe(editId = null) {
+        const err = document.getElementById("form-error");
+        const title = document.getElementById("f-title").value.trim();
+        const desc = document.getElementById("f-desc").value.trim();
+        const cat = document.getElementById("f-cat").value;
+        const diff = document.getElementById("f-diff").value;
+        const ytRaw = document.getElementById("f-yt").value.trim();
+        const ytId = ytRaw ? extractYouTubeId(ytRaw) : null;
+        const ings = Array.from(document.querySelectorAll("#ing-list input"))
+          .map((i) => i.value.trim())
+          .filter(Boolean);
+        const steps = Array.from(document.querySelectorAll("#step-list input"))
+          .map((i) => i.value.trim())
+          .filter(Boolean);
+
+        if (!title || !desc || !cat) {
+          err.textContent = "⚠️ Remplissez titre, description et catégorie.";
+          err.style.display = "block";
+          return;
+        }
+        if (!ings.length) {
+          err.textContent = "⚠️ Ajoutez au moins un ingrédient.";
+          err.style.display = "block";
+          return;
+        }
+        if (!steps.length) {
+          err.textContent = "⚠️ Ajoutez au moins une étape.";
+          err.style.display = "block";
+          return;
+        }
+        if (ytRaw && !ytId) {
+          err.textContent = "⚠️ Lien YouTube invalide.";
+          err.style.display = "block";
+          return;
         }
 
-        /* ============================================================
-     SUPPRESSION
-  ============================================================ */
-        function deleteRecipe(recipeId) {
-          const r = recipes.find((x) => x.id === recipeId);
-          if (!r) return;
-          // Admin peut tout supprimer, user seulement ses propres recettes
-          if (
-            !isAdmin &&
-            !(r.isUserRecipe && currentUser && r.authorId === currentUser.id)
-          )
-            return;
-          pendingDeleteId = recipeId;
-          document.getElementById("confirm-title").textContent =
-            "🗑️ Supprimer la recette";
-          document.getElementById("confirm-message").innerHTML =
-            `Êtes-vous sûr de vouloir supprimer "<strong>${r.title}</strong>" ? Cette action est irréversible.`;
-          document.getElementById("confirm-overlay").classList.add("open");
-        }
+        const data = {
+          title,
+          description: desc,
+          category: cat,
+          difficulty: diff,
+          time: document.getElementById("f-time").value.trim() || null,
+          prepTime: document.getElementById("f-prep").value.trim() || null,
+          cookTime: null,
+          servings: document.getElementById("f-serv").value.trim() || null,
+          imageUrl: document.getElementById("f-img").value.trim() || null,
+          youtubeId: ytId,
+          ingredients: ings,
+          steps,
+        };
 
-        function confirmDelete() {
-          if (!pendingDeleteId) return;
-          favorites = favorites.filter((f) => f !== pendingDeleteId);
-          if (currentUser) saveFavorites(currentUser.id);
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = true;
+        btn.textContent = "⏳ Publication...";
+
+        try {
+          let recipe;
+          if (editId)
+            recipe = await RecipeService.update(
+              editId,
+              data,
+              currentUser.id,
+              currentUser.isAdmin,
+            );
+          else
+            recipe = await RecipeService.create(
+              data,
+              currentUser.id,
+              currentUser.username,
+            );
+
+          closeAddModal();
+          showToast(editId ? "✅ Recette modifiée !" : "🎉 Recette publiée !");
+          await loadAndRenderRecipes();
+          // Retrouver la recette mise à jour
+          const updated = await RecipeService.get(recipe.id);
+          openRecipe(updated);
+        } catch (e) {
+          err.textContent = "❌ " + e.message;
+          err.style.display = "block";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = editId ? "💾 Enregistrer" : "🍽️ Publier ma recette";
+        }
+      }
+
+      async function deleteRecipe(recipeId) {
+        const r = recipes.find((x) => x.id === recipeId);
+        if (!r) return;
+        pendingDeleteId = recipeId;
+        document.getElementById("confirm-title").textContent =
+          "🗑️ Supprimer la recette";
+        document.getElementById("confirm-message").innerHTML =
+          `Êtes-vous sûr de vouloir supprimer "<strong>${r.title}</strong>" ?`;
+        document.getElementById("confirm-overlay").classList.add("open");
+      }
+
+      async function confirmDelete() {
+        if (!pendingDeleteId) return;
+        try {
+          await RecipeService.delete(
+            pendingDeleteId,
+            currentUser.id,
+            currentUser.isAdmin,
+          );
           recipes = recipes.filter((r) => r.id !== pendingDeleteId);
-          saveRecipes();
-          pendingDeleteId = null;
+          favorites = favorites.filter((f) => f !== pendingDeleteId);
           updateFavBadge();
           document.getElementById("confirm-overlay").classList.remove("open");
           showPage(previousPage);
-          showToast("✅ Recette supprimée avec succès");
+          showToast("✅ Recette supprimée");
+          await loadAndRenderRecipes();
+        } catch (e) {
+          showToast("❌ " + e.message, "#dc2626");
         }
+        pendingDeleteId = null;
+      }
 
-        /* ============================================================
-     INIT
-  ============================================================ */
-        document.addEventListener("DOMContentLoaded", function () {
-          // Nav
-          document
-            .getElementById("logo-btn")
-            .addEventListener("click", () => showPage("home"));
-          document
-            .getElementById("nav-home")
-            .addEventListener("click", () => showPage("home"));
-          document
-            .getElementById("nav-recipes")
-            .addEventListener("click", () => showPage("recipes"));
-          document
-            .getElementById("nav-favorites")
-            .addEventListener("click", () => showPage("favorites"));
-          document
-            .getElementById("admin-login-btn")
-            .addEventListener("click", toggleAdmin);
-          document
-            .getElementById("theme-toggle-btn")
-            .addEventListener("click", toggleTheme);
-          document
-            .getElementById("add-recipe-btn")
-            .addEventListener("click", openAddModal);
-          document
-            .getElementById("back-btn")
-            .addEventListener("click", () => showPage(previousPage));
-          document
-            .getElementById("user-auth-btn")
-            .addEventListener("click", openAuthModal);
+      /* ════════════════════════════════════════════════════
+       NAVIGATION & RENDER
+    ════════════════════════════════════════════════════ */
+      function showPage(name) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        const page = document.getElementById("page-" + name);
+        if (page) page.classList.add("active");
+        document
+          .querySelectorAll(".nav-btn")
+          .forEach((b) => b.classList.remove("active"));
+        const nb = document.getElementById("nav-" + name);
+        if (nb) nb.classList.add("active");
+        window.scrollTo(0, 0);
+        if (name === "recipes") renderRecipes();
+        if (name === "favorites") renderFavorites();
+      }
 
-          // Footer navigation
-          document
-            .querySelectorAll(".footer-links button[data-page]")
-            .forEach((btn) => {
-              btn.addEventListener("click", () => showPage(btn.dataset.page));
+      function updateAuthUI() {
+        const btn = document.getElementById("user-auth-btn");
+        const icon = document.getElementById("user-auth-icon");
+        const mLabel = document.getElementById("m-user-label");
+        if (currentUser) {
+          btn.classList.add("logged-in");
+          icon.textContent =
+            currentUser.avatarLetter ||
+            currentUser.username.charAt(0).toUpperCase();
+          btn.title = currentUser.username + " — cliquer pour se déconnecter";
+          if (mLabel)
+            mLabel.textContent = currentUser.username + " (se déconnecter)";
+        } else {
+          btn.classList.remove("logged-in");
+          icon.textContent = "👤";
+          btn.title = "Connexion / Inscription";
+          if (mLabel) mLabel.textContent = "Connexion";
+        }
+      }
+
+      function openAuthModal() {
+        if (currentUser) {
+          doLogout();
+          return;
+        }
+        document.getElementById("auth-overlay").classList.add("open");
+        document.body.style.overflow = "hidden";
+        showLoginForm();
+      }
+
+      function showLoginForm() {
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("register-form").style.display = "none";
+        document.getElementById("forgot-form").style.display = "none";
+        document.getElementById("tab-login").classList.add("active");
+        document.getElementById("tab-register").classList.remove("active");
+        document.getElementById("login-error").style.display = "none";
+      }
+      function showRegisterForm() {
+        document.getElementById("register-form").style.display = "block";
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("forgot-form").style.display = "none";
+        document.getElementById("tab-register").classList.add("active");
+        document.getElementById("tab-login").classList.remove("active");
+        document.getElementById("reg-error").style.display = "none";
+      }
+      function showForgotForm() {
+        document.getElementById("forgot-form").style.display = "block";
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("register-form").style.display = "none";
+        const msgEl = document.getElementById("forgot-message");
+        if (msgEl) msgEl.style.display = "none";
+      }
+
+      function updateFavBadge() {
+        const badge = document.getElementById("fav-badge");
+        const mbadge = document.getElementById("m-fav-badge");
+        if (badge) {
+          badge.style.display = favorites.length > 0 ? "inline" : "none";
+          badge.textContent = favorites.length;
+        }
+        if (mbadge) {
+          mbadge.style.display = favorites.length > 0 ? "inline" : "none";
+          mbadge.textContent = favorites.length;
+        }
+      }
+
+      function showToast(msg, color = "#ff6b00") {
+        const t = document.createElement("div");
+        t.style.cssText = `position:fixed;bottom:30px;right:30px;background:${color};color:#fff;padding:14px 24px;border-radius:14px;font-weight:800;font-size:15px;font-family:Nunito,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,0.25);z-index:9999;animation:fadeUp 0.3s ease;max-width:320px;line-height:1.4`;
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transition = "opacity 0.4s";
+          setTimeout(() => t.remove(), 400);
+        }, 3600);
+      }
+
+      function starsHTML(n, total = 5) {
+        let s = "";
+        for (let i = 1; i <= total; i++) s += i <= Math.round(n) ? "★" : "☆";
+        return s;
+      }
+
+      /* ════════════════════════════════════════════════════
+       CARTES RECETTES
+    ════════════════════════════════════════════════════ */
+      function createCard(r, container) {
+        const isFav = favorites.includes(r.id);
+        const card = document.createElement("div");
+        card.className = "recipe-card fadeup";
+        const diffColor = DIFF_COLORS[r.difficulty] || "#6ee7b7";
+        const img =
+          r.imageUrl ||
+          r.image_url ||
+          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
+        const videoInd =
+          r.youtubeId || r.youtube_id
+            ? `<div class="video-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vidéo</div>`
+            : "";
+        const ratingMini = r.rating
+          ? `<div class="recipe-rating-mini"><span class="stars-mini">${starsHTML(r.rating.avg)}</span><span>${r.rating.avg} (${r.rating.count})</span></div>`
+          : "";
+        const communityBadge = r.isCommunity
+          ? `<span class="user-badge">👤</span>`
+          : "";
+
+        card.innerHTML = `
+        <div class="recipe-img">
+          <img src="${img}" alt="${r.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80'">
+          <span class="badge badge-diff" style="background:${diffColor};color:#1a1a1a">${r.difficulty}</span>
+          <span class="badge badge-cat">${r.category}</span>${videoInd}
+        </div>
+        <div class="recipe-body">
+          <div class="recipe-header">
+            <div class="recipe-title">${r.title}${communityBadge}</div>
+            <button class="fav-btn ${isFav ? "active" : ""}" data-id="${r.id}">${isFav ? "♥" : "♡"}</button>
+          </div>
+          <p class="recipe-desc">${r.description}</p>
+          ${ratingMini}
+          <div class="recipe-meta"><span>🕐 ${r.time || "—"}</span><span>👥 ${r.servings || "—"}</span></div>
+        </div>`;
+        card.querySelector(".fav-btn").addEventListener("click", (e) => {
+          e.stopPropagation();
+          toggleFav(r.id);
+        });
+        card.addEventListener("click", () => openRecipe(r));
+        container.appendChild(card);
+      }
+
+      function renderHomeGrid() {
+        const grid = document.getElementById("home-recipe-grid");
+        if (!grid) return;
+        grid.innerHTML = "";
+        recipes.slice(0, 6).forEach((r) => createCard(r, grid));
+      }
+
+      function renderRecipes() {
+        const grid = document.getElementById("recipe-grid");
+        const empty = document.getElementById("recipe-empty");
+        const count = document.getElementById("recipe-count");
+        if (!grid || !empty || !count) return;
+        grid.innerHTML = "";
+        const q = searchQuery.toLowerCase();
+        const filtered = recipes.filter((r) => {
+          const matchCat =
+            currentFilter === "Tout" || r.category === currentFilter;
+          const matchQ =
+            !q ||
+            r.title.toLowerCase().includes(q) ||
+            r.description.toLowerCase().includes(q);
+          return matchCat && matchQ;
+        });
+        if (!filtered.length) {
+          empty.style.display = "block";
+          grid.style.display = "none";
+        } else {
+          empty.style.display = "none";
+          grid.style.display = "grid";
+          filtered.forEach((r) => createCard(r, grid));
+        }
+        count.textContent = `${filtered.length} recette${filtered.length !== 1 ? "s" : ""} trouvée${filtered.length !== 1 ? "s" : ""}`;
+      }
+
+      function renderFavorites() {
+        const grid = document.getElementById("fav-grid");
+        const empty = document.getElementById("fav-empty");
+        const count = document.getElementById("fav-count");
+        if (!grid || !empty || !count) return;
+        const favRecipes = recipes.filter((r) => favorites.includes(r.id));
+        grid.innerHTML = "";
+        if (!favRecipes.length) {
+          empty.style.display = "block";
+          grid.style.display = "none";
+        } else {
+          empty.style.display = "none";
+          grid.style.display = "grid";
+          favRecipes.forEach((r) => createCard(r, grid));
+        }
+        count.textContent = `${favRecipes.length} recette${favRecipes.length !== 1 ? "s" : ""} sauvegardée${favRecipes.length !== 1 ? "s" : ""}`;
+      }
+
+      /* ════════════════════════════════════════════════════
+       DÉTAIL RECETTE
+    ════════════════════════════════════════════════════ */
+      function buildVideoSection(r) {
+        const ytId = r.youtubeId || r.youtube_id;
+        if (!ytId) return "";
+        const thumb = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+        const ytUrl = `https://www.youtube.com/watch?v=${ytId}`;
+        return `<div class="video-section"><div class="box-title">▶ Vidéo de la recette</div>
+        <a href="${ytUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none">
+          <div class="video-thumb-wrap">
+            <img src="${thumb}" alt="Vidéo" onerror="this.style.opacity='.3'"/>
+            <div class="video-play-overlay">
+              <div class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <div class="video-play-label">▶ Regarder sur YouTube</div>
+              <div class="video-play-sub">S'ouvre dans un nouvel onglet</div>
+            </div>
+            <div class="yt-corner-badge">YouTube</div>
+          </div>
+        </a></div>`;
+      }
+
+      async function buildRatingSection(r) {
+        const reviewsList = await ReviewService.getForRecipe(r.id);
+        const total = reviewsList.length;
+        const avg = total
+          ? (reviewsList.reduce((a, rv) => a + rv.stars, 0) / total).toFixed(1)
+          : null;
+        const dist = [5, 4, 3, 2, 1]
+          .map((star) => {
+            const cnt = reviewsList.filter((x) => x.stars === star).length;
+            const pct = total ? Math.round((cnt / total) * 100) : 0;
+            return `<div class="rating-bar-row"><span style="width:14px;text-align:right">${star}</span><span style="color:#f59e0b">★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:${pct}%"></div></div><span style="width:32px">${pct}%</span></div>`;
+          })
+          .join("");
+
+        const alreadyReviewed =
+          currentUser && reviewsList.find((rv) => rv.userId === currentUser.id);
+        const addForm = !currentUser
+          ? `<div class="login-prompt">Connectez-vous pour laisser un avis <button id="login-for-review-btn">Se connecter</button></div>`
+          : !currentUser.isVerified
+            ? `<div class="login-prompt">Vérifiez votre email pour laisser un avis 📧</div>`
+            : alreadyReviewed
+              ? `<div class="login-prompt" style="text-align:left">✅ Vous avez déjà laissé un avis.</div>`
+              : `<div class="add-rating-form"><h4>Votre avis</h4>
+              <div class="star-input" id="star-input"><span data-s="1">★</span><span data-s="2">★</span><span data-s="3">★</span><span data-s="4">★</span><span data-s="5">★</span></div>
+              <textarea class="rating-textarea" id="review-text" placeholder="Partagez votre expérience..."></textarea>
+              <button class="submit-rating-btn" id="submit-review-btn">📝 Publier mon avis</button></div>`;
+
+        const reviewsHTML = reviewsList.length
+          ? reviewsList
+              .map((rv) => {
+                const canDel =
+                  currentUser?.isAdmin || currentUser?.id === rv.userId;
+                return `<div class="review-card">
+              <div class="review-header">
+                <div><span class="review-author">👤 ${rv.username}</span><span class="review-date"> · ${new Date(rv.createdAt).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span></div>
+                ${canDel ? `<button class="delete-review-btn" data-rid="${rv.id}" data-recid="${r.id}">🗑</button>` : ""}
+              </div>
+              <div class="review-stars">${starsHTML(rv.stars)}</div>
+              <div class="review-text">${rv.text || ""}</div>
+            </div>`;
+              })
+              .join("")
+          : `<p style="color:var(--text3);font-size:14px">Aucun avis pour l'instant. Soyez le premier !</p>`;
+
+        return `<div class="rating-section"><div class="box-title">⭐ Avis & Notes</div>
+        <div class="rating-summary">
+          <div class="rating-big"><div class="rating-big-num">${avg || "—"}</div><div class="rating-big-stars">${avg ? starsHTML(avg) : "☆☆☆☆☆"}</div><div class="rating-big-count">${total} avis</div></div>
+          <div class="rating-bars">${dist}</div>
+        </div>
+        ${addForm}
+        <div class="reviews-list" id="reviews-list">${reviewsHTML}</div></div>`;
+      }
+
+      async function openRecipe(r) {
+        previousPage =
+          document.querySelector(".page.active")?.id?.replace("page-", "") ||
+          "recipes";
+        currentRecipeId = r.id;
+        const isFav = favorites.includes(r.id);
+        const img =
+          r.imageUrl ||
+          r.image_url ||
+          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80";
+        const diffColor = DIFF_COLORS[r.difficulty] || "#6ee7b7";
+        const canEdit =
+          currentUser?.isAdmin ||
+          (currentUser?.id && currentUser.id === r.authorId);
+        const rInfo = r.rating;
+        const ratingBadge = rInfo
+          ? `<span class="badge" style="position:static;background:rgba(255,255,255,.9);color:#f59e0b">⭐ ${rInfo.avg}</span>`
+          : "";
+
+        const adminBtns = canEdit
+          ? `<div style="display:flex;gap:10px"><button class="edit-recipe-btn" id="detail-edit-btn">✎ Modifier</button><button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}">${isFav ? "♥" : "♡"} ${isFav ? "Retirer" : "Ajouter aux favoris"}</button></div>`
+          : `<div style="display:flex;gap:10px"><button id="detail-fav-btn" data-id="${r.id}" class="add-fav-btn ${isFav ? "active" : ""}">${isFav ? "♥" : "♡"} ${isFav ? "Retirer" : "Ajouter aux favoris"}</button></div>`;
+        const deleteBtn = canEdit
+          ? `<div style="display:flex;justify-content:flex-end;margin-top:20px"><button class="delete-recipe-btn" id="detail-delete-btn">🗑️ Supprimer cette recette</button></div>`
+          : "";
+
+        showPage("recipe");
+        document.getElementById("detail-content").innerHTML = `
+        <div class="detail-hero">
+          <img src="${img}" alt="${r.title}" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80'">
+          <div class="detail-hero-info">
+            <div class="detail-badges">
+              <span class="badge" style="background:${diffColor};color:#1a1a1a;position:static">🔥 ${r.difficulty}</span>
+              <span class="badge badge-cat" style="position:static">${r.category}</span>${ratingBadge}
+              ${r.isCommunity ? '<span class="badge" style="position:static;background:rgba(255,255,255,.9);color:#ff6b00">👤 Communauté</span>' : ""}
+            </div>
+            <div class="detail-title">${r.title}</div>
+          </div>
+        </div>
+        <div class="meta-bar">
+          <div class="meta-bar-items">
+            <div><div class="meta-item-label">Préparation</div><div class="meta-item-value">🕐 ${r.prepTime || r.prep_time || "—"}</div></div>
+            <div><div class="meta-item-label">Cuisson</div><div class="meta-item-value">🕐 ${r.cookTime || r.cook_time || "—"}</div></div>
+            <div><div class="meta-item-label">Portions</div><div class="meta-item-value">👥 ${r.servings || "—"}</div></div>
+          </div>
+          ${adminBtns}
+        </div>
+        <p class="detail-desc">${r.description}</p>
+        ${buildVideoSection(r)}
+        <div class="detail-cols">
+          <div class="ingredients-box">
+            <div class="box-title">📋 Ingrédients</div>
+            ${(r.ingredients || []).map((ing) => `<div class="ingredient-item"><div class="ingredient-dot"></div>${ing}</div>`).join("")}
+          </div>
+          <div>
+            <div class="box-title" style="margin-bottom:20px">👨‍🍳 Préparation</div>
+            <div class="steps-list">
+              ${(r.steps || []).map((s, i) => `<div class="step-card fadeup"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join("")}
+            </div>
+          </div>
+        </div>
+        <div id="rating-placeholder"><p style="color:var(--text3);text-align:center;padding:20px">⏳ Chargement des avis...</p></div>
+        ${deleteBtn}`;
+
+        document
+          .getElementById("detail-fav-btn")
+          ?.addEventListener("click", () => toggleFav(r.id));
+        document
+          .getElementById("detail-edit-btn")
+          ?.addEventListener("click", () => openEditModal(r.id));
+        document
+          .getElementById("detail-delete-btn")
+          ?.addEventListener("click", () => deleteRecipe(r.id));
+
+        const ratingHTML = await buildRatingSection(r);
+        const ph = document.getElementById("rating-placeholder");
+        if (ph) ph.outerHTML = ratingHTML;
+
+        document
+          .getElementById("login-for-review-btn")
+          ?.addEventListener("click", openAuthModal);
+        const starInput = document.getElementById("star-input");
+        if (starInput) {
+          tempStarRating = 0;
+          const stars = starInput.querySelectorAll("span");
+          stars.forEach((s) => {
+            s.addEventListener("mouseenter", () => {
+              const n = +s.dataset.s;
+              stars.forEach((x, i) => x.classList.toggle("hover", i < n));
             });
+            s.addEventListener("mouseleave", () =>
+              stars.forEach((x, i) => {
+                x.classList.remove("hover");
+                x.classList.toggle("selected", i < tempStarRating);
+              }),
+            );
+            s.addEventListener("click", () => {
+              tempStarRating = +s.dataset.s;
+              stars.forEach((x, i) =>
+                x.classList.toggle("selected", i < tempStarRating),
+              );
+            });
+          });
+        }
+        document
+          .getElementById("submit-review-btn")
+          ?.addEventListener("click", () => submitReview(r.id));
+        document
+          .querySelectorAll(".delete-review-btn")
+          .forEach((btn) =>
+            btn.addEventListener("click", () =>
+              deleteReview(btn.dataset.rid, +btn.dataset.recid),
+            ),
+          );
+      }
+
+      /* ════════════════════════════════════════════════════
+       MODAL AJOUT / ÉDITION
+    ════════════════════════════════════════════════════ */
+      function openAddModal() {
+        if (!currentUser) {
+          showToast("🔐 Connectez-vous pour publier une recette", "#555");
+          openAuthModal();
+          return;
+        }
+        if (!currentUser.isVerified) {
+          showToast("📧 Vérifiez votre email pour publier", "#ff6b00");
+          return;
+        }
+        currentEditId = null;
+        document.getElementById("modal-title").textContent =
+          "✨ Nouvelle Recette";
+        document.getElementById("submit-btn").textContent =
+          "🍽️ Publier ma recette";
+        resetForm();
+        initFormLists();
+        document.getElementById("add-modal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      async function openEditModal(recipeId) {
+        const r = await RecipeService.get(recipeId);
+        if (!r) return;
+        currentEditId = recipeId;
+        document.getElementById("modal-title").textContent =
+          "✎ Modifier la recette";
+        document.getElementById("submit-btn").textContent = "💾 Enregistrer";
+        document.getElementById("f-title").value = r.title || "";
+        document.getElementById("f-desc").value = r.description || "";
+        document.getElementById("f-cat").value = r.category || "";
+        document.getElementById("f-diff").value = r.difficulty || "Facile";
+        document.getElementById("f-time").value = r.time || "";
+        document.getElementById("f-prep").value =
+          r.prepTime || r.prep_time || "";
+        document.getElementById("f-serv").value = r.servings || "";
+        document.getElementById("f-img").value =
+          r.imageUrl || r.image_url || "";
+        const ytId = r.youtubeId || r.youtube_id;
+        document.getElementById("f-yt").value = ytId
+          ? `https://www.youtube.com/watch?v=${ytId}`
+          : "";
+        if (r.imageUrl || r.image_url) {
+          const p = document.getElementById("img-preview");
+          p.src = r.imageUrl || r.image_url;
+          p.style.display = "block";
+        }
+        document.getElementById("ing-list").innerHTML = "";
+        document.getElementById("step-list").innerHTML = "";
+        (r.ingredients || []).forEach((v) => addIngredientRow(v));
+        (r.steps || []).forEach((v) => addStepRow(v));
+        document.getElementById("add-modal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeAddModal() {
+        document.getElementById("add-modal").classList.remove("open");
+        document.body.style.overflow = "";
+        resetForm();
+        currentEditId = null;
+      }
+
+      function resetForm() {
+        [
+          "f-title",
+          "f-desc",
+          "f-cat",
+          "f-time",
+          "f-prep",
+          "f-serv",
+          "f-img",
+          "f-yt",
+        ].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.value = "";
+        });
+        const diff = document.getElementById("f-diff");
+        if (diff) diff.value = "Facile";
+        const preview = document.getElementById("img-preview");
+        if (preview) preview.style.display = "none";
+        const err = document.getElementById("form-error");
+        if (err) err.style.display = "none";
+      }
+
+      function initFormLists() {
+        document.getElementById("ing-list").innerHTML = "";
+        document.getElementById("step-list").innerHTML = "";
+        addIngredientRow();
+        addIngredientRow();
+        addIngredientRow();
+        addStepRow();
+        addStepRow();
+      }
+
+      function addIngredientRow(val = "") {
+        const list = document.getElementById("ing-list");
+        if (!list) return;
+        const item = document.createElement("div");
+        item.className = "dynamic-item";
+        item.innerHTML = `<span style="color:#ff6b00;font-size:18px">•</span><input type="text" placeholder="Ex: 200g de farine" value="${val.replace(/"/g, "&quot;")}"/><button class="dynamic-remove">✕</button>`;
+        item
+          .querySelector(".dynamic-remove")
+          .addEventListener("click", () => item.remove());
+        list.appendChild(item);
+      }
+
+      function addStepRow(val = "") {
+        const list = document.getElementById("step-list");
+        if (!list) return;
+        const n = list.children.length + 1;
+        const item = document.createElement("div");
+        item.className = "dynamic-item";
+        item.innerHTML = `<span style="background:linear-gradient(135deg,#ff6b00,#ff9d00);color:#fff;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0">${n}</span><input type="text" placeholder="Décrivez cette étape..." value="${val.replace(/"/g, "&quot;")}"/><button class="dynamic-remove">✕</button>`;
+        item.querySelector(".dynamic-remove").addEventListener("click", () => {
+          item.remove();
           document
-            .getElementById("footer-add-recipe-btn")
-            .addEventListener("click", openAddModal);
-          document.querySelectorAll(".footer-cat-btn").forEach((btn) => {
-            btn.addEventListener("click", () => {
-              currentFilter = btn.dataset.cat;
-              document.getElementById("recipe-search").value = "";
-              showPage("recipes");
-              document.querySelectorAll(".filter-btn").forEach((b) => {
+            .querySelectorAll("#step-list .dynamic-item")
+            .forEach((el, i) => {
+              const s = el.querySelector("span");
+              if (s) s.textContent = i + 1;
+            });
+        });
+        list.appendChild(item);
+      }
+
+      /* ════════════════════════════════════════════════════
+       THÈME
+    ════════════════════════════════════════════════════ */
+      function toggleTheme() {
+        const isDark =
+          document.documentElement.getAttribute("data-theme") === "dark";
+        document.documentElement.setAttribute(
+          "data-theme",
+          isDark ? "light" : "dark",
+        );
+        document.getElementById("theme-icon").textContent = isDark
+          ? "🌙"
+          : "☀️";
+        const tt = document.getElementById("theme-tooltip");
+        if (tt) tt.textContent = isDark ? "Mode sombre" : "Mode clair";
+      }
+
+      function updateAdminUI() {}
+
+      /* ════════════════════════════════════════════════════
+       DOM READY — Attacher tous les événements
+    ════════════════════════════════════════════════════ */
+      document.addEventListener("DOMContentLoaded", function () {
+        // Nav desktop
+        document
+          .getElementById("logo-btn")
+          .addEventListener("click", () => showPage("home"));
+        document
+          .getElementById("nav-home")
+          .addEventListener("click", () => showPage("home"));
+        document
+          .getElementById("nav-recipes")
+          .addEventListener("click", () => showPage("recipes"));
+        document
+          .getElementById("nav-favorites")
+          .addEventListener("click", () => showPage("favorites"));
+        document
+          .getElementById("theme-toggle-btn")
+          .addEventListener("click", toggleTheme);
+        document
+          .getElementById("add-recipe-btn")
+          .addEventListener("click", openAddModal);
+        document
+          .getElementById("back-btn")
+          .addEventListener("click", () => showPage(previousPage));
+        document
+          .getElementById("user-auth-btn")
+          .addEventListener("click", openAuthModal);
+
+        // Footer
+        document
+          .querySelectorAll(".footer-links button[data-page]")
+          .forEach((btn) =>
+            btn.addEventListener("click", () => showPage(btn.dataset.page)),
+          );
+        document
+          .getElementById("footer-add-recipe-btn")
+          ?.addEventListener("click", openAddModal);
+        document.querySelectorAll(".footer-cat-btn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            currentFilter = btn.dataset.cat;
+            searchQuery = "";
+            showPage("recipes");
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((b) =>
                 b.classList.toggle(
                   "active",
                   b.dataset.filter === currentFilter,
-                );
-              });
-            });
+                ),
+              );
+            loadAndRenderRecipes();
+          }),
+        );
+        document
+          .getElementById("admin-login-btn")
+          ?.addEventListener("click", () => {
+            showToast("Connectez-vous avec votre compte admin 👤", "#555");
+            openAuthModal();
           });
 
-          // Auth modal
-          document
-            .getElementById("auth-close-btn")
-            .addEventListener("click", () => {
+        // Auth modal
+        document
+          .getElementById("auth-close-btn")
+          .addEventListener("click", () => {
+            document.getElementById("auth-overlay").classList.remove("open");
+            document.body.style.overflow = "";
+          });
+        document
+          .getElementById("tab-login")
+          .addEventListener("click", showLoginForm);
+        document
+          .getElementById("tab-register")
+          .addEventListener("click", showRegisterForm);
+        document
+          .getElementById("login-submit-btn")
+          .addEventListener("click", doLogin);
+        document
+          .getElementById("reg-submit-btn")
+          .addEventListener("click", doRegister);
+        document
+          .getElementById("login-password")
+          .addEventListener("keydown", (e) => {
+            if (e.key === "Enter") doLogin();
+          });
+        document
+          .getElementById("auth-overlay")
+          .addEventListener("click", (e) => {
+            if (e.target === document.getElementById("auth-overlay")) {
               document.getElementById("auth-overlay").classList.remove("open");
               document.body.style.overflow = "";
-            });
-          document
-            .getElementById("tab-login")
-            .addEventListener("click", showLoginForm);
-          document
-            .getElementById("tab-register")
-            .addEventListener("click", showRegisterForm);
-          document
-            .getElementById("login-submit-btn")
-            .addEventListener("click", doLogin);
-          document
-            .getElementById("reg-submit-btn")
-            .addEventListener("click", doRegister);
-          document
-            .getElementById("login-password")
-            .addEventListener("keydown", (e) => {
-              if (e.key === "Enter") doLogin();
-            });
-          document
-            .getElementById("auth-overlay")
-            .addEventListener("click", (e) => {
-              if (e.target === document.getElementById("auth-overlay")) {
-                document
-                  .getElementById("auth-overlay")
-                  .classList.remove("open");
-                document.body.style.overflow = "";
-              }
-            });
+            }
+          });
+        document
+          .getElementById("forgot-link")
+          ?.addEventListener("click", showForgotForm);
+        document
+          .getElementById("forgot-submit-btn")
+          ?.addEventListener("click", doForgotPassword);
+        document
+          .getElementById("forgot-back-btn")
+          ?.addEventListener("click", showLoginForm);
+        document
+          .getElementById("go-register-link")
+          ?.addEventListener("click", showRegisterForm);
 
-          // Recherche hero
-          document
-            .getElementById("hero-search-btn")
-            .addEventListener("click", () => {
-              const val = document.getElementById("hero-search").value;
-              document.getElementById("recipe-search").value = val;
-              currentFilter = "Tout";
-              document
-                .querySelectorAll(".filter-btn")
-                .forEach((b) => b.classList.remove("active"));
-              document
-                .querySelector(".filter-btn[data-filter='Tout']")
-                .classList.add("active");
-              showPage("recipes");
-            });
-          document
-            .getElementById("hero-search")
-            .addEventListener("keydown", (e) => {
-              if (e.key === "Enter")
-                document.getElementById("hero-search-btn").click();
-            });
+        // Force du mot de passe
+        document
+          .getElementById("reg-password")
+          ?.addEventListener("input", function () {
+            const pw = this.value;
+            const el = document.getElementById("pw-strength");
+            if (!pw) {
+              if (el) el.style.display = "none";
+              return;
+            }
+            let score = 0;
+            if (pw.length >= 8) score++;
+            if (/[A-Z]/.test(pw)) score++;
+            if (/[0-9]/.test(pw)) score++;
+            if (/[^a-zA-Z0-9]/.test(pw)) score++;
+            const labels = [
+              "",
+              "⚠️ Faible",
+              "🟡 Moyen",
+              "🟢 Bon",
+              "✅ Très fort",
+            ];
+            const colors = ["", "#dc2626", "#f59e0b", "#16a34a", "#059669"];
+            if (el) {
+              el.style.display = "block";
+              el.style.color = colors[score] || colors[1];
+              el.textContent = labels[score] || labels[1];
+            }
+          });
 
-          // Catégories
-          document.querySelectorAll(".cat-card[data-cat]").forEach((card) => {
-            card.addEventListener("click", () => {
-              currentFilter = card.dataset.cat;
-              document.getElementById("recipe-search").value = "";
-              showPage("recipes");
-              document.querySelectorAll(".filter-btn").forEach((b) => {
+        // Hero search
+        document
+          .getElementById("hero-search-btn")
+          .addEventListener("click", () => {
+            searchQuery = document.getElementById("hero-search").value;
+            document.getElementById("recipe-search").value = searchQuery;
+            currentFilter = "Tout";
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((b) => b.classList.remove("active"));
+            document
+              .querySelector(".filter-btn[data-filter='Tout']")
+              ?.classList.add("active");
+            showPage("recipes");
+            loadAndRenderRecipes();
+          });
+        document
+          .getElementById("hero-search")
+          .addEventListener("keydown", (e) => {
+            if (e.key === "Enter")
+              document.getElementById("hero-search-btn").click();
+          });
+
+        // Catégories
+        document.querySelectorAll(".cat-card[data-cat]").forEach((card) =>
+          card.addEventListener("click", () => {
+            currentFilter = card.dataset.cat;
+            searchQuery = "";
+            showPage("recipes");
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((b) =>
                 b.classList.toggle(
                   "active",
                   b.dataset.filter === currentFilter,
-                );
-              });
-            });
-          });
-          document
-            .getElementById("add-cat-card")
-            .addEventListener("click", openAddModal);
+                ),
+              );
+            loadAndRenderRecipes();
+          }),
+        );
+        document
+          .getElementById("add-cat-card")
+          ?.addEventListener("click", openAddModal);
+        document
+          .querySelectorAll(".see-all[data-page]")
+          .forEach((btn) =>
+            btn.addEventListener("click", () => showPage(btn.dataset.page)),
+          );
 
-          // Filtres
-          document.querySelectorAll(".filter-btn").forEach((btn) => {
-            btn.addEventListener("click", () => {
-              currentFilter = btn.dataset.filter;
-              document
-                .querySelectorAll(".filter-btn")
-                .forEach((b) => b.classList.remove("active"));
-              btn.classList.add("active");
-              renderRecipes();
-            });
-          });
-          document
-            .getElementById("recipe-search")
-            .addEventListener("input", renderRecipes);
-          document.querySelectorAll(".see-all[data-page]").forEach((btn) => {
-            btn.addEventListener("click", () => showPage(btn.dataset.page));
-          });
-
-          // Modal ajout
-          document
-            .getElementById("modal-close-btn")
-            .addEventListener("click", closeAddModal);
-          document
-            .getElementById("add-modal")
-            .addEventListener("click", (e) => {
-              if (e.target === document.getElementById("add-modal"))
-                closeAddModal();
-            });
-          document
-            .getElementById("add-ing-btn")
-            .addEventListener("click", () => addIngredientRow());
-          document
-            .getElementById("add-step-btn")
-            .addEventListener("click", () => addStepRow());
-          document
-            .getElementById("submit-btn")
-            .addEventListener("click", submitRecipe);
-          document.getElementById("f-img").addEventListener("input", () => {
-            const url = document.getElementById("f-img").value;
-            const p = document.getElementById("img-preview");
-            if (url.trim()) {
-              p.src = url;
-              p.style.display = "block";
-              p.onerror = () => (p.style.display = "none");
-            } else p.style.display = "none";
+        // Filtres
+        document.querySelectorAll(".filter-btn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            currentFilter = btn.dataset.filter;
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            loadAndRenderRecipes();
+          }),
+        );
+        document
+          .getElementById("recipe-search")
+          .addEventListener("input", (e) => {
+            searchQuery = e.target.value;
+            loadAndRenderRecipes();
           });
 
-          // Modal vidéo
-          document
-            .getElementById("close-video-btn")
-            .addEventListener("click", () =>
-              document
-                .getElementById("edit-video-overlay")
-                .classList.remove("open"),
-            );
-          document
-            .getElementById("save-video-btn")
-            .addEventListener("click", saveEditVideo);
-          document
-            .getElementById("edit-video-input")
-            .addEventListener("keydown", (e) => {
-              if (e.key === "Enter") saveEditVideo();
-            });
-          document
-            .getElementById("edit-video-overlay")
-            .addEventListener("click", (e) => {
-              if (e.target === document.getElementById("edit-video-overlay"))
-                document
-                  .getElementById("edit-video-overlay")
-                  .classList.remove("open");
-            });
+        // Modal recette
+        document
+          .getElementById("modal-close-btn")
+          .addEventListener("click", closeAddModal);
+        document.getElementById("add-modal").addEventListener("click", (e) => {
+          if (e.target === document.getElementById("add-modal"))
+            closeAddModal();
+        });
+        document
+          .getElementById("add-ing-btn")
+          .addEventListener("click", () => addIngredientRow());
+        document
+          .getElementById("add-step-btn")
+          .addEventListener("click", () => addStepRow());
+        document
+          .getElementById("submit-btn")
+          .addEventListener("click", () => submitRecipe(currentEditId));
+        document.getElementById("f-img").addEventListener("input", () => {
+          const url = document.getElementById("f-img").value;
+          const p = document.getElementById("img-preview");
+          if (url.trim()) {
+            p.src = url;
+            p.style.display = "block";
+            p.onerror = () => (p.style.display = "none");
+          } else p.style.display = "none";
+        });
 
-          // Modal suppression
-          document
-            .getElementById("cancel-delete-btn")
-            .addEventListener("click", () => {
+        // Modal suppression
+        document
+          .getElementById("cancel-delete-btn")
+          .addEventListener("click", () => {
+            document.getElementById("confirm-overlay").classList.remove("open");
+            pendingDeleteId = null;
+          });
+        document
+          .getElementById("confirm-delete-btn")
+          .addEventListener("click", confirmDelete);
+        document
+          .getElementById("confirm-overlay")
+          .addEventListener("click", (e) => {
+            if (e.target === document.getElementById("confirm-overlay")) {
               document
                 .getElementById("confirm-overlay")
                 .classList.remove("open");
               pendingDeleteId = null;
-            });
-          document
-            .getElementById("confirm-delete-btn")
-            .addEventListener("click", confirmDelete);
-          document
-            .getElementById("confirm-overlay")
-            .addEventListener("click", (e) => {
-              if (e.target === document.getElementById("confirm-overlay")) {
-                document
-                  .getElementById("confirm-overlay")
-                  .classList.remove("open");
-                pendingDeleteId = null;
-              }
-            });
+            }
+          });
 
-          // Init render
-          renderHomeGrid();
-          renderRecipes();
-          updateFavBadge();
-          updateAdminUI();
-          updateAuthUI();
+        // Hamburger mobile
+        const hamburger = document.getElementById("hamburger-btn");
+        const drawer = document.getElementById("mobile-drawer");
+        const mobOverlay = document.getElementById("mobile-overlay");
+        function closeMobileDrawer() {
+          hamburger.classList.remove("open");
+          drawer.classList.remove("open");
+          mobOverlay.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        hamburger.addEventListener("click", () =>
+          drawer.classList.contains("open")
+            ? closeMobileDrawer()
+            : (hamburger.classList.add("open"),
+              drawer.classList.add("open"),
+              mobOverlay.classList.add("open"),
+              (document.body.style.overflow = "hidden")),
+        );
+        mobOverlay.addEventListener("click", closeMobileDrawer);
+        document.getElementById("m-nav-home").addEventListener("click", () => {
+          closeMobileDrawer();
+          showPage("home");
         });
-      })();
+        document
+          .getElementById("m-nav-recipes")
+          .addEventListener("click", () => {
+            closeMobileDrawer();
+            showPage("recipes");
+          });
+        document
+          .getElementById("m-nav-favorites")
+          .addEventListener("click", () => {
+            closeMobileDrawer();
+            showPage("favorites");
+          });
+        document
+          .getElementById("m-add-recipe-btn")
+          .addEventListener("click", () => {
+            closeMobileDrawer();
+            openAddModal();
+          });
+        document
+          .getElementById("m-user-auth-btn")
+          .addEventListener("click", () => {
+            closeMobileDrawer();
+            openAuthModal();
+          });
+        document.getElementById("m-theme-btn").addEventListener("click", () => {
+          closeMobileDrawer();
+          toggleTheme();
+          const isDark =
+            document.documentElement.getAttribute("data-theme") === "dark";
+          document.getElementById("m-theme-btn").firstChild.textContent = isDark
+            ? "☀️ "
+            : "🌙 ";
+          document.getElementById("m-theme-label").textContent = isDark
+            ? "Mode clair"
+            : "Mode sombre";
+        });
+
+        // INIT
+        initApp();
+      });
     </script>
   </body>
 </html>
